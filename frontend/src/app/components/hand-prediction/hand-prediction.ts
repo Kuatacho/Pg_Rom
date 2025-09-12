@@ -1,118 +1,105 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Hands, HAND_CONNECTIONS } from '@mediapipe/hands';
+import { Hands, HAND_CONNECTIONS, Results } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
+import { HttpClient,HttpClientModule  } from '@angular/common/http';
 
 @Component({
   selector: 'app-hand-prediction',
   standalone: true,
   imports: [HttpClientModule],
   templateUrl: './hand-prediction.html',
-  styleUrls: ['./hand-prediction.css']
+  styleUrls: ['./hand-prediction.css'],
 })
 export class HandPrediction implements AfterViewInit {
-
   @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
   @ViewChild('canvasElement') canvasElement!: ElementRef<HTMLCanvasElement>;
 
-  sequence: number[][] = [];
-  SEQUENCE_LENGTH = 30;
-  prediction = '';
+  private sequence: number[][] = []; // Para almacenar los frames de landmarks
+  private readonly SEQUENCE_LENGTH = 30; // Mismo que en Flask
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   async ngAfterViewInit(): Promise<void> {
     try {
-      // 1️⃣ Pedir acceso a la cámara
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       this.videoElement.nativeElement.srcObject = stream;
       await this.videoElement.nativeElement.play();
 
-      // 2️⃣ Inicializar MediaPipe Hands
       const hands = new Hands({
-        locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+        locateFile: (file) =>
+          `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
       });
 
       hands.setOptions({
         maxNumHands: 1,
+        modelComplexity: 1,       // Precisión media
+        selfieMode: true,
         minDetectionConfidence: 0.7,
-        minTrackingConfidence: 0.7
+        minTrackingConfidence: 0.7,
       });
 
-      hands.onResults((results: any) => this.onResults(results));
+      hands.onResults((results: Results) => this.onResults(results));
 
-      // 3️⃣ Iniciar cámara MediaPipe solo cuando el video tenga datos
-      this.videoElement.nativeElement.onloadeddata = () => {
-        const camera = new Camera(this.videoElement.nativeElement, {
-          onFrame: async () => {
-            if (this.videoElement.nativeElement.videoWidth > 0 &&
-              this.videoElement.nativeElement.videoHeight > 0) {
-              await hands.send({ image: this.videoElement.nativeElement });
-            }
-          },
-          width: 640,
-          height: 480
-        });
-        camera.start();
-      };
-
+      const camera = new Camera(this.videoElement.nativeElement, {
+        onFrame: async () => {
+          await hands.send({ image: this.videoElement.nativeElement });
+        },
+        width: 640,
+        height: 480,
+      });
+      camera.start();
     } catch (err) {
-      console.error('No se pudo acceder a la cámara:', err);
+      console.error('Error accediendo a la cámara:', err);
     }
   }
 
-  private onResults(results: any) {
-  const canvasCtx = this.canvasElement.nativeElement.getContext('2d');
-  if (!canvasCtx) return;
+  private onResults(results: Results) {
+    const canvasCtx = this.canvasElement.nativeElement.getContext('2d');
+    if (!canvasCtx) return;
 
-  canvasCtx.save();
-  canvasCtx.clearRect(0, 0, this.canvasElement.nativeElement.width, this.canvasElement.nativeElement.height);
+    // Limpiar canvas
+    canvasCtx.save();
+    canvasCtx.clearRect(0, 0, this.canvasElement.nativeElement.width, this.canvasElement.nativeElement.height);
 
-  if (results.image) {
-    canvasCtx.drawImage(
-      results.image,
-      0,
-      0,
-      this.canvasElement.nativeElement.width,
-      this.canvasElement.nativeElement.height
-    );
-  }
+    if (results.image) {
+      canvasCtx.drawImage(
+        results.image,
+        0,
+        0,
+        this.canvasElement.nativeElement.width,
+        this.canvasElement.nativeElement.height
+      );
+    }
 
-  if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
-    const landmarks = results.multiHandLandmarks[0].flatMap((lm: any) => [lm.x, lm.y, lm.z]);
+    if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+      const landmarks = results.multiHandLandmarks[0];
+      drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS);
+      drawLandmarks(canvasCtx, landmarks);
 
-    drawConnectors(canvasCtx, results.multiHandLandmarks[0], HAND_CONNECTIONS);
-    drawLandmarks(canvasCtx, results.multiHandLandmarks[0]);
+      // Convertir landmarks a un array plano de 63 valores (21 puntos * 3)
+      const flatLandmarks = landmarks.flatMap(l => [l.x, l.y, l.z]);
 
-    // 🔹 Debug: ver landmarks en consola
-    console.log('Landmarks capturados:', landmarks);
-
-    // Guardar frame en la secuencia
-    if (landmarks.length === 63) {
-      this.sequence.push(landmarks);
-
-      // Mantener la secuencia con máximo 30 frames
+      // Guardar en la secuencia
+      this.sequence.push(flatLandmarks);
       if (this.sequence.length > this.SEQUENCE_LENGTH) {
-        this.sequence.shift();
+        this.sequence.shift(); // mantener solo los últimos SEQUENCE_LENGTH frames
       }
 
-      // Solo mandar al backend cuando tengamos 30 frames
+      // Enviar a Flask si hay suficientes frames
       if (this.sequence.length === this.SEQUENCE_LENGTH) {
-        this.http.post('http://localhost:5000/predict', { input: this.sequence })
-          .subscribe({
-            next: (res: any) => {
-              this.prediction = res.prediction;
-              console.log('Predicción recibida:', res);
-            },
-            error: (err) => console.error('Error API:', err)
-          });
+        this.sendToFlask(this.sequence);
       }
     }
+
+    canvasCtx.restore();
   }
 
-  canvasCtx.restore();
-}
-
-
+  private sendToFlask(sequence: number[][]) {
+    this.http.post('http://localhost:5000/predict', { sequence })
+      .subscribe({
+        next: (res) => console.log('Predicción:', res),
+        error: (err) => console.error('Error en Flask API:', err)
+      });
+  }
 }
