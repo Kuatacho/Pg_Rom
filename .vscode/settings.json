@@ -1,4 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
-    "CodeGPT.apiKey": "Ollama"
+    "CodeGPT.apiKey": "Ollama",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
 }
