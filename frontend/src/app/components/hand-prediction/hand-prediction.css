@@ -1,0 +1,14 @@
+.hand-prediction-container {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+video, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  border: 2px solid #333;
+}
