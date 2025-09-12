@@ -4,6 +4,7 @@ import { Home } from "./components/home/home";
 import { Navbar } from "./shared/navbar/navbar";
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { HandPrediction } from './components/hand-prediction/hand-prediction';
 
 import { HttpClientModule } from '@angular/common/http';
 @Component({

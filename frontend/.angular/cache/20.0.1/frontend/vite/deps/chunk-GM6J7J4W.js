@@ -1,7 +1,4 @@
 import {
-  withHttpTransferCache
-} from "./chunk-5CVU3KTU.js";
-import {
   CommonModule,
   DomAdapter,
   PLATFORM_BROWSER_ID,
@@ -9,6 +6,9 @@ import {
   isPlatformServer,
   setRootDomAdapter
 } from "./chunk-QDBMZEJ2.js";
+import {
+  withHttpTransferCache
+} from "./chunk-5CVU3KTU.js";
 import {
   XhrFactory,
   parseCookieValue
@@ -2014,4 +2014,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-SAEDDD2R.js.map
+//# sourceMappingURL=chunk-GM6J7J4W.js.map
