@@ -4,33 +4,41 @@
   <div class="flex flex-col md:flex-row gap-6">
 
     <!-- Cámara + Canvas -->
-    <div class="md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center">
-      <h2 class="text-xl font-semibold mb-2">Vista de la cámara</h2>
+    <div class="md:w-1/2 bg-gray-100 p-4 rounded-xl shadow-lg flex flex-col items-center">
+      <h2 class="text-2xl font-bold mb-4 text-center">Vista de la cámara</h2>
 
       <!-- Video oculto -->
       <video #videoElement class="hidden"></video>
 
       <!-- Canvas para video + landmarks -->
-      <canvas #canvasElement class="w-full rounded-lg border border-gray-300 aspect-video"></canvas>
+      <canvas
+        #canvasElement
+        class="w-full rounded-xl border border-gray-300 aspect-video shadow-inner"
+      ></canvas>
     </div>
 
     <!-- Panel de predicciones y estadísticas -->
-    <div class="md:w-1/2 bg-white p-4 rounded-lg shadow-md flex flex-col">
-      <h2 class="text-xl font-semibold mb-4">Historial y puntuación</h2>
+    <div class="md:w-1/2 bg-white p-4 rounded-xl shadow-lg flex flex-col">
+      <h2 class="text-2xl font-bold mb-4 text-center">Predicción en tiempo real</h2>
 
       <!-- Predicción actual -->
       <div class="mb-4">
         <p *ngIf="prediction" class="text-green-600 font-semibold text-lg">
-          Predicción actual: {{ prediction }}
+          ✅ Predicción: {{ prediction }}
         </p>
-        <p *ngIf="warning" class="text-red-500 font-semibold">{{ warning }}</p>
+        <p *ngIf="warning" class="text-red-500 font-semibold">
+          ⚠️ {{ warning }}
+        </p>
       </div>
 
       <!-- Probabilidades -->
       <div class="mb-4">
         <h3 class="font-medium mb-2">Probabilidades:</h3>
-        <ul>
-          <li *ngFor="let g of gestures; let i = index" class="flex justify-between">
+        <ul class="divide-y divide-gray-200">
+          <li
+            *ngFor="let g of gestures; let i = index"
+            class="flex justify-between py-1 px-2 hover:bg-gray-50 rounded"
+          >
             <span>{{ g }}</span>
             <span>{{ probabilities[i] || 0 | number:'1.0-2' }}</span>
           </li>
@@ -40,15 +48,23 @@
       <!-- Historial -->
       <div class="mb-4 flex-1 overflow-y-auto">
         <h3 class="font-medium mb-2">Historial de gestos:</h3>
-        <ul class="max-h-64 overflow-y-auto border border-gray-200 p-2 rounded">
-          <li *ngFor="let h of history" class="py-1 border-b border-gray-100">{{ h }}</li>
+        <ul class="max-h-64 overflow-y-auto border border-gray-200 p-2 rounded space-y-1">
+          <li
+            *ngFor="let h of history; let idx = index"
+            class="py-1 px-2 bg-gray-50 rounded flex justify-between items-center"
+          >
+            <span>{{ idx + 1 }}.</span>
+            <span class="font-semibold">{{ h }}</span>
+          </li>
         </ul>
       </div>
 
       <!-- Puntuación -->
-      <div>
+      <div class="mt-auto">
         <h3 class="font-medium mb-2">Puntuación:</h3>
-        <p class="text-lg font-semibold">{{ score }} / {{ history.length || 1 }}</p>
+        <p class="text-lg font-bold text-center">
+          {{ score }} / {{ history.length || 1 }}
+        </p>
       </div>
     </div>
 

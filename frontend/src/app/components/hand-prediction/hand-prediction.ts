@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Hands, HAND_CONNECTIONS, Results } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
@@ -9,13 +9,7 @@ import { DecimalPipe, NgForOf, NgIf } from '@angular/common';
 @Component({
   selector: 'app-hand-prediction',
   standalone: true,
-  imports: [
-    HttpClientModule, 
-    Navbar,
-    NgIf,
-    NgForOf,
-    DecimalPipe
-  ],
+  imports: [HttpClientModule, Navbar, NgIf, NgForOf, DecimalPipe],
   templateUrl: './hand-prediction.html',
   styleUrls: ['./hand-prediction.css'],
 })
@@ -25,21 +19,21 @@ export class HandPrediction implements AfterViewInit {
 
   private sequence: number[][] = [];
   private readonly SEQUENCE_LENGTH = 30;
-  private sending: boolean = false;
+  private sending = false;
   private lastSentTime = 0;
   private readonly COOLDOWN_MS = 500;
   private readonly MIN_MOVEMENT = 0.02;
 
-  prediction: string = '';
-  warning: string = '';
-  gestures: string[] = ['Cambiar', 'Construir'];
+  prediction = '';
+  warning = '';
+  gestures = ['Cambiar', 'Construir'];
   probabilities: number[] = [];
   history: string[] = [];
-  score: number = 0;
+  score = 0;
 
-  constructor(private http: HttpClient, private ngZone: NgZone) { }
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
-  async ngAfterViewInit(): Promise<void> {
+  async ngAfterViewInit() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       this.videoElement.nativeElement.srcObject = stream;
@@ -78,99 +72,71 @@ export class HandPrediction implements AfterViewInit {
     const canvasCtx = this.canvasElement.nativeElement.getContext('2d');
     if (!canvasCtx) return;
 
-    canvasCtx.save();
-    canvasCtx.clearRect(0, 0, this.canvasElement.nativeElement.width, this.canvasElement.nativeElement.height);
-
+    canvasCtx.clearRect(0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);
     if (results.image) {
-      canvasCtx.drawImage(
-        results.image,
-        0,
-        0,
-        this.canvasElement.nativeElement.width,
-        this.canvasElement.nativeElement.height
-      );
+      canvasCtx.drawImage(results.image, 0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);
     }
 
-    let flatLandmarksHands: number[] = [];
-    if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
-      results.multiHandLandmarks.forEach(landmarks => {
+    let flatLandmarks: number[] = [];
+    if (results.multiHandLandmarks?.length) {
+      results.multiHandLandmarks.forEach((landmarks) => {
         drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS);
         drawLandmarks(canvasCtx, landmarks);
-        flatLandmarksHands.push(...landmarks.flatMap(l => [l.x, l.y, l.z]));
+        flatLandmarks.push(...landmarks.flatMap(l => [l.x, l.y, l.z]));
       });
     }
 
-    const expectedLength = 21 * 3 * 2;
-    while (flatLandmarksHands.length < expectedLength) flatLandmarksHands.push(0);
-
-    this.sequence.push(flatLandmarksHands);
+    while (flatLandmarks.length < 21*3*2) flatLandmarks.push(0);
+    this.sequence.push(flatLandmarks);
     if (this.sequence.length > this.SEQUENCE_LENGTH) this.sequence.shift();
 
+    // Actualiza advertencias en tiempo real
+    this.warning = results.multiHandLandmarks?.length ? '' : 'No se detectaron manos';
+    this.cdr.detectChanges(); // 🔹 Forzamos Angular a actualizar UI inmediatamente
+
+    // Enviar al backend si hay suficiente movimiento
     let movement = 0;
     if (this.sequence.length >= 2) {
-      const prev = this.sequence[this.sequence.length - 2];
-      const curr = this.sequence[this.sequence.length - 1];
-      movement = this.averageMovement(prev, curr);
+      movement = this.averageMovement(this.sequence[this.sequence.length-2], this.sequence[this.sequence.length-1]);
     }
 
-    if (
-      this.sequence.length === this.SEQUENCE_LENGTH &&
-      !this.sending &&
-      Date.now() - this.lastSentTime > this.COOLDOWN_MS &&
-      movement >= this.MIN_MOVEMENT
-    ) {
-      this.sendToFlask(this.sequence);
+    if (!this.sending && movement >= this.MIN_MOVEMENT && Date.now() - this.lastSentTime > this.COOLDOWN_MS) {
+      const seqCopy = [...this.sequence];
       this.lastSentTime = Date.now();
+      this.sendToFlask(seqCopy);
     }
-
-    canvasCtx.restore();
   }
 
   private averageMovement(prev: number[], curr: number[]): number {
-    let total = 0;
-    for (let i = 0; i < prev.length; i++) total += Math.abs(curr[i] - prev[i]);
-    return total / prev.length;
+    return prev.reduce((acc, val, i) => acc + Math.abs(curr[i]-val), 0)/prev.length;
   }
 
-  private sendToFlask(sequence: number[][]) {
+  private sendToFlask(seq: number[][]) {
     this.sending = true;
-    this.http.post<{ prediction: string; probabilities?: number[][] }>(
-      'http://localhost:5000/predict',
-      { sequence }
-    ).subscribe({
-      next: (res) => {
-        this.ngZone.run(() => {  // <--- Forzamos Angular a actualizar la UI
-          this.probabilities = res.probabilities ? res.probabilities[0] : [];
-          const maxProb = this.probabilities.length ? Math.max(...this.probabilities) : 1;
+    this.http.post<{prediction:string, probabilities?: number[][]}>('http://localhost:5000/predict', {sequence: seq})
+      .subscribe({
+        next: res => {
+          this.probabilities = res.probabilities ? [...res.probabilities[0]] : [];
+          const maxProb = this.probabilities.length ? Math.max(...this.probabilities) : 0;
 
-          if (maxProb >= 0.7) {
+          if(maxProb >= 0.7){
             this.prediction = res.prediction;
-            this.warning = '';
-            this.history.push(res.prediction);
+            this.history = [...this.history, res.prediction];
             this.score += 1;
-            console.log(`✅ Predicción: ${res.prediction} | Probabilidad: ${maxProb.toFixed(2)}`);
           } else {
             this.prediction = '';
             this.warning = 'Predicción con baja confianza';
-            console.log(`⚠️ Predicción baja confianza: ${res.prediction} | Probabilidad: ${maxProb.toFixed(2)}`);
           }
+
           this.sending = false;
-        });
-      },
-      error: (err) => {
-        this.ngZone.run(() => {  // <--- También aquí
-          if (err.status === 400) {
-            this.prediction = '';
-            this.warning = 'No se detectaron manos';
-            console.log('⚠️ No se detectaron manos en la secuencia');
-          } else {
-            this.prediction = '';
-            this.warning = 'Error en el servidor';
-            console.log('❌ Error en el servidor:', err);
-          }
+          this.cdr.detectChanges(); // 🔹 Forzamos Angular a actualizar UI inmediatamente
+        },
+        error: err => {
+          this.prediction = '';
+          this.warning = err.status===400 ? 'No se detectaron manos' : 'Error en el servidor';
           this.sending = false;
-        });
-      }
-    });
+          this.cdr.detectChanges();
+        }
+      });
   }
 }
