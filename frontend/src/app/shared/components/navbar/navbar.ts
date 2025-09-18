@@ -19,13 +19,28 @@ import { CommonModule } from '@angular/common';
 })
 export class Navbar {
   faUserCircle = faUserCircle;
+  
   isDropdownOpen = false;
+  
+  
+
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   closeDropdown() {
     this.isDropdownOpen = false;
+  }
+
+  // ✅ Nuevo: menú mobile
+  isMobileOpen = false;
+
+  toggleMobileMenu() {
+    this.isMobileOpen = !this.isMobileOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileOpen = false;
   }
 
 }
