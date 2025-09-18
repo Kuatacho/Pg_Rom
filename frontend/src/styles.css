@@ -1,9 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
-@tailwind utilities;
-@tailwind components;
+/* ---------------------------------------
+   Tailwind Base
+----------------------------------------- */
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ---------------------------------------
+   Import Flowbite (de node_modules)
+----------------------------------------- */
+/* @import "flowbite"; */
 
+/* ---------------------------------------
+   Fuente personalizada Hatton
+----------------------------------------- */
+@font-face {
+  font-family: 'Hatton';
+  src: url('./assets/fonts/Hatton.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ---------------------------------------
+   Estilos Globales
+----------------------------------------- */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hatton', Roboto, "Helvetica Neue", sans-serif;
+  background-color: theme("colors.white");
+  color: theme("colors.gray.900");
+}
+
+/* ---------------------------------------
+   Componentes Personalizados
+----------------------------------------- */
+@layer components {
+  /* Links del navbar */
+  .nav-link {
+    @apply relative block py-2 px-3 
+           text-gray-900 dark:text-gray-100 
+           hover:text-blue-600 dark:hover:text-blue-400 
+           transition;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 
+           bg-blue-600 dark:bg-blue-400 
+           transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Link activo */
+  .active-link {
+    @apply text-blue-600 dark:text-blue-400 font-semibold;
+  }
+}
