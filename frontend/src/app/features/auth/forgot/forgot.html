@@ -1,32 +1,80 @@
-<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
-  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
-    <h1 class="text-2xl font-bold text-center mb-2">Recuperar contraseña</h1>
-    <p class="text-sm text-gray-600 text-center mb-6">
-      Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.
-    </p>
+<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-gradient-to-br from-[#ebebeb] to-white">
+  <div class="w-full max-w-4xl bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
+    <div class="grid md:grid-cols-2">
 
-    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
-      <div>
-        <label class="block text-sm font-medium mb-1">Correo</label>
-        <input
-          type="email"
-          formControlName="email"
-          class="w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring"
-          placeholder="tucorreo@dominio.com"
+      <!-- Lado ilustración (solo md+) -->
+      <div class="relative hidden md:flex items-center justify-center bg-[#322203]/5">
+        <img
+          src="https://png.pngtree.com/png-clipart/20240302/original/pngtree-password-reset-icon-symbol-with-circle-arrow-and-padlock-vector-png-image_14481987.png"
+          alt="Restablecer contraseña"
+          class="w-64 h-64 object-contain drop-shadow-md"
         />
-        <p *ngIf="form.controls.email.touched && form.controls.email.invalid"
-           class="text-sm text-red-600 mt-1">Ingresa un correo válido.</p>
+        <!-- overlays que NO capturan click -->
+        <div class="absolute inset-0 pointer-events-none bg-[#322203]/5 mix-blend-multiply"></div>
+        <div class="absolute bottom-4 left-4 right-4 text-black drop-shadow pointer-events-none">
+          <h2 class="text-xl font-bold">¿No recuerdas tu contraseña?</h2>
+          <p class="text-sm opacity-90">Te ayudamos a restablecerla en segundos.</p>
+        </div>
       </div>
 
-      <button type="submit" class="w-full rounded-xl py-2 shadow font-semibold">
-        Enviar instrucciones
-      </button>
-    </form>
+      <!-- Lado formulario -->
+      <div class="p-6 sm:p-8 relative z-10">
+        <div class="mb-6 text-center">
+          <h1 class="text-3xl font-extrabold tracking-wide text-[#322203]">Recuperar contraseña</h1>
+          <p class="text-sm text-gray-600 mt-1">
+            Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.
+          </p>
+        </div>
 
-    <div class="mt-6 text-center">
-      <button (click)="goLogin()" class="text-[#322203] hover:underline">
-        ← Volver a iniciar sesión
-      </button>
+        <!-- FORM -->
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-5">
+          <!-- Correo -->
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">Correo</label>
+            <div class="relative">
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                class="w-full rounded-xl border border-gray-300 px-3 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203] transition"
+                placeholder="tucorreo@dominio.com"
+                autocomplete="email"
+                autocapitalize="off"
+                spellcheck="false"
+                [attr.aria-invalid]="(form.controls.email.touched && form.controls.email.invalid) ? 'true' : 'false'"
+                [attr.aria-describedby]="(form.controls.email.touched && form.controls.email.invalid) ? 'email-error' : null"
+              />
+              <!-- Icono email (no capta click) -->
+              <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 12H8m8-4H8m10 8H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v6a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <p *ngIf="form.controls.email.touched && form.controls.email.invalid"
+               id="email-error"
+               class="text-sm text-red-600 mt-1">Ingresa un correo válido.</p>
+          </div>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="w-full rounded-xl py-2 shadow font-semibold bg-[#322203] text-[#ebebeb] hover:bg-[#1f1502] transition focus:outline-none focus:ring-4 focus:ring-[#322203]/30"
+          >
+            Enviar instrucciones
+          </button>
+        </form>
+
+        <!-- Enlaces fuera del form para que siempre sean clicables -->
+        <div class="flex items-center justify-between text-sm mt-4">
+          <a routerLink="/login" class="text-[#322203] hover:underline">← Volver a iniciar sesión</a>
+          <a routerLink="/home" class="text-gray-500 hover:underline">Volver al inicio</a>
+        </div>
+
+        <!-- Tip -->
+        <p class="text-xs text-gray-500 text-center mt-4">
+          Si no ves el correo en unos minutos, revisa tu carpeta de spam.
+        </p>
+      </div>
     </div>
   </div>
 </div>

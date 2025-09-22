@@ -1,13 +1,57 @@
 import { Routes } from '@angular/router';
-import { Modulos } from './features/modulos/modulos';
-import { Home } from './features/home/home';
-import { Learning } from './features/learning/learning';
-import { HandPrediction } from './features/hand-prediction/components/hand-prediction'; // importa el componente standalone
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
+  // ----------   PÚBLICAS ----------
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: Home },
-  { path: 'modulos', component: Modulos },
-  { path: 'learning', component: Learning },
-  { path: 'hand-prediction', component: HandPrediction } // ahora standalone
+
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./features/home/home').then(m => m.Home),
+  },
+  {
+  path: 'recuperar',
+  loadComponent: () =>
+    import('./features/auth/forgot/forgot')
+      .then(m => m.Forgot),
+},
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/auth/login/login')
+        .then(m => m.LoginComponent),
+  },
+
+  // ---------- PRIVADAS ----------
+  {
+    path: 'modulos',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/modulos/modulos').then(m => m.Modulos),
+  },
+  {
+    path: 'learning',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/learning/learning').then(m => m.Learning),
+  },
+  {
+    path: 'hand-prediction',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/hand-prediction/components/hand-prediction')
+        .then(m => m.HandPrediction),
+  },
+  {
+    //to do dashboard
+    path: 'dashboard',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/dashboard/dashboard')
+        .then(m => m.Dashboard),
+  },
+
+  // ---------- WILDCARD ----------
+  { path: '**', redirectTo: '/home' },
 ];

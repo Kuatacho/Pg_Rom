@@ -1,77 +1,110 @@
-<nav class="bg-[#ebebeb] border-b border-[#322203]/30 shadow-md sticky top-0 z-50">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    
+<nav
+  class="bg-[#ebebeb] border-b border-[#322203]/30 shadow-md sticky top-0 z-50">
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+
     <!-- Logo -->
     <a routerLink="/" class="flex items-center gap-3">
-      <span class="text-3xl md:text-4xl font-extrabold tracking-widest text-[#322203] drop-shadow-lg">
+      <span
+        class="text-3xl md:text-4xl font-extrabold tracking-widest text-[#322203] drop-shadow-lg">
         VISION
       </span>
     </a>
 
     <!-- User & Mobile button -->
     <div class="flex items-center md:order-2 space-x-3">
-      
-      <!-- User Button -->
-      <div class="relative">
+
+      <!-- User Button (solo logueado) -->
+      <div class="relative" *ngIf="isLoggedIn()">
         <button
           type="button"
           (click)="toggleDropdown()"
-          class="flex items-center justify-center w-12 h-12 bg-[#322203] rounded-full hover:bg-[#1f1502] focus:outline-none focus:ring-4 focus:ring-[#322203]/40 transition duration-200"
-        >
-          <span class="sr-only">Open user menu</span>
-          <fa-icon [icon]="faUserCircle" class="text-[#ebebeb] text-4xl"></fa-icon>
+          class="flex items-center justify-center w-12 h-12 bg-[#322203] rounded-full hover:bg-[#1f1502] focus:outline-none focus:ring-4 focus:ring-[#322203]/40 transition duration-200">
+          <span class="sr-only">Abrir menú de usuario</span>
+          <fa-icon [icon]="faUserCircle"
+            class="text-[#ebebeb] text-4xl"></fa-icon>
         </button>
 
         <!-- Dropdown -->
         <div
           *ngIf="isDropdownOpen"
-          class="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg transition-all duration-200 origin-top-right z-50"
-        >
-          <div class="px-4 py-3">
-            <span class="block text-sm font-medium text-[#322203]">Romina Calvetty</span>
-            <span class="block text-sm text-gray-500 truncate">name.com</span>
+          class="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg transition-all duration-200 origin-top-right z-50">
+          <div class="px-4 py-3" *ngIf="user">
+            <span class="block text-sm font-medium text-[#322203]">{{ user.name
+              }}</span>
+            <span class="block text-sm text-gray-500 truncate">{{ user.email
+              }}</span>
           </div>
           <ul class="py-2 text-sm text-gray-700">
-            <li><a routerLink="/perfil" (click)="closeDropdown()" class="block px-4 py-2 hover:bg-[#ebebeb]">Perfil</a></li>
-            <li><a routerLink="/configuracion" (click)="closeDropdown()" class="block px-4 py-2 hover:bg-[#ebebeb]">Configuración</a></li>
-            <li><a routerLink="/logout" (click)="closeDropdown()" class="block px-4 py-2 hover:bg-[#ebebeb]">Salir</a></li>
+            <li><a routerLink="/perfil" (click)="closeDropdown()"
+                class="block px-4 py-2 hover:bg-[#ebebeb]">Perfil</a></li>
+            <li><a routerLink="/configuracion" (click)="closeDropdown()"
+                class="block px-4 py-2 hover:bg-[#ebebeb]">Configuración</a></li>
+            <li><button (click)="logout(); closeDropdown()"
+                class="w-full text-left block px-4 py-2 hover:bg-[#ebebeb]">Salir</button></li>
           </ul>
         </div>
+
       </div>
 
       <!-- Mobile Button -->
       <button
         type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden text-[#322203] hover:bg-[#322203]/10 focus:outline-none focus:ring-2 focus:ring-[#322203]/30"
-        (click)="toggleMobileMenu()"
-      >
-        <span class="sr-only">Open main menu</span>
+        (click)="toggleMobileMenu()">
+        <span class="sr-only">Abrir menú principal</span>
         <!-- Hamburguer -->
-        <svg class="w-6 h-6 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <svg class="w-6 h-6 transition-transform duration-300"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
     <!-- Menu -->
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" [class.hidden]="!isMobileOpen" id="navbar-user">
-      <ul class="flex flex-col md:flex-row gap-6 font-medium p-4 md:p-0 mt-4 md:mt-0 rounded-lg bg-[#ebebeb] md:bg-transparent">
-        
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      [class.hidden]="!isMobileOpen" id="navbar-user">
+      <ul
+        class="flex flex-col md:flex-row gap-6 font-medium p-4 md:p-0 mt-4 md:mt-0 rounded-lg bg-[#ebebeb] md:bg-transparent">
+
+        <!-- Siempre públicos -->
         <li>
-          <a routerLink="/" routerLinkActive="active-link" class="nav-link text-[#322203] hover:text-black">Home</a>
+          <a routerLink="/home" routerLinkActive="active-link"
+            class="nav-link text-[#322203] hover:text-black">Home</a>
         </li>
         <li>
-          <a routerLink="/modulos" routerLinkActive="active-link" class="nav-link text-[#322203] hover:text-black">Módulos</a>
+          <a routerLink="/contacto" routerLinkActive="active-link"
+            class="nav-link text-[#322203] hover:text-black">Contacto</a>
         </li>
-        <li>
-          <a routerLink="/learning" routerLinkActive="active-link" class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>
-        </li>
-        <li>
-          <a routerLink="/hand-prediction" routerLinkActive="active-link" class="nav-link text-[#322203] hover:text-black">Predicción</a>
-        </li>
-        <li>
-          <a routerLink="/contacto" routerLinkActive="active-link" class="nav-link text-[#322203] hover:text-black">Contacto</a>
-        </li>
+
+        <!-- Si está logueado -->
+        <ng-container *ngIf="isLoggedIn(); else loginLink">
+          <li>
+            <a routerLink="/modulos" routerLinkActive="active-link"
+              class="nav-link text-[#322203] hover:text-black">Módulos</a>
+          </li>
+          <li>
+            <a routerLink="/learning" routerLinkActive="active-link"
+              class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>
+          </li>
+          <li>
+            <a routerLink="/hand-prediction" routerLinkActive="active-link"
+              class="nav-link text-[#322203] hover:text-black">Predicción</a>
+          </li>
+        </ng-container>
+
+        <!-- Si NO está logueado -->
+        <ng-template #loginLink>
+          <li>
+            <a routerLink="/login" routerLinkActive="active-link"
+              class="nav-link text-[#322203] hover:text-black font-semibold">
+              Ingresar
+            </a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

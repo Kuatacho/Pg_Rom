@@ -1,41 +1,113 @@
-<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
-  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
-    <h1 class="text-2xl font-bold text-center mb-6">Iniciar sesión</h1>
+<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-gradient-to-br from-[#ebebeb] to-white">
+  <div class="w-full max-w-4xl bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
+    <div class="grid md:grid-cols-2">
 
-    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
-      <div>
-        <label class="block text-sm font-medium mb-1">Correo</label>
-        <input type="email" formControlName="email"
-          class="w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring"
-          placeholder="test@test.com" />
-        <p *ngIf="form.controls.email.touched && form.controls.email.invalid"
-          class="text-sm text-red-600 mt-1">Correo inválido.</p>
+      <!-- Lado ilustración (solo md+) -->
+      <div class="relative hidden md:block">
+        <img
+          src="https://media.istockphoto.com/id/1434688236/es/vector/hombre-sonriente-se-comunica-con-el-lenguaje-de-se%C3%B1as.jpg?s=612x612&w=0&k=20&c=8ewFZc1ze62jZHq0aQcAy7BzgbzHmqPX49COxQV34o0="
+          alt="Comunicación con lengua de señas"
+          class="h-full w-full object-cover"
+        />
+        <!-- overlays SIN capturar clicks -->
+        <div class="absolute inset-0 bg-[#322203]/10 mix-blend-multiply pointer-events-none"></div>
+        <div class="absolute bottom-4 left-4 right-4 text-white drop-shadow pointer-events-none">
+          <h2 class="text-xl font-bold">Aprende con VISION</h2>
+          <p class="text-sm opacity-90">Práctica guiada, módulos y predicción en tiempo real.</p>
+        </div>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium mb-1">Contraseña</label>
-        <input type="password" formControlName="password"
-          class="w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring"
-          placeholder="123456" />
-        <p
-          *ngIf="form.controls.password.touched && form.controls.password.invalid"
-          class="text-sm text-red-600 mt-1">Mínimo 6 caracteres.</p>
+      <!-- Lado formulario -->
+      <div class="p-6 sm:p-8 relative z-10">
+        <div class="mb-6 text-center">
+          <h1 class="text-3xl font-extrabold tracking-wide text-[#322203]">Iniciar sesión</h1>
+          <p class="text-sm text-gray-600 mt-1">Bienvenido de vuelta 👋</p>
+        </div>
+
+        <!-- FORM -->
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-5">
+          <!-- Correo -->
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">Correo</label>
+            <div class="relative">
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                class="w-full rounded-xl border border-gray-300 px-3 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203] transition"
+                placeholder="test@test.com"
+                autocomplete="email"
+                autocapitalize="off"
+                spellcheck="false"
+                [attr.aria-invalid]="(form.controls.email.touched && form.controls.email.invalid) ? 'true' : 'false'"
+                [attr.aria-describedby]="(form.controls.email.touched && form.controls.email.invalid) ? 'email-error' : null"
+              />
+              <!-- Icono email (no capta clicks) -->
+              <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 12H8m8-4H8m10 8H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v6a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <p *ngIf="form.controls.email.touched && form.controls.email.invalid"
+               id="email-error"
+               class="text-sm text-red-600 mt-1">Correo inválido.</p>
+          </div>
+
+          <!-- Contraseña -->
+          <div>
+            <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
+            <div class="relative">
+              <input
+                id="password"
+                type="password"
+                formControlName="password"
+                class="w-full rounded-xl border border-gray-300 px-3 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203] transition"
+                placeholder="123456"
+                autocomplete="current-password"
+                [attr.aria-invalid]="(form.controls.password.touched && form.controls.password.invalid) ? 'true' : 'false'"
+                [attr.aria-describedby]="(form.controls.password.touched && form.controls.password.invalid) ? 'password-error' : null"
+              />
+              <!-- Icono candado (no capta clicks) -->
+              <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 11c-1.657 0-3 1.343-3 3v2h6v-2c0-1.657-1.343-3-3-3z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 11V7a5 5 0 1110 0v4"/>
+              </svg>
+            </div>
+            <p *ngIf="form.controls.password.touched && form.controls.password.invalid"
+               id="password-error"
+               class="text-sm text-red-600 mt-1">Mínimo 6 caracteres.</p>
+          </div>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            [disabled]="loading"
+            class="w-full rounded-xl py-2 shadow font-semibold disabled:opacity-60 bg-[#322203] text-[#ebebeb] hover:bg-[#1f1502] transition focus:outline-none focus:ring-4 focus:ring-[#322203]/30"
+          >
+            <ng-container *ngIf="!loading; else loadingTpl">Entrar</ng-container>
+          </button>
+          <ng-template #loadingTpl>
+            <span class="inline-flex items-center gap-2">
+              <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" fill="currentColor"></path>
+              </svg>
+              Ingresando…
+            </span>
+          </ng-template>
+        </form>
+
+        <!-- 🔗 Enlaces FUERA del form -->
+        <div class="flex items-center justify-between text-sm mt-4">
+          <a routerLink="/recuperar" class="text-[#322203] hover:underline">¿Olvidaste tu contraseña?</a>
+          <a routerLink="/home" class="text-gray-500 hover:underline">Volver al inicio</a>
+        </div>
+
+        <!-- Error -->
+        <p *ngIf="error" class="text-sm text-red-600 text-center mt-4">{{ error }}</p>
       </div>
-
-      <button type="submit" [disabled]="loading"
-        class="w-full rounded-xl py-2 shadow font-semibold disabled:opacity-60">
-        {{ loading ? 'Ingresando…' : 'Entrar' }}
-      </button>
-      
-      <div class="text-center">
-    <a routerLink="/recuperar" class="text-sm text-[#322203] hover:underline">
-      ¿Olvidaste tu contraseña?
-    </a>
+    </div>
   </div>
-
-      <p *ngIf="error" class="text-sm text-red-600 text-center">{{ error }}</p>
-    </form>
-  </div>
-  
-
 </div>
