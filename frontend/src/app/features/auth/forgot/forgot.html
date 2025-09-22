@@ -1,0 +1,32 @@
+<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+    <h1 class="text-2xl font-bold text-center mb-2">Recuperar contraseña</h1>
+    <p class="text-sm text-gray-600 text-center mb-6">
+      Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.
+    </p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Correo</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring"
+          placeholder="tucorreo@dominio.com"
+        />
+        <p *ngIf="form.controls.email.touched && form.controls.email.invalid"
+           class="text-sm text-red-600 mt-1">Ingresa un correo válido.</p>
+      </div>
+
+      <button type="submit" class="w-full rounded-xl py-2 shadow font-semibold">
+        Enviar instrucciones
+      </button>
+    </form>
+
+    <div class="mt-6 text-center">
+      <button (click)="goLogin()" class="text-[#322203] hover:underline">
+        ← Volver a iniciar sesión
+      </button>
+    </div>
+  </div>
+</div>
