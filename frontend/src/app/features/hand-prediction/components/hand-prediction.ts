@@ -4,8 +4,7 @@ import { Camera } from '@mediapipe/camera_utils';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import { Navbar } from '../../../shared/components/navbar/navbar';
 import { DecimalPipe, NgForOf, NgIf } from '@angular/common';
-import { PredictionService } from '../services/hand-prediction.service';
-import { HttpClientModule } from '@angular/common/http';
+import { PredictionService, PredictionResponse } from '../services/hand-prediction.service';
 
 @Component({
   selector: 'app-hand-prediction',
@@ -22,14 +21,16 @@ export class HandPrediction implements AfterViewInit {
   private readonly SEQUENCE_LENGTH = 30;
   private sending = false;
   private lastSentTime = 0;
-  private readonly COOLDOWN_MS = 500;
+  private readonly COOLDOWN_MS = 600;     // un poco más para evitar spam
   private readonly MIN_MOVEMENT = 0.02;
 
   prediction = '';
+  confidence = 0;
   warning = '';
-  gestures = ['Cambiar', 'Construir'];
+
+  gestures: string[] = [];
   probabilities: number[] = [];
-  history: string[] = [];
+  history: { gesture: string; confidence: number }[] = [];
   score = 0;
 
   constructor(private predictionService: PredictionService, private cdr: ChangeDetectorRef) {}
@@ -41,7 +42,16 @@ export class HandPrediction implements AfterViewInit {
       await this.videoElement.nativeElement.play();
 
       const hands = new Hands({ locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}` });
-      hands.setOptions({ maxNumHands: 2, modelComplexity: 1, selfieMode: true, minDetectionConfidence: 0.7, minTrackingConfidence: 0.7 });
+
+      // 👇 Igualamos config a tu script de Python (sin espejo)
+      hands.setOptions({
+        maxNumHands: 2,
+        modelComplexity: 1,
+        selfieMode: false,               // <— importante para que no inviertas horizontalmente
+        minDetectionConfidence: 0.7,
+        minTrackingConfidence: 0.7
+      });
+
       hands.onResults((results: Results) => this.onResults(results));
 
       const canvas = this.canvasElement.nativeElement;
@@ -60,67 +70,96 @@ export class HandPrediction implements AfterViewInit {
   }
 
   private onResults(results: Results) {
-    const canvasCtx = this.canvasElement.nativeElement.getContext('2d');
-    if (!canvasCtx) return;
+    const ctx = this.canvasElement.nativeElement.getContext('2d');
+    if (!ctx) return;
 
-    canvasCtx.clearRect(0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);
-    if (results.image) canvasCtx.drawImage(results.image, 0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);
+    // Dibujo
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    if (results.image) ctx.drawImage(results.image, 0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    let flatLandmarks: number[] = [];
-    if (results.multiHandLandmarks?.length) {
-      results.multiHandLandmarks.forEach(landmarks => {
-        drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS);
-        drawLandmarks(canvasCtx, landmarks);
-        flatLandmarks.push(...landmarks.flatMap(l => [l.x, l.y, l.z]));
+    let flat: number[] = [];
+    const hasHands = !!results.multiHandLandmarks?.length;
+
+    if (hasHands) {
+      results.multiHandLandmarks!.forEach(landmarks => {
+        drawConnectors(ctx, landmarks, HAND_CONNECTIONS);
+        drawLandmarks(ctx, landmarks);
+        flat.push(...landmarks.flatMap(l => [l.x, l.y, l.z]));
       });
     }
 
-    while (flatLandmarks.length < 21*3*2) flatLandmarks.push(0);
-    this.sequence.push(flatLandmarks);
+    // Fuerza vector de 126 features (dos manos)
+    while (flat.length < 21 * 3 * 2) flat.push(0);
+    if (flat.length > 21 * 3 * 2) flat = flat.slice(0, 21 * 3 * 2);
+
+    // Ventana deslizante de 30 frames
+    this.sequence.push(flat);
     if (this.sequence.length > this.SEQUENCE_LENGTH) this.sequence.shift();
 
-    this.warning = results.multiHandLandmarks?.length ? '' : 'No se detectaron manos';
-    this.cdr.detectChanges();
+    // Mensaje de manos/no manos
+    this.warning = hasHands ? '' : 'No se detectaron manos';
 
+    // Movimiento medio entre el último y el penúltimo frame
     let movement = 0;
-    if (this.sequence.length >= 2)
-      movement = this.averageMovement(this.sequence[this.sequence.length-2], this.sequence[this.sequence.length-1]);
-
-    if (!this.sending && movement >= this.MIN_MOVEMENT && Date.now() - this.lastSentTime > this.COOLDOWN_MS) {
-      this.lastSentTime = Date.now();
-      this.sendToBackend([...this.sequence]);
+    if (this.sequence.length >= 2) {
+      const prev = this.sequence[this.sequence.length - 2];
+      const curr = this.sequence[this.sequence.length - 1];
+      movement = prev.reduce((acc, v, i) => acc + Math.abs(curr[i] - v), 0) / prev.length;
     }
+
+    // 👇 SOLO enviamos si:
+    // - hay manos
+    // - ya tenemos EXACTAMENTE 30 frames (como en tu script Python)
+    // - hay movimiento (evitar ruido estático)
+    // - respetamos cooldown
+    const ready =
+      hasHands &&
+      this.sequence.length === this.SEQUENCE_LENGTH &&
+      movement >= this.MIN_MOVEMENT &&
+      Date.now() - this.lastSentTime > this.COOLDOWN_MS &&
+      !this.sending;
+
+    if (ready) {
+      this.lastSentTime = Date.now();
+      const seq30 = this.sequence.slice(-this.SEQUENCE_LENGTH); // por claridad
+      this.sendToBackend(seq30);
+    }
+
+    this.cdr.detectChanges();
   }
 
-  private averageMovement(prev: number[], curr: number[]): number {
-    return prev.reduce((acc, val, i) => acc + Math.abs(curr[i]-val), 0)/prev.length;
-  }
+ private sendToBackend(seq: number[][]) {
+  this.sending = true;
+  this.predictionService.sendSequence(seq).subscribe({
+    next: (res: PredictionResponse) => {
+      this.probabilities = res.probabilities ?? [];
+      this.gestures = res.gestures ?? [];
 
-  private sendToBackend(seq: number[][]) {
-    this.sending = true;
-    this.predictionService.sendSequence(seq).subscribe({
-      next: res => {
-        this.probabilities = res.probabilities ? [...res.probabilities[0]] : [];
-        const maxProb = this.probabilities.length ? Math.max(...this.probabilities) : 0;
+      // Encuentra índice del máximo
+      const maxProb = Math.max(...this.probabilities);
+      const maxIndex = this.probabilities.indexOf(maxProb);
 
-        if (maxProb >= 0.7) {
-          this.prediction = res.prediction;
-          this.history = [...this.history, res.prediction];
-          this.score += 1;
-        } else {
-          this.prediction = '';
-          this.warning = 'Predicción con baja confianza';
-        }
+      this.prediction = this.gestures[maxIndex] || '';
+      this.confidence = maxProb;
 
-        this.sending = false;
-        this.cdr.detectChanges();
-      },
-      error: err => {
-        this.prediction = '';
-        this.warning = err.status === 400 ? 'No se detectaron manos' : 'Error en el servidor';
-        this.sending = false;
-        this.cdr.detectChanges();
+      if (this.confidence >= 0.05) {  // umbral
+        this.warning = '';
+        this.history = [...this.history, { gesture: this.prediction, confidence: this.confidence }];
+        this.score += 1;
+      } else {
+        this.warning = 'Predicción con baja confianza';
       }
-    });
-  }
+
+      this.sending = false;
+      this.cdr.detectChanges();
+    },
+    error: err => {
+      this.prediction = '';
+      this.confidence = 0;
+      this.warning = err.status === 400 ? 'No se detectaron manos' : 'Error en el servidor';
+      this.sending = false;
+      this.cdr.detectChanges();
+    }
+  });
+}
 }

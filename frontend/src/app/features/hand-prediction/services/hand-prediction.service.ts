@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 
 export interface PredictionResponse {
   prediction: string;
-  probabilities?: number[][];
+  confidence: number;
+  probabilities: number[];
+  gestures: string[];
 }
 
 @Injectable({
