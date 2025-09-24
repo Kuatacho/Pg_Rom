@@ -2,84 +2,84 @@
   "hash": "f6fb2cd4",
   "configHash": "67b9a3ab",
   "lockfileHash": "4dcd001e",
-  "browserHash": "9989c7e7",
+  "browserHash": "94b00dd9",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "979ee653",
+      "fileHash": "c0a0f52e",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "1de75fd5",
+      "fileHash": "b95bff37",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "b0b1b076",
-      "needsInterop": false
-    },
-    "@angular/platform-browser": {
-      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
-      "file": "@angular_platform-browser.js",
-      "fileHash": "f9e24e31",
-      "needsInterop": false
-    },
-    "@angular/router": {
-      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
-      "file": "@angular_router.js",
-      "fileHash": "3c7f6978",
-      "needsInterop": false
-    },
-    "@fortawesome/angular-fontawesome": {
-      "src": "../../../../../../node_modules/@fortawesome/angular-fontawesome/fesm2022/angular-fontawesome.mjs",
-      "file": "@fortawesome_angular-fontawesome.js",
-      "fileHash": "f526772e",
-      "needsInterop": false
-    },
-    "@fortawesome/free-solid-svg-icons": {
-      "src": "../../../../../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
-      "file": "@fortawesome_free-solid-svg-icons.js",
-      "fileHash": "9aa2f301",
-      "needsInterop": false
-    },
-    "@mediapipe/camera_utils": {
-      "src": "../../../../../../node_modules/@mediapipe/camera_utils/camera_utils.js",
-      "file": "@mediapipe_camera_utils.js",
-      "fileHash": "433cc663",
-      "needsInterop": true
-    },
-    "@mediapipe/drawing_utils": {
-      "src": "../../../../../../node_modules/@mediapipe/drawing_utils/drawing_utils.js",
-      "file": "@mediapipe_drawing_utils.js",
-      "fileHash": "6af1e236",
-      "needsInterop": true
-    },
-    "@mediapipe/hands": {
-      "src": "../../../../../../node_modules/@mediapipe/hands/hands.js",
-      "file": "@mediapipe_hands.js",
-      "fileHash": "63b26045",
-      "needsInterop": true
-    },
-    "flowbite": {
-      "src": "../../../../../../node_modules/flowbite/lib/esm/index.js",
-      "file": "flowbite.js",
-      "fileHash": "fc8aaffb",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "1fd55a39",
+      "fileHash": "94ae0f06",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "4ca8d538",
+      "fileHash": "152591a4",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "d535a2b4",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "7a24ee30",
+      "needsInterop": false
+    },
+    "@fortawesome/angular-fontawesome": {
+      "src": "../../../../../../node_modules/@fortawesome/angular-fontawesome/fesm2022/angular-fontawesome.mjs",
+      "file": "@fortawesome_angular-fontawesome.js",
+      "fileHash": "71799a89",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../../../../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "78a29df7",
+      "needsInterop": false
+    },
+    "@mediapipe/camera_utils": {
+      "src": "../../../../../../node_modules/@mediapipe/camera_utils/camera_utils.js",
+      "file": "@mediapipe_camera_utils.js",
+      "fileHash": "7194c839",
+      "needsInterop": true
+    },
+    "@mediapipe/drawing_utils": {
+      "src": "../../../../../../node_modules/@mediapipe/drawing_utils/drawing_utils.js",
+      "file": "@mediapipe_drawing_utils.js",
+      "fileHash": "5a4e4ae8",
+      "needsInterop": true
+    },
+    "@mediapipe/hands": {
+      "src": "../../../../../../node_modules/@mediapipe/hands/hands.js",
+      "file": "@mediapipe_hands.js",
+      "fileHash": "ede729e1",
+      "needsInterop": true
+    },
+    "flowbite": {
+      "src": "../../../../../../node_modules/flowbite/lib/esm/index.js",
+      "file": "flowbite.js",
+      "fileHash": "0e6179c4",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "e61a0c25",
       "needsInterop": false
     }
   },

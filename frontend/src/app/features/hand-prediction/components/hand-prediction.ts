@@ -21,7 +21,7 @@ export class HandPrediction implements AfterViewInit {
   private readonly SEQUENCE_LENGTH = 30;
   private sending = false;
   private lastSentTime = 0;
-  private readonly COOLDOWN_MS = 600;     // un poco más para evitar spam
+  private readonly COOLDOWN_MS = 800; // más seguro contra spam
   private readonly MIN_MOVEMENT = 0.02;
 
   prediction = '';
@@ -43,11 +43,10 @@ export class HandPrediction implements AfterViewInit {
 
       const hands = new Hands({ locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}` });
 
-      // 👇 Igualamos config a tu script de Python (sin espejo)
       hands.setOptions({
         maxNumHands: 2,
         modelComplexity: 1,
-        selfieMode: false,               // <— importante para que no inviertas horizontalmente
+        selfieMode: false, // importante para no invertir la imagen
         minDetectionConfidence: 0.7,
         minTrackingConfidence: 0.7
       });
@@ -69,37 +68,66 @@ export class HandPrediction implements AfterViewInit {
     }
   }
 
+  /** Normaliza landmarks de una mano igual que en Python */
+  private normalizeHand(landmarks: any[]): number[] {
+    const wrist = landmarks[0];
+    const mcpMid = landmarks[9];
+    const scale = Math.sqrt(
+      Math.pow(mcpMid.x - wrist.x, 2) +
+      Math.pow(mcpMid.y - wrist.y, 2) +
+      Math.pow(mcpMid.z - wrist.z, 2)
+    ) || 1e-6;
+
+    return landmarks.flatMap(l => [
+      (l.x - wrist.x) / scale,
+      (l.y - wrist.y) / scale,
+      (l.z - wrist.z) / scale
+    ]);
+  }
+
+  /** Empaqueta 2 manos: izquierda en [0:63], derecha en [63:126] */
+  private packTwoHands(results: Results): number[] {
+    let left = new Array(63).fill(0);
+    let right = new Array(63).fill(0);
+
+    if (results.multiHandLandmarks && results.multiHandedness) {
+      results.multiHandLandmarks.forEach((landmarks, i) => {
+        const handed = results.multiHandedness![i].label.toLowerCase();
+        const feats = this.normalizeHand(landmarks);
+        if (handed === 'left') left = feats;
+        else right = feats;
+      });
+    }
+
+    return [...left, ...right]; // (126,)
+  }
+
   private onResults(results: Results) {
     const ctx = this.canvasElement.nativeElement.getContext('2d');
     if (!ctx) return;
 
-    // Dibujo
+    // Dibujo en canvas
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     if (results.image) ctx.drawImage(results.image, 0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    let flat: number[] = [];
-    const hasHands = !!results.multiHandLandmarks?.length;
+    const flat: number[] = this.packTwoHands(results);
+    const hasHands = flat.some(v => v !== 0);
 
-    if (hasHands) {
-      results.multiHandLandmarks!.forEach(landmarks => {
-        drawConnectors(ctx, landmarks, HAND_CONNECTIONS);
-        drawLandmarks(ctx, landmarks);
-        flat.push(...landmarks.flatMap(l => [l.x, l.y, l.z]));
+    // Dibujar landmarks si hay manos
+    if (hasHands && results.multiHandLandmarks) {
+      results.multiHandLandmarks.forEach(lm => {
+        drawConnectors(ctx, lm, HAND_CONNECTIONS);
+        drawLandmarks(ctx, lm);
       });
     }
 
-    // Fuerza vector de 126 features (dos manos)
-    while (flat.length < 21 * 3 * 2) flat.push(0);
-    if (flat.length > 21 * 3 * 2) flat = flat.slice(0, 21 * 3 * 2);
-
-    // Ventana deslizante de 30 frames
+    // Ventana deslizante
     this.sequence.push(flat);
     if (this.sequence.length > this.SEQUENCE_LENGTH) this.sequence.shift();
 
-    // Mensaje de manos/no manos
     this.warning = hasHands ? '' : 'No se detectaron manos';
 
-    // Movimiento medio entre el último y el penúltimo frame
+    // Movimiento entre frames
     let movement = 0;
     if (this.sequence.length >= 2) {
       const prev = this.sequence[this.sequence.length - 2];
@@ -107,11 +135,7 @@ export class HandPrediction implements AfterViewInit {
       movement = prev.reduce((acc, v, i) => acc + Math.abs(curr[i] - v), 0) / prev.length;
     }
 
-    // 👇 SOLO enviamos si:
-    // - hay manos
-    // - ya tenemos EXACTAMENTE 30 frames (como en tu script Python)
-    // - hay movimiento (evitar ruido estático)
-    // - respetamos cooldown
+    // Condiciones para enviar al backend
     const ready =
       hasHands &&
       this.sequence.length === this.SEQUENCE_LENGTH &&
@@ -121,45 +145,44 @@ export class HandPrediction implements AfterViewInit {
 
     if (ready) {
       this.lastSentTime = Date.now();
-      const seq30 = this.sequence.slice(-this.SEQUENCE_LENGTH); // por claridad
+      const seq30 = this.sequence.slice(-this.SEQUENCE_LENGTH);
       this.sendToBackend(seq30);
     }
 
     this.cdr.detectChanges();
   }
 
- private sendToBackend(seq: number[][]) {
-  this.sending = true;
-  this.predictionService.sendSequence(seq).subscribe({
-    next: (res: PredictionResponse) => {
-      this.probabilities = res.probabilities ?? [];
-      this.gestures = res.gestures ?? [];
+  private sendToBackend(seq: number[][]) {
+    this.sending = true;
+    this.predictionService.sendSequence(seq).subscribe({
+      next: (res: PredictionResponse) => {
+        this.probabilities = res.probabilities ?? [];
+        this.gestures = res.gestures ?? [];
 
-      // Encuentra índice del máximo
-      const maxProb = Math.max(...this.probabilities);
-      const maxIndex = this.probabilities.indexOf(maxProb);
+        const maxProb = Math.max(...this.probabilities);
+        const maxIndex = this.probabilities.indexOf(maxProb);
 
-      this.prediction = this.gestures[maxIndex] || '';
-      this.confidence = maxProb;
+        this.prediction = this.gestures[maxIndex] || '';
+        this.confidence = maxProb;
 
-      if (this.confidence >= 0.05) {  // umbral
-        this.warning = '';
-        this.history = [...this.history, { gesture: this.prediction, confidence: this.confidence }];
-        this.score += 1;
-      } else {
-        this.warning = 'Predicción con baja confianza';
+        if (this.confidence >= 0.7) { // nuevo umbral más alto
+          this.warning = '';
+          this.history = [...this.history, { gesture: this.prediction, confidence: this.confidence }];
+          this.score += 1;
+        } else {
+          this.warning = 'Predicción con baja confianza';
+        }
+
+        this.sending = false;
+        this.cdr.detectChanges();
+      },
+      error: err => {
+        this.prediction = '';
+        this.confidence = 0;
+        this.warning = err.status === 400 ? 'No se detectaron manos' : 'Error en el servidor';
+        this.sending = false;
+        this.cdr.detectChanges();
       }
-
-      this.sending = false;
-      this.cdr.detectChanges();
-    },
-    error: err => {
-      this.prediction = '';
-      this.confidence = 0;
-      this.warning = err.status === 400 ? 'No se detectaron manos' : 'Error en el servidor';
-      this.sending = false;
-      this.cdr.detectChanges();
-    }
-  });
-}
+    });
+  }
 }
