@@ -4,19 +4,20 @@
   <div class="flex flex-col md:flex-row gap-6">
 
     <!-- Cámara + Canvas -->
-    <div class="md:w-1/2 bg-gray-100 p-4 rounded-xl shadow-lg flex flex-col items-center">
+    <div
+      class="md:w-1/2 bg-gray-100 p-4 rounded-xl shadow-lg flex flex-col items-center">
       <h2 class="text-2xl font-bold mb-4 text-center">Vista de la cámara</h2>
 
       <video #videoElement class="hidden"></video>
       <canvas
         #canvasElement
-        class="w-full rounded-xl border border-gray-300 aspect-video shadow-inner"
-      ></canvas>
+        class="w-full rounded-xl border border-gray-300 aspect-video shadow-inner"></canvas>
     </div>
 
     <!-- Panel de predicciones -->
     <div class="md:w-1/2 bg-white p-4 rounded-xl shadow-lg flex flex-col">
-      <h2 class="text-2xl font-bold mb-4 text-center">Predicción en tiempo real</h2>
+      <h2 class="text-2xl font-bold mb-4 text-center">Predicción en tiempo
+        real</h2>
 
       <!-- Predicción actual -->
       <div class="mb-4">
@@ -33,7 +34,7 @@
         <h3 class="font-medium mb-2">Confianza:</h3>
         <div class="w-full bg-gray-200 rounded-full h-4">
           <div class="bg-green-500 h-4 rounded-full"
-               [style.width.%]="confidence * 100">
+            [style.width.%]="confidence * 100">
           </div>
         </div>
         <p class="text-sm text-gray-600 mt-1">
@@ -44,23 +45,26 @@
       <!-- Historial -->
       <div class="mb-4 flex-1 overflow-y-auto">
         <h3 class="font-medium mb-2">Historial de gestos:</h3>
-        <ul class="max-h-64 overflow-y-auto border border-gray-200 p-2 rounded space-y-1">
+        <ul
+          class="max-h-64 overflow-y-auto border border-gray-200 p-2 rounded space-y-1">
           <li *ngFor="let h of history; let idx = index"
-              class="py-1 px-2 bg-gray-50 rounded flex justify-between items-center">
+            class="py-1 px-2 bg-gray-50 rounded flex justify-between items-center">
             <span>{{ idx + 1 }}.</span>
             <span class="font-semibold">{{ h.gesture }}</span>
-            <span class="text-sm text-gray-500">({{ (h.confidence*100) | number:'1.0-0' }}%)</span>
+            <span class="text-sm text-gray-500">({{ (h.confidence*100) |
+              number:'1.0-0' }}%)</span>
           </li>
         </ul>
       </div>
 
       <!-- Puntuación -->
       <div class="mt-auto">
-        <h3 class="font-medium mb-2">Puntuación:</h3>
+        <h3 class="font-medium mb-2">Puntuación (gestos completados):</h3>
         <p class="text-lg font-bold text-center">
-          {{ score }} / {{ history.length || 1 }}
+          {{ score }} / {{ gestures.length || 1 }}
         </p>
       </div>
+
     </div>
 
   </div>

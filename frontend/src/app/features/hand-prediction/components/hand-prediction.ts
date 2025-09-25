@@ -33,7 +33,7 @@ export class HandPrediction implements AfterViewInit {
   history: { gesture: string; confidence: number }[] = [];
   score = 0;
 
-  constructor(private predictionService: PredictionService, private cdr: ChangeDetectorRef) {}
+  constructor(private predictionService: PredictionService, private cdr: ChangeDetectorRef) { }
 
   async ngAfterViewInit() {
     try {
@@ -152,6 +152,9 @@ export class HandPrediction implements AfterViewInit {
     this.cdr.detectChanges();
   }
 
+  // Nuevo atributo para controlar gestos ya logrados
+  private completedGestures = new Set<string>();
+
   private sendToBackend(seq: number[][]) {
     this.sending = true;
     this.predictionService.sendSequence(seq).subscribe({
@@ -165,10 +168,15 @@ export class HandPrediction implements AfterViewInit {
         this.prediction = this.gestures[maxIndex] || '';
         this.confidence = maxProb;
 
-        if (this.confidence >= 0.7) { // nuevo umbral más alto
+        if (this.confidence >= 0.7) {
           this.warning = '';
           this.history = [...this.history, { gesture: this.prediction, confidence: this.confidence }];
-          this.score += 1;
+
+          // ✅ Solo sumar si el gesto aún no fue completado
+          if (!this.completedGestures.has(this.prediction)) {
+            this.completedGestures.add(this.prediction);
+            this.score += 1;
+          }
         } else {
           this.warning = 'Predicción con baja confianza';
         }
@@ -185,4 +193,5 @@ export class HandPrediction implements AfterViewInit {
       }
     });
   }
+
 }
