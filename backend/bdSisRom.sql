@@ -126,7 +126,7 @@ JOIN Usuarios u ON n.Usuarios_idUsuarios = u.idUsuarios
 JOIN Lecciones l ON n.Lecciones_idLecciones = l.idLecciones
 WHERE u.idUsuarios = 2;
 ---
-5
+
 -- Lecciones independientes
 INSERT INTO Lecciones (NombreLeccion)
 VALUES
