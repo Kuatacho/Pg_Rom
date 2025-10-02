@@ -42,7 +42,15 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
 # Environment files
 venv/
 backend/venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/

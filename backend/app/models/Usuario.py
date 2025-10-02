@@ -2,6 +2,7 @@
 from datetime import date
 from app import db
 from sqlalchemy.orm import relationship
+from collections import OrderedDict
 
 class Usuario(db.Model):
     __tablename__ = "usuarios"
@@ -20,7 +21,7 @@ class Usuario(db.Model):
     recuperaciones = relationship("Recuperacion", back_populates="usuario", passive_deletes=True)
 
     def to_dict(self):
-        return {
+        return OrderedDict( {
             "id": self.id,
             "nombre": self.nombre,
             "apellidos": self.apellidos,
@@ -28,7 +29,8 @@ class Usuario(db.Model):
             "genero": self.genero,
             "fecha_nacimiento": self.fecha_nacimiento.isoformat() if isinstance(self.fecha_nacimiento, date) and self.fecha_nacimiento else None,
             "celular": self.celular,
-        }
+            "contrasena": self.contrasena
+        })
 
     def __repr__(self):
         return f"<Usuario {self.correo}>"

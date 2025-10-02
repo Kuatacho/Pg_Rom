@@ -1,54 +1,80 @@
 # app/routes/usuarios.py
-from flask import request, jsonify
+from collections import OrderedDict
+import json
+from flask import request, Response
 from app.routes import bp
 from app.services import usuario_service
+
+
+# --- Helper para respuesta JSON ---
+def json_response(payload, status=200):
+    return Response(
+        json.dumps(payload, ensure_ascii=False),
+        mimetype="application/json",
+        status=status
+    )
+
+
+def _public_user_dict(u) -> OrderedDict:
+    """
+    Construye JSON público del usuario con 'id' primero
+    """
+    return OrderedDict([
+        ("id", u.id),
+        ("nombre", u.nombre),
+        ("apellidos", u.apellidos),
+        ("correo", u.correo),
+        ("genero", u.genero),
+        ("fecha_nacimiento", u.fecha_nacimiento.isoformat() if u.fecha_nacimiento else None),
+        ("celular", u.celular),
+        ("contrasena", u.contrasena)
+    ])
 
 
 # --- Listar todos los usuarios ---
 @bp.get("/usuarios")
 def listar_usuarios():
     usuarios = usuario_service.get_all_users()
-    return jsonify([u.to_dict() for u in usuarios]), 200
+    return json_response([_public_user_dict(u) for u in usuarios])
 
 
 # --- Obtener usuario por ID ---
 @bp.get("/usuarios/<int:user_id>")
-def obtener_usuario(user_id):
+def obtener_usuario(user_id: int):
     u = usuario_service.get_user_by_id(user_id)
     if not u:
-        return jsonify({"error": "Usuario no encontrado"}), 404
-    return jsonify(u.to_dict()), 200
+        return json_response({"error": "Usuario no encontrado"}, 404)
+    return json_response(_public_user_dict(u))
 
 
-# --- Registrar un nuevo usuario (password generado automáticamente) ---
+# --- Registrar usuario ---
 @bp.post("/usuarios/register")
 def registrar_usuario():
     data = request.get_json(silent=True) or {}
-
     try:
-        new_user, plain_password = usuario_service.create_user(data)
-        return jsonify({
-            "usuario": new_user.to_dict(),
-            "password": plain_password  # ⚠️ Devuelto solo una vez
-        }), 201
+        user, plain_password = usuario_service.create_user(data)
+        return json_response(OrderedDict([
+            ("usuario", _public_user_dict(user)),
+            ("password", plain_password)
+        ]), 201)
     except ValueError as ve:
-        return jsonify({"error": str(ve)}), 400
+        return json_response({"error": str(ve)}, 400)
     except Exception as e:
-        return jsonify({"error": f"Error interno: {str(e)}"}), 500
+        return json_response({"error": f"Error interno: {str(e)}"}, 500)
 
 
 # --- Login de usuario ---
 @bp.post("/usuarios/login")
 def login_usuario():
     data = request.get_json(silent=True) or {}
+    correo = (data.get("correo") or "").strip().lower()
+    password = data.get("contrasena") or ""
 
-    correo = data.get("correo")
-    password = data.get("contrasena")
     if not correo or not password:
-        return jsonify({"error": "Correo y contraseña son requeridos"}), 400
+        return json_response({"error": "Correo y contraseña son requeridos"}, 400)
 
     user = usuario_service.login_user(correo, password)
     if not user:
-        return jsonify({"error": "Credenciales inválidas"}), 401
+        return json_response({"error": "Credenciales inválidas"}, 401)
 
-    return jsonify(user.to_dict()), 200
+    return json_response(_public_user_dict(user))
