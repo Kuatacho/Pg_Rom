@@ -28,3 +28,14 @@ class Config:
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JSON_SORT_KEYS = False
+    # ----- Configuración de Flask-Mail -----
+    MAIL_SERVER = os.getenv("MAIL_SERVER", "smtp.gmail.com")
+    MAIL_PORT = int(os.getenv("MAIL_PORT", 587))
+    MAIL_USE_TLS = os.getenv("MAIL_USE_TLS", "true").lower() in ["true", "1", "t"]
+    MAIL_USE_SSL = os.getenv("MAIL_USE_SSL", "false").lower() in ["true", "1", "t"]
+    MAIL_USERNAME = os.getenv("MAIL_USERNAME")  # tu correo
+    MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")  # tu app password
+    MAIL_DEFAULT_SENDER = (
+        os.getenv("MAIL_DEFAULT_NAME", "Soporte"),
+        os.getenv("MAIL_DEFAULT_EMAIL", os.getenv("MAIL_USERNAME"))
+    )

@@ -3,9 +3,11 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from app.config import Config
+from flask_mail import Mail
 
 db = SQLAlchemy()
 migrate = Migrate()
+mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -15,9 +17,10 @@ def create_app(config_class=Config):
     # the payload matches the field order defined in the models.
     app.config["JSON_SORT_KEYS"] = False
     CORS(app, resources={r"/api/*": {"origins": "*"}})
-
+    #inicializas
     db.init_app(app)
     migrate.init_app(app, db)
+    mail.init_app(app)
 
     # importa modelos (opcional pero útil)
     from app.models import Usuario, Leccion, Nota, Rol, Recuperacion  # noqa
@@ -25,5 +28,6 @@ def create_app(config_class=Config):
     # registra rutas
     from app.routes import bp
     app.register_blueprint(bp, url_prefix="/api")
+
 
     return app
