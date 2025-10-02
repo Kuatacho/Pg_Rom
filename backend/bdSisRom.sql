@@ -187,5 +187,5 @@ ORDER BY Promedio DESC;
 
 -------- verifica recuperacion table
 
- select * from usuarios
+ select * from usuarios ;
 select * from recuperacion
