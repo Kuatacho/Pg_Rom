@@ -22,6 +22,18 @@ export const routes: Routes = [
       import('./features/auth/login/login')
         .then(m => m.LoginComponent),
   },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./features/admin/components/register-form/register-form')
+        .then(m => m.RegisterFormComponent),
+  },
+  {
+    path: 'notas',
+    loadComponent: () =>
+      import('./features/admin/components/notas-estudiantes/notas-estudiantes')
+        .then(m => m.NotasEstudiantesComponent),
+  },
 
   // ---------- PRIVADAS ----------
   {

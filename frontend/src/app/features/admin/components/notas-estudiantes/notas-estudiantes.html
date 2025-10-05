@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="min-h-screen bg-[#8b6b46] flex flex-col items-center py-10 px-4">
+  <h2 class="text-3xl font-semibold tracking-wide text-white mb-8">NOTAS</h2>
+
+  <div class="w-full max-w-5xl bg-[#bfa47a] rounded-2xl shadow-lg overflow-hidden">
+    <table class="min-w-full text-sm text-left text-[#2b1b10]">
+      <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
+      <tr>
+        <th class="px-6 py-3">Nombre</th>
+        <th class="px-6 py-3">Apellido</th>
+        <th class="px-6 py-3">Módulo</th>
+        <th class="px-6 py-3">Sección</th>
+        <th class="px-6 py-3">Nota</th>
+        <th class="px-6 py-3">Fecha</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr
+        *ngFor="let n of notas"
+        class="border-b border-[#a88b66] hover:bg-[#e2c8a4] transition duration-200"
+      >
+        <td class="px-6 py-4 font-medium">{{ n.nombre }}</td>
+        <td class="px-6 py-4">{{ n.apellido }}</td>
+        <td class="px-6 py-4">{{ n.modulo }}</td>
+        <td class="px-6 py-4">{{ n.seccion }}</td>
+        <td class="px-6 py-4">{{ n.nota }}</td>
+        <td class="px-6 py-4">{{ n.fecha | date: 'dd/MM/yyyy' }}</td>
+      </tr>
+
+      <tr *ngIf="notas.length === 0">
+        <td
+          colspan="6"
+          class="text-center py-6 text-[#2b1b10]/80 italic"
+        >
+          No hay registros disponibles
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container mt-5 max-w-lg mx-auto bg-white p-6 rounded-2xl shadow-lg">
+  <h2 class="text-center text-xl font-semibold mb-4">Registro de Usuario</h2>
+
+  <form  (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre" class="w-full p-2 border rounded" />
+    </div>
+
+    <div>
+      <label>Apellido:</label>
+      <input type="text" formControlName="apellido" class="w-full p-2 border rounded" />
+    </div>
+    <div>
+      <label>Genero:</label>
+      <input type="text" formControlName="genero" class="w-full p-2 border rounded" />
+    </div>
+
+    <div>
+      <label>Telefono:</label>
+      <input type="text" formControlName="genero" class="w-full p-2 border rounded" />
+    </div>
+
+    <div>
+      <label>Correo:</label>
+      <input type="email" formControlName="correo" class="w-full p-2 border rounded" />
+    </div>
+
+    
+
+    <div>
+      <label>Rol:</label>
+      <select formControlName="rol" class="w-full p-2 border rounded">
+        <option value="">Seleccione un rol</option>
+      <!-- <option *ngFor="let r of roles" [value]="r">{{ r }}</option>-->
+      </select>
+    </div>
+
+    <button type="submit" class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700">
+      Registrar Usuario
+    </button>
+  </form>
+
+ <!-- <p *ngIf="successMessage" class="text-green-600 mt-3 text-center">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="text-red-600 mt-3 text-center">{{ errorMessage }}</p>-->
+</div>
