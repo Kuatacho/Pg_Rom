@@ -1,33 +1,25 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from app.config import Config
-from flask_mail import Mail
-
-db = SQLAlchemy()
-migrate = Migrate()
-mail = Mail()
+from app.extensions import *  # ⬅️ importamos desde extensions
+# registra rutas
+from app.routes import bp
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-
-    # Preserve the ordering of keys when returning JSON responses so that
-    # the payload matches the field order defined in the models.
-    app.config["JSON_SORT_KEYS"] = False
     CORS(app, resources={r"/api/*": {"origins": "*"}})
-    #inicializas
+    #conf de jwt
+    app.config["JWT_SECRET_KEY"]='123'
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"]=3600
+    # inicializaciones
     db.init_app(app)
     migrate.init_app(app, db)
     mail.init_app(app)
-
-    # importa modelos (opcional pero útil)
-    from app.models import Usuario, Leccion, Nota, Rol, Recuperacion  # noqa
-
-    # registra rutas
-    from app.routes import bp
+    jwt.init_app(app)
+    # Mantiene orden del json
+    app.config["JSON_SORT_KEYS"] = False
+    # registramos rutas
     app.register_blueprint(bp, url_prefix="/api")
-
 
     return app

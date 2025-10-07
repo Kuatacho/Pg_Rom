@@ -1,5 +1,5 @@
 # app/models/recuperacion.py
-from app import db
+from app.extensions import db
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 

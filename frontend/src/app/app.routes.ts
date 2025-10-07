@@ -13,13 +13,13 @@ export const routes: Routes = [
   {
   path: 'recuperar',
   loadComponent: () =>
-    import('./features/auth/forgot/forgot')
+    import('./features/auth/components/forgot/forgot')
       .then(m => m.Forgot),
 },
   {
     path: 'login',
     loadComponent: () =>
-      import('./features/auth/login/login')
+      import('./features/auth/components/login/login')
         .then(m => m.LoginComponent),
   },
   {
@@ -46,7 +46,7 @@ export const routes: Routes = [
     path: 'learning',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./features/learning/learning').then(m => m.Learning),
+      import('./features/learning/components/learning').then(m => m.Learning),
   },
   {
     path: 'hand-prediction',

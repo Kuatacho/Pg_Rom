@@ -47,34 +47,19 @@ def obtener_usuario(user_id: int):
     return json_response(_public_user_dict(u))
 
 
-# --- Registrar usuario ---
-@bp.post("/usuarios/register")
-def registrar_usuario():
-    data = request.get_json(silent=True) or {}
-    try:
-        user, plain_password = usuario_service.create_user(data)
-        return json_response(OrderedDict([
-            ("usuario", _public_user_dict(user)),
-            ("password", plain_password)
-        ]), 201)
-    except ValueError as ve:
-        return json_response({"error": str(ve)}, 400)
-    except Exception as e:
-        return json_response({"error": f"Error interno: {str(e)}"}, 500)
 
-
-# --- Login de usuario ---
-@bp.post("/usuarios/login")
-def login_usuario():
-    data = request.get_json(silent=True) or {}
-    correo = (data.get("correo") or "").strip().lower()
-    password = data.get("contrasena") or ""
-
-    if not correo or not password:
-        return json_response({"error": "Correo y contraseña son requeridos"}, 400)
-
-    user = usuario_service.login_user(correo, password)
-    if not user:
-        return json_response({"error": "Credenciales inválidas"}, 401)
-
-    return json_response(_public_user_dict(user))
+# # --- Login de usuario ---
+# @bp.post("/usuarios/login")
+# def login_usuario():
+#     data = request.get_json(silent=True) or {}
+#     correo = (data.get("correo") or "").strip().lower()
+#     password = data.get("contrasena") or ""
+#
+#     if not correo or not password:
+#         return json_response({"error": "Correo y contraseña son requeridos"}, 400)
+#
+#     user = usuario_service.login_user(correo, password)
+#     if not user:
+#         return json_response({"error": "Credenciales inválidas"}, 401)
+#
+#     return json_response(_public_user_dict(user))
