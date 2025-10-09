@@ -1,0 +1,11 @@
+.input {
+  @apply w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203];
+}
+
+.btn-primary {
+  @apply bg-[#322203] text-[#ebebeb] rounded-xl py-2 font-semibold hover:bg-[#1f1502] transition;
+}
+
+.btn-secondary {
+  @apply border border-[#322203] text-[#322203] rounded-xl py-2 font-semibold hover:bg-[#322203]/10 transition;
+}
