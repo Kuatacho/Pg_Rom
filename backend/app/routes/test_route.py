@@ -7,7 +7,7 @@ from app.utils.decorators import role_required
 
 @bp.get('test/jwt')
 @jwt_required()
-@role_required(['admin'])
+@role_required(['Administrador'])
 def jwt_test():
     return jsonify({"msg": "jwt works!"
                     }),200

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
+import {AuthGuard} from './core/guards/auth.guard';
 
 export const routes: Routes = [
   // ----------   PÚBLICAS ----------
@@ -24,9 +24,10 @@ export const routes: Routes = [
   },
   {
     path: 'register',
+    canActivate: [AuthGuard],
     loadComponent: () =>
-      import('./features/admin/components/register-form/register-form')
-        .then(m => m.RegisterFormComponent),
+      import('./features/auth/components/register/register')
+        .then(m => m.Register),
   },
   {
     path: 'notas',
@@ -38,31 +39,31 @@ export const routes: Routes = [
   // ---------- PRIVADAS ----------
   {
     path: 'modulos',
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/modulos/modulos').then(m => m.Modulos),
   },
   {
     path: 'learning',
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/learning/components/learning').then(m => m.Learning),
   },
   {
     path: 'hand-prediction',
-    canActivate: [authGuard],
+    canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/hand-prediction/components/hand-prediction')
         .then(m => m.HandPrediction),
   },
-  {
-    //to do dashboard
-    path: 'dashboard',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./features/dashboard/dashboard')
-        .then(m => m.Dashboard),
-  },
+  // {
+  //   //todo dashboard
+  //   // path: 'dashboard',
+  //   // canActivate: [authGuard],
+  //   // loadComponent: () =>
+  //   //   import('./features/dashboard/dashboard')
+  //   //     .then(m => m.Dashboard),
+  // },
 
   // ---------- WILDCARD ----------
   { path: '**', redirectTo: '/home' },

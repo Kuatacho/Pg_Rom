@@ -8,7 +8,7 @@ from app.routes import bp
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}})
     #conf de jwt
     app.config["JWT_SECRET_KEY"]='123'
     app.config["JWT_ACCESS_TOKEN_EXPIRES"]=3600

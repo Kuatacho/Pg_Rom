@@ -1,0 +1,156 @@
+
+<app-navbar></app-navbar>
+<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-gradient-to-br from-[#ebebeb] to-white">
+
+  <div class="w-full max-w-5xl bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
+    <div class="grid md:grid-cols-2">
+
+      <!-- LADO IMAGEN -->
+      <div class="relative hidden md:block">
+        <img
+          src="https://media.istockphoto.com/id/1282304865/es/vector/ilustraci%C3%B3n-de-personas-aprendiendo-lenguaje-de-se%C3%B1as.jpg?s=612x612&w=0&k=20&c=nEugZGnexg6X2YZmWE9Foe6sYcyEHz7GmAnpn2qgypg="
+          alt="Registro de usuario"
+          class="h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-[#322203]/10 mix-blend-multiply pointer-events-none"></div>
+        <div class="absolute bottom-4 left-4 right-4 text-white drop-shadow pointer-events-none">
+          <h2 class="text-xl font-bold">Únete a VISION</h2>
+          <p class="text-sm opacity-90">Aprende, enseña y practica con IA.</p>
+        </div>
+      </div>
+
+      <!-- LADO FORMULARIO -->
+      <div class="p-6 sm:p-8 relative z-10">
+        <div class="mb-6 text-center">
+          <h1 class="text-3xl font-extrabold tracking-wide text-[#322203]">Crea tu cuenta</h1>
+          <p class="text-sm text-gray-600 mt-1">Empieza tu viaje en lenguaje de señas 🤟</p>
+        </div>
+
+        <!-- FORMULARIO -->
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+          <!-- NOMBRE -->
+          <div>
+            <label class="block text-sm font-medium mb-1">Nombre</label>
+            <input
+              type="text"
+              formControlName="nombre"
+              placeholder="Sebastián"
+              class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+            />
+            <p *ngIf="form.controls.nombre.touched && form.controls.nombre.invalid" class="text-sm text-red-600 mt-1">
+              Nombre requerido.
+            </p>
+          </div>
+
+          <!-- APELLIDOS -->
+          <div>
+            <label class="block text-sm font-medium mb-1">Apellidos</label>
+            <input
+              type="text"
+              formControlName="apellidos"
+              placeholder="Romero"
+              class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+            />
+            <p *ngIf="form.controls.apellidos.touched && form.controls.apellidos.invalid" class="text-sm text-red-600 mt-1">
+              Apellidos requeridos.
+            </p>
+          </div>
+
+          <!-- CORREO -->
+          <div>
+            <label class="block text-sm font-medium mb-1">Correo</label>
+            <input
+              type="email"
+              formControlName="correo"
+              placeholder="ejemplo@correo.com"
+              class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+            />
+            <p *ngIf="form.controls.correo.touched && form.controls.correo.invalid" class="text-sm text-red-600 mt-1">
+              Correo inválido.
+            </p>
+          </div>
+
+          <!-- CONTRASEÑA -->
+          <div>
+            <label class="block text-sm font-medium mb-1">Contraseña</label>
+            <input
+              type="password"
+              formControlName="contrasena"
+              placeholder="Mínimo 6 caracteres"
+              class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+            />
+            <p *ngIf="form.controls.contrasena.touched && form.controls.contrasena.invalid" class="text-sm text-red-600 mt-1">
+              Contraseña inválida.
+            </p>
+          </div>
+
+          <!-- GENERO + FECHA -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Género</label>
+              <select
+                formControlName="genero"
+                class="w-full rounded-xl border border-gray-300 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+              >
+                <option value="">Seleccionar</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Fecha de nacimiento</label>
+              <input
+                type="date"
+                formControlName="fecha_nacimiento"
+                class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+              />
+            </div>
+          </div>
+
+          <!-- CELULAR -->
+          <div>
+            <label class="block text-sm font-medium mb-1">Celular</label>
+            <input
+              type="text"
+              formControlName="celular"
+              placeholder="70123456"
+              class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203]"
+            />
+          </div>
+
+          <!-- BOTÓN -->
+          <button
+            type="submit"
+            [disabled]="loading()"
+            class="w-full mt-2 rounded-xl py-2 shadow font-semibold disabled:opacity-60 bg-[#322203] text-[#ebebeb] hover:bg-[#1f1502] transition focus:outline-none focus:ring-4 focus:ring-[#322203]/30"
+          >
+            <ng-container *ngIf="!loading(); else loadingTpl">Registrarme</ng-container>
+          </button>
+          <ng-template #loadingTpl>
+            <span class="inline-flex items-center gap-2">
+              <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" fill="currentColor"></path>
+              </svg>
+              Registrando…
+            </span>
+          </ng-template>
+        </form>
+
+        <!-- MENSAJES -->
+        <p *ngIf="error()" class="text-sm text-red-600 text-center mt-4">{{ error() }}</p>
+        <p *ngIf="success()" class="text-sm text-green-600 text-center mt-4">✅ Registro exitoso, redirigiendo...</p>
+
+        <!-- ENLACE LOGIN -->
+        <div class="text-center text-sm mt-6">
+          <p class="text-gray-600">¿Ya tienes cuenta?
+            <a routerLink="/auth/login" class="text-[#322203] font-medium hover:underline">Inicia sesión</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
