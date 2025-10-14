@@ -21,7 +21,7 @@ interface Nota {
   imports: [
     CommonModule,
     HttpClientModule,
-    Navbar  // si luego quieres mostrarlo
+
   ]
 })
 export class NotasEstudiantesComponent implements OnInit {

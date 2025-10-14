@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../../core/services/api.service';
+import {TokenService} from '../../../../core/services/token.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,7 @@ export class Login {
   private fb = inject(FormBuilder);
   private api = inject(ApiService);
   private router = inject(Router);
+  private token=inject(TokenService);
 
   loading = signal(false);
   error = signal<string | null>(null);
@@ -35,7 +38,7 @@ export class Login {
     this.api.login(this.form.value as any).subscribe({
       next: () => {
         this.loading.set(false);
-        this.router.navigate(['/home']);
+        this.router.navigate([this.token.getDefaultRedirect()]);
       },
       error: (err) => {
         this.loading.set(false);

@@ -1,9 +1,10 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {AuthGuard} from './core/guards/auth.guard';
+import {RoleGuard} from './core/guards/role.guard';
 
 export const routes: Routes = [
   // ----------   PÚBLICAS ----------
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
 
   {
     path: 'home',
@@ -11,24 +12,18 @@ export const routes: Routes = [
       import('./features/home/home').then(m => m.Home),
   },
   {
-  path: 'recuperar',
-  loadComponent: () =>
-    import('./features/auth/components/forgot/forgot')
-      .then(m => m.Forgot),
-},
+    path: 'recuperar',
+    loadComponent: () =>
+      import('./features/auth/components/forgot/forgot')
+        .then(m => m.Forgot),
+  },
   {
     path: 'login',
     loadComponent: () =>
       import('./features/auth/components/login/login')
         .then(m => m.Login),
   },
-  {
-    path: 'register',
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import('./features/auth/components/register/register')
-        .then(m => m.Register),
-  },
+
   {
     path: 'notas',
     loadComponent: () =>
@@ -56,15 +51,41 @@ export const routes: Routes = [
       import('./features/hand-prediction/components/hand-prediction')
         .then(m => m.HandPrediction),
   },
-  // {
-  //   //todo dashboard
-  //   // path: 'dashboard',
-  //   // canActivate: [authGuard],
-  //   // loadComponent: () =>
-  //   //   import('./features/dashboard/dashboard')
-  //   //     .then(m => m.Dashboard),
-  // },
+
+
+
+//ROL ADMIN!
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, RoleGuard],
+    data: {roles: ['Administrador']},
+    loadComponent: () =>
+      import('./features/admin/components/admin-layout/admin-layout')
+        .then(m => m.AdminLayout),
+    children: [
+      {
+        path: '',
+        redirectTo: 'register',
+        pathMatch: 'full',
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./features/admin/components/register-form/register-form')
+            .then(m => m.RegisterForm),
+      },
+      {
+        path: 'notas',
+        loadComponent: () =>
+          import('./features/admin/components/notas-estudiantes/notas-estudiantes')
+            .then(m => m.NotasEstudiantesComponent),
+      }
+
+    ]
+
+  },
+
 
   // ---------- WILDCARD ----------
-  { path: '**', redirectTo: '/home' },
+  {path: '**', redirectTo: '/home'},
 ];

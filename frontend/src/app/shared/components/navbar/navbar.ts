@@ -36,11 +36,12 @@ export class Navbar {
 
   // Normaliza para tu template: name + email
   get user() {
-    const u = this.token.getUser<{ nombre: string; apellidos: string; correo: string }>();
+    const u = this.token.getUser<{ nombre: string; apellidos: string; correo: string;rol:string; }>();
     if (!u) return null;
     return {
       name: `${u.nombre} ${u.apellidos}`.trim(),
-      email: u.correo
+      email: u.correo,
+      rol:u.rol
     };
   }
 }

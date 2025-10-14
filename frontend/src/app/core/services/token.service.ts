@@ -21,6 +21,13 @@ export class TokenService {
     localStorage.removeItem(this.key);
   }
 
+  getDefaultRedirect(): string{
+    const user= this.getUser<{rol:string}>();
+    if(!user) return '/login';
+    return user.rol === 'Administrador' ? '/admin' : '/modulos'
+
+  }
+
   isLoggedIn(): boolean {
     return !!this.getToken();
   }

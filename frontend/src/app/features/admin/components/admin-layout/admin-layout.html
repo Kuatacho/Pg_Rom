@@ -1,0 +1,36 @@
+<div class="flex min-h-screen bg-[#f9f9f9]">
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-[#322203] text-[#ebebeb] flex flex-col justify-between shadow-xl">
+    <div>
+      <div class="text-center py-6 border-b border-[#ebebeb]/20">
+        <h2 class="text-2xl font-bold tracking-wide">ADMIN PANEL</h2>
+        <p class="text-sm text-[#ebebeb]/80 mt-1">Gestión de Estudiantes</p>
+      </div>
+
+      <nav class="mt-6">
+        <a routerLink="/admin/register" routerLinkActive="active-link"
+           class="flex items-center gap-3 px-6 py-3 hover:bg-[#1f1502] transition">
+          <fa-icon [icon]="faUserPlus"></fa-icon>
+          <span>Registrar Usuario</span>
+        </a>
+        <a routerLink="/admin/notas" routerLinkActive="active-link"
+           class="flex items-center gap-3 px-6 py-3 hover:bg-[#1f1502] transition">
+          <fa-icon [icon]="faChartBar"></fa-icon>
+          <span>Notas Estudiantes</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-4 border-t border-[#ebebeb]/20">
+      <button (click)="logout()" class="flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-[#1f1502] rounded-lg transition">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-1 p-8 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -6,13 +6,13 @@ import { ApiService } from '../../../../core/services/api.service';
 import {Navbar} from '../../../../shared/components/navbar/navbar';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-register-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, Navbar],
-  templateUrl: './register.html',
-  styleUrls: ['./register.css'],
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './register-form.html',
+  styleUrls: ['./register-form.css'],
 })
-export class Register{
+export class RegisterForm {
   private fb = inject(FormBuilder);
   private api = inject(ApiService);
   private router = inject(Router);
