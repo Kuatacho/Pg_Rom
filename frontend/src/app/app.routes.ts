@@ -53,7 +53,6 @@ export const routes: Routes = [
   },
 
 
-
 //ROL ADMIN!
   {
     path: 'admin',

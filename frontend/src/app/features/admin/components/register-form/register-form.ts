@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../../core/services/api.service';
-import {Navbar} from '../../../../shared/components/navbar/navbar';
 
 @Component({
   selector: 'app-register-form',
@@ -19,19 +18,26 @@ export class RegisterForm {
 
   loading = signal(false);
   error = signal<string | null>(null);
-
-  // 👇 Nuevo: estado del modal
   showModal = signal(false);
   nuevoUsuario = signal<{ nombre: string; contrasena: string } | null>(null);
+
+  //roles
+  roles=signal<string[]>([]);
+
 
   form = this.fb.group({
     nombre: ['', [Validators.required, Validators.minLength(2)]],
     apellidos: ['', [Validators.required, Validators.minLength(2)]],
     correo: ['', [Validators.required, Validators.email]],
     genero: [''],
-    fecha_nacimiento: [''],
+    fecha_nacimiento: ['', Validators.required],
     celular: ['', [Validators.pattern(/^[0-9]{8,15}$/)]],
+    rol: ['User', Validators.required], // valor por defecto
   });
+
+  ngOnInit() {
+    this.cargarRoles();
+  }
 
   submit() {
     this.error.set(null);
@@ -41,15 +47,12 @@ export class RegisterForm {
     }
 
     this.loading.set(true);
-    this.api.register(this.form.value as any).subscribe({
+    this.api.register(this.form.value).subscribe({
       next: (res: any) => {
         this.loading.set(false);
         const nombre = res.usuario?.nombre || 'Usuario';
-        const contrasena = res['contrasenia generada'] || 'N/A';
-
-        // Guardar datos para mostrar en modal
+        const contrasena = res['contrasenia_generada'] || 'N/A';
         this.nuevoUsuario.set({ nombre, contrasena });
-        console.log('MOSTRAR MODAL');
         this.showModal.set(true);
       },
       error: (err) => {
@@ -70,5 +73,19 @@ export class RegisterForm {
       navigator.clipboard.writeText(contrasena);
       alert('Contraseña copiada al portapapeles');
     }
+  }
+
+   cargarRoles() {
+    this.api.getRoles().subscribe({
+      next: (res: any) => {
+        this.roles.set(res.map((r: any) => r.nombre));
+        console.log("exito al cargar roles");
+
+      },
+      error: (err) => {
+        console.log('error cargar roles',err);
+      }
+    })
+
   }
 }

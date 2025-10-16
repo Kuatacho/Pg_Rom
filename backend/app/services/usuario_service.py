@@ -5,10 +5,11 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.exc import IntegrityError
 from app import db
-from app.models import Usuario
+from app.models import Usuario, Rol
 
 
-
+def get_all_roles():
+    return Rol.query.all()
 
 
 # --- Obtener todos los usuarios ---
@@ -19,6 +20,8 @@ def get_all_users():
 # --- Obtener usuario por ID ---
 def get_user_by_id(user_id: int):
     return Usuario.query.get(user_id)
+
+
 
 
 

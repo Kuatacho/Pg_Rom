@@ -1,7 +1,9 @@
 # app/routes/usuarios.py
 from collections import OrderedDict
 import json
-from flask import request, Response
+from flask import request, Response, jsonify
+from flask_jwt_extended import jwt_required
+
 from app.routes import bp
 from app.services import usuario_service
 
@@ -31,15 +33,26 @@ def _public_user_dict(u) -> OrderedDict:
     ])
 
 
+
+
+@bp.get('/get-roles')
+@jwt_required()
+def get_roles():
+    roles=usuario_service.get_all_roles()
+    return jsonify([{"id": r.id, "nombre": r.nombre} for r in roles]), 200
+
+
 # --- Listar todos los usuarios ---
-@bp.get("/usuarios")
+@bp.get("/list-usuarios")
+@jwt_required()
 def listar_usuarios():
     usuarios = usuario_service.get_all_users()
     return json_response([_public_user_dict(u) for u in usuarios])
 
 
 # --- Obtener usuario por ID ---
-@bp.get("/usuarios/<int:user_id>")
+@bp.get("/list-usuarios-by/<int:user_id>")
+@jwt_required()
 def obtener_usuario(user_id: int):
     u = usuario_service.get_user_by_id(user_id)
     if not u:
@@ -48,18 +61,4 @@ def obtener_usuario(user_id: int):
 
 
 
-# # --- Login de usuario ---
-# @bp.post("/usuarios/login")
-# def login_usuario():
-#     data = request.get_json(silent=True) or {}
-#     correo = (data.get("correo") or "").strip().lower()
-#     password = data.get("contrasena") or ""
-#
-#     if not correo or not password:
-#         return json_response({"error": "Correo y contraseña son requeridos"}, 400)
-#
-#     user = usuario_service.login_user(correo, password)
-#     if not user:
-#         return json_response({"error": "Credenciales inválidas"}, 401)
-#
-#     return json_response(_public_user_dict(user))
+

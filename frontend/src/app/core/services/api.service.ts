@@ -31,6 +31,11 @@ export class ApiService {
     return this.http.post(`${this.base}${API_CONFIG.auth.register}`, payload);
   }
 
+  getRoles():Observable<any> {
+    return this.http.get(`${this.base}/get-roles`);
+  }
+
+
 // TODO
   // forgotPassword(correo: string): Observable<any> {
   //   return this.http.post(`${this.base}${API_CONFIG.auth.forgot}`, { correo });

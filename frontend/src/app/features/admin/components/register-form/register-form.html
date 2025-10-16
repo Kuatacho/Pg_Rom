@@ -1,45 +1,63 @@
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center bg-gradient-to-br from-[#8b6b46] to-[#b8996c] p-6">
 
-<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-[#8b6b46]">
+  <!-- 🏷️ TÍTULO GLOBAL -->
+  <div class="text-center mb-8">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#322203] tracking-tight drop-shadow-sm">
+      Crea tu cuenta
+    </h1>
+    <p class="text-gray-100/90 mt-1 text-base font-medium">
+      Únete al sistema de gestión de estudiantes
+    </p>
+  </div>
 
-  <div class="w-full max-w-5xl bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
+  <!-- TARJETA PRINCIPAL -->
+  <div class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
     <div class="grid md:grid-cols-2">
 
       <!-- LADO IMAGEN -->
-      <div class="relative hidden md:block">
+      <div class="hidden md:flex items-center justify-center bg-[#f6f2ec]">
         <img
           src="https://cdn-icons-png.flaticon.com/512/6521/6521996.png"
           alt="Registro de usuario"
-          class="h-full w-full object-cover"
+          class="w-2/3 max-w-sm drop-shadow-lg transition-transform duration-500 hover:scale-105"
         />
-        <div class="absolute inset-0 bg-[#322203]/10 mix-blend-multiply pointer-events-none"></div>
       </div>
 
       <!-- LADO FORMULARIO -->
-      <div class="p-6 sm:p-8 relative z-10">
-        <div class="mb-6 text-center">
-          <h1 class="text-3xl font-extrabold tracking-wide text-[#322203]">Crea tu cuenta</h1>
-          <p class="text-sm text-gray-600 mt-1">Empieza tu viaje en lenguaje de señas</p>
-        </div>
-
+      <div class="p-8 md:p-10 bg-[#fbf9f5]">
         <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+          <!-- Nombre -->
           <div>
-            <label class="block text-sm font-medium mb-1">Nombre</label>
+            <label class="label">Nombre</label>
             <input type="text" formControlName="nombre" class="input" placeholder="Sebastián"/>
           </div>
 
+          <!-- Apellidos -->
           <div>
-            <label class="block text-sm font-medium mb-1">Apellidos</label>
+            <label class="label">Apellidos</label>
             <input type="text" formControlName="apellidos" class="input" placeholder="Romero"/>
           </div>
 
+          <!-- Correo -->
           <div>
-            <label class="block text-sm font-medium mb-1">Correo</label>
+            <label class="label">Correo electrónico</label>
             <input type="email" formControlName="correo" class="input" placeholder="correo@ejemplo.com"/>
           </div>
 
+          <!-- Rol -->
+          <div>
+            <label class="label">Rol</label>
+            <select formControlName="rol" class="input">
+              <option *ngFor="let rol of roles()" [value]="rol">{{ rol }}</option>
+            </select>
+          </div>
+
+          <!-- Género + Fecha -->
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="block text-sm font-medium mb-1">Género</label>
+              <label class="label">Género</label>
               <select formControlName="genero" class="input">
                 <option value="">Seleccionar</option>
                 <option value="Masculino">Masculino</option>
@@ -47,20 +65,24 @@
                 <option value="Otro">Otro</option>
               </select>
             </div>
+
             <div>
-              <label class="block text-sm font-medium mb-1">Fecha Nac.</label>
+              <label class="label">Fecha Nac.</label>
               <input type="date" formControlName="fecha_nacimiento" class="input"/>
             </div>
           </div>
 
+          <!-- Celular -->
           <div>
-            <label class="block text-sm font-medium mb-1">Celular</label>
+            <label class="label">Celular</label>
             <input type="text" formControlName="celular" class="input" placeholder="70123456"/>
           </div>
 
-          <button type="submit" [disabled]="loading()" class="btn-primary w-full mt-3">
+          <!-- Botón -->
+          <button type="submit" [disabled]="loading()" class="btn-primary w-full mt-4">
             <ng-container *ngIf="!loading(); else loadingTpl">Registrarme</ng-container>
           </button>
+
           <ng-template #loadingTpl>
             <span class="inline-flex items-center gap-2">
               <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
@@ -70,9 +92,12 @@
               Registrando…
             </span>
           </ng-template>
+
         </form>
 
-        <p *ngIf="error()" class="text-sm text-red-600 text-center mt-4">{{ error() }}</p>
+        <p *ngIf="error()" class="text-sm text-red-600 text-center mt-4 font-medium">
+          {{ error() }}
+        </p>
       </div>
     </div>
   </div>
@@ -80,9 +105,9 @@
 
 <!-- 🌟 MODAL -->
 <div *ngIf="showModal()" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-[9999]">
-  <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm text-center">
-    <h2 class="text-2xl font-bold text-[#322203] mb-2">Registro exitoso!</h2>
-    <p class="text-gray-600 mb-4">Usuario creado correctamente como <strong>Estudiante</strong></p>
+  <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm text-center animate-fadeIn">
+    <h2 class="text-2xl font-bold text-[#322203] mb-2">🎉 Registro exitoso</h2>
+    <p class="text-gray-600 mb-4">Usuario creado correctamente</p>
 
     <div *ngIf="nuevoUsuario() as user">
       <p class="text-lg font-semibold">Nombre: <span class="text-[#322203]">{{ user.nombre }}</span></p>

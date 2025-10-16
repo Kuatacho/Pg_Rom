@@ -7,8 +7,11 @@ from app.routes import bp
 from app.services.auth_service import AuthService
 import json
 from flask import request, Response
-from app.services import mail_service as rs
+from app.services import mail_service as rs, auth_service
 from app.routes import bp  # reutilizamos el blueprint único
+
+
+
 
 
 @bp.post('auth/login')

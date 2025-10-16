@@ -1,11 +1,28 @@
 .input {
-  @apply w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#322203]/30 focus:border-[#322203];
+  @apply w-full rounded-xl border border-gray-300 px-4 py-2.5 text-[#322203]
+  bg-white focus:outline-none focus:ring-2 focus:ring-[#8b6b46]/40
+  focus:border-[#8b6b46] transition;
+}
+
+.label {
+  @apply block text-sm font-semibold mb-1 text-[#3a2c1a];
 }
 
 .btn-primary {
-  @apply bg-[#322203] text-[#ebebeb] rounded-xl py-2 font-semibold hover:bg-[#1f1502] transition;
+  @apply bg-[#322203] text-[#f7f4ef] rounded-xl py-2.5 font-semibold
+  hover:bg-[#1f1502] shadow-md hover:shadow-lg transition;
 }
 
 .btn-secondary {
-  @apply border border-[#322203] text-[#322203] rounded-xl py-2 font-semibold hover:bg-[#322203]/10 transition;
+  @apply border border-[#322203] text-[#322203] rounded-xl py-2
+  font-semibold hover:bg-[#322203]/10 transition;
+}
+
+.animate-fadeIn {
+  @apply animate-[fadeIn_0.4s_ease-in-out];
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
