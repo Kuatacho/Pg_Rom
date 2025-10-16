@@ -24,7 +24,7 @@ export class AdminLayout {
 
   logout(){
     this.token.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
 

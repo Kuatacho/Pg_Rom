@@ -1,8 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ApiService } from '../../../../core/services/api.service';
+import {Component, inject, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormBuilder, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ApiService} from '../../../../core/services/api.service';
 
 @Component({
   selector: 'app-register-form',
@@ -22,21 +22,40 @@ export class RegisterForm {
   nuevoUsuario = signal<{ nombre: string; contrasena: string } | null>(null);
 
   //roles
-  roles=signal<string[]>([]);
+  roles = signal<string[]>([]);
+
+  //expresiones regulares
+  private soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+  private celularRegex = /^[67]\d{7}$/;
 
 
   form = this.fb.group({
-    nombre: ['', [Validators.required, Validators.minLength(2)]],
-    apellidos: ['', [Validators.required, Validators.minLength(2)]],
+    nombre: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.soloLetras)]],
+    apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.soloLetras)]],
     correo: ['', [Validators.required, Validators.email]],
     genero: [''],
-    fecha_nacimiento: ['', Validators.required],
-    celular: ['', [Validators.pattern(/^[0-9]{8,15}$/)]],
+    fecha_nacimiento: ['',[ Validators.required, this.validarEdadMinima]],
+    celular: ['', [Validators.required, Validators.pattern(this.celularRegex)]],
     rol: ['User', Validators.required], // valor por defecto
   });
 
   ngOnInit() {
     this.cargarRoles();
+  }
+
+
+  validarEdadMinima(control: AbstractControl): ValidationErrors | null {
+    const fecha = control.value;
+    if (!fecha) return null;
+
+    const nacimiento = new Date(fecha);
+    const hoy = new Date();
+    const edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const ajusteMes = hoy.getMonth() - nacimiento.getMonth();
+
+    //ajustamos
+    const edadReal = ajusteMes < 0 || (ajusteMes === 0 && hoy.getDate() < nacimiento.getDate()) ? edad - 1 : edad;
+    return edadReal < 7 ?{edadMinima: true} : null;
   }
 
   submit() {
@@ -52,7 +71,7 @@ export class RegisterForm {
         this.loading.set(false);
         const nombre = res.usuario?.nombre || 'Usuario';
         const contrasena = res['contrasenia_generada'] || 'N/A';
-        this.nuevoUsuario.set({ nombre, contrasena });
+        this.nuevoUsuario.set({nombre, contrasena});
         this.showModal.set(true);
       },
       error: (err) => {
@@ -75,7 +94,7 @@ export class RegisterForm {
     }
   }
 
-   cargarRoles() {
+  cargarRoles() {
     this.api.getRoles().subscribe({
       next: (res: any) => {
         this.roles.set(res.map((r: any) => r.nombre));
@@ -83,7 +102,7 @@ export class RegisterForm {
 
       },
       error: (err) => {
-        console.log('error cargar roles',err);
+        console.log('error cargar roles', err);
       }
     })
 

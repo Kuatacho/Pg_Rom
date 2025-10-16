@@ -22,7 +22,7 @@
           class="flex items-center justify-center w-12 h-12 bg-[#322203] rounded-full hover:bg-[#1f1502] focus:outline-none focus:ring-4 focus:ring-[#322203]/40 transition duration-200">
           <span class="sr-only">Abrir menú de usuario</span>
           <fa-icon [icon]="faUserCircle"
-            class="text-[#ebebeb] text-4xl"></fa-icon>
+                   class="text-[#ebebeb] text-4xl"></fa-icon>
         </button>
 
         <!-- Dropdown -->
@@ -30,18 +30,22 @@
           *ngIf="isDropdownOpen"
           class="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg transition-all duration-200 origin-top-right z-50">
           <div class="px-4 py-3" *ngIf="user">
-            <span class="block text-sm font-medium text-[#322203]">{{ user.name
+            <span class="block text-sm font-medium text-[#322203]">{{
+                user.name
               }}</span>
-            <span class="block text-sm text-gray-500 truncate">{{ user.email
+            <span class="block text-sm text-gray-500 truncate">{{
+                user.email
               }}</span>
           </div>
           <ul class="py-2 text-sm text-gray-700">
             <li><a routerLink="/perfil" (click)="closeDropdown()"
-                class="block px-4 py-2 hover:bg-[#ebebeb]">Perfil</a></li>
-            <li><a routerLink="/configuracion" (click)="closeDropdown()"
-                class="block px-4 py-2 hover:bg-[#ebebeb]">Configuración</a></li>
-            <li><button (click)="logout(); closeDropdown()"
-                class="w-full text-left block px-4 py-2 hover:bg-[#ebebeb]">Salir</button></li>
+                   class="block px-4 py-2 hover:bg-[#ebebeb]">Perfil</a></li>
+
+            <li>
+              <button (click)="logout(); closeDropdown()"
+                      class="w-full text-left block px-4 py-2 hover:bg-[#ebebeb]">Salir
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -55,10 +59,10 @@
         <span class="sr-only">Abrir menú principal</span>
         <!-- Hamburguer -->
         <svg class="w-6 h-6 transition-transform duration-300"
-          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
+             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
+                d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
@@ -73,39 +77,36 @@
         <!-- Siempre públicos -->
         <li>
           <a routerLink="/home" routerLinkActive="active-link"
-            class="nav-link text-[#322203] hover:text-black">Home</a>
+             class="nav-link text-[#322203] hover:text-black">Home</a>
         </li>
         <li>
           <a routerLink="/contacto" routerLinkActive="active-link"
-            class="nav-link text-[#322203] hover:text-black">Contacto</a>
+             class="nav-link text-[#322203] hover:text-black">Contacto</a>
         </li>
 
         <!-- Si está logueado -->
         <ng-container *ngIf="isLoggedIn(); else loginLink">
           <li>
             <a routerLink="/modulos" routerLinkActive="active-link"
-              class="nav-link text-[#322203] hover:text-black">Módulos</a>
+               class="nav-link text-[#322203] hover:text-black">Módulos</a>
           </li>
           <li>
             <a routerLink="/learning" routerLinkActive="active-link"
-              class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>
+               class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>
           </li>
           <li>
             <a routerLink="/hand-prediction" routerLinkActive="active-link"
-              class="nav-link text-[#322203] hover:text-black">Predicción</a>
+               class="nav-link text-[#322203] hover:text-black">Predicción</a>
           </li>
 
-          <li>
-            <a routerLink="/register" routerLinkActive="active-link"
-               class="nav-link text-[#322203] hover:text-black">Registrar a Estudiante</a>
-          </li>
+
         </ng-container>
 
         <!-- Si NO está logueado -->
         <ng-template #loginLink>
           <li>
             <a routerLink="/login" routerLinkActive="active-link"
-              class="nav-link text-[#322203] hover:text-black font-semibold">
+               class="nav-link text-[#322203] hover:text-black font-semibold">
               Ingresar
             </a>
           </li>

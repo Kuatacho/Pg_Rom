@@ -47,6 +47,7 @@ export const routes: Routes = [
   {
     path: 'hand-prediction',
     canActivate: [AuthGuard],
+
     loadComponent: () =>
       import('./features/hand-prediction/components/hand-prediction')
         .then(m => m.HandPrediction),

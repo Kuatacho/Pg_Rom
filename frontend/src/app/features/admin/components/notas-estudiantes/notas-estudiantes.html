@@ -1,42 +1,69 @@
+<div class="min-h-screen bg-gradient-to-br from-[#8b6b46] to-[#b8996c] flex flex-col items-center py-10 px-4">
+  <!-- Título -->
+  <h1 class="text-4xl md:text-5xl font-extrabold text-[#322203] tracking-tight drop-shadow-sm">
+    Listado de Estudiantes
+  </h1>
+  <p class="text-gray-100/90 mt-1 text-base font-medium">
+    Consulta las notas del estudiante que desees
+  </p>
+  <br>
 
-<div class="min-h-screen bg-[#8b6b46] flex flex-col items-center py-10 px-4">
-  <h2 class="text-3xl font-semibold tracking-wide text-white mb-8">NOTAS</h2>
+  <!-- Contenedor de tabla -->
+  <div class="w-full max-w-5xl bg-[#f9f7f3] rounded-3xl shadow-2xl overflow-hidden border border-[#3e2a13]/10">
+    <!-- Encabezado de sección -->
+    <div class="bg-[#3e2a13] text-white px-6 py-4 flex justify-between items-center">
+      <h3 class="text-lg font-semibold ">Listado General</h3>
+<!--      <span class="text-sm bg-[#8b6b46] px-3 py-1 rounded-full">Total: {{ notas.length }}</span>-->
+    </div>
 
-  <div class="w-full max-w-5xl bg-[#bfa47a] rounded-2xl shadow-lg overflow-hidden">
-    <table class="min-w-full text-sm text-left text-[#2b1b10]">
-      <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
-      <tr>
-        <th class="px-6 py-3">Nombre</th>
-        <th class="px-6 py-3">Apellido</th>
-        <th class="px-6 py-3">Módulo</th>
-        <th class="px-6 py-3">Sección</th>
-        <th class="px-6 py-3">Nota</th>
-        <th class="px-6 py-3">Fecha</th>
-      </tr>
-      </thead>
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-[#2b1b10]">
+        <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
+        <tr>
+          <th class="px-6 py-3 text-center">Nombre</th>
+          <th class="px-6 py-3 text-center">Apellido</th>
+          <th class="px-6 py-3 text-center">Lección</th>
+          <th class="px-6 py-3 text-center">Promedio Nota</th>
+          <th class="px-6 py-3 text-center">Fecha</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      <tr
-        *ngFor="let n of notas"
-        class="border-b border-[#a88b66] hover:bg-[#e2c8a4] transition duration-200"
-      >
-        <td class="px-6 py-4 font-medium">{{ n.nombre }}</td>
-        <td class="px-6 py-4">{{ n.apellido }}</td>
-        <td class="px-6 py-4">{{ n.modulo }}</td>
-        <td class="px-6 py-4">{{ n.seccion }}</td>
-        <td class="px-6 py-4">{{ n.nota }}</td>
-        <td class="px-6 py-4">{{ n.fecha | date: 'dd/MM/yyyy' }}</td>
-      </tr>
-
-      <tr *ngIf="notas.length === 0">
-        <td
-          colspan="6"
-          class="text-center py-6 text-[#2b1b10]/80 italic"
+        <tbody>
+        <!-- Filas -->
+        <tr
+          *ngFor="let n of notas"
+          class="border-b border-[#e5d7bf] hover:bg-[#f2e4cd] transition-colors duration-200 text-center"
         >
-          No hay registros disponibles
-        </td>
-      </tr>
-      </tbody>
-    </table>
+          <td class="px-6 py-4 font-medium text-[#322203]">{{ n.nombre }}</td>
+          <td class="px-6 py-4">{{ n.apellido }}</td>
+          <td class="px-6 py-4">{{ n.leccion }}</td>
+
+          <!-- Nota con color según promedio -->
+          <td class="px-6 py-4">
+              <span
+                class="px-3 py-1 rounded-full font-semibold text-xs"
+                [ngClass]="{
+                  'bg-green-100 text-green-700': n.nota >= 85,
+                  'bg-yellow-100 text-yellow-700': n.nota >= 70 && n.nota < 85,
+                  'bg-red-100 text-red-700': n.nota < 70
+                }"
+              >
+                {{ n.nota | number: '1.0-2' }}
+              </span>
+          </td>
+
+          <td class="px-6 py-4 text-[#5a4324]">{{ n.fecha | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+
+        <!-- Mensaje sin registros -->
+        <tr *ngIf="notas.length === 0">
+          <td colspan="5" class="text-center py-8 text-[#2b1b10]/80 italic">
+            No hay registros disponibles
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

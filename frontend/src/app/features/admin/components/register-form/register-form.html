@@ -1,13 +1,13 @@
 <!-- CONTENEDOR PRINCIPAL -->
-<div class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center bg-gradient-to-br from-[#8b6b46] to-[#b8996c] p-6">
+<div class="min-h-screen bg-gradient-to-br from-[#8b6b46] to-[#b8996c] flex flex-col items-center py-10 px-4">
 
   <!-- 🏷️ TÍTULO GLOBAL -->
   <div class="text-center mb-8">
     <h1 class="text-4xl md:text-5xl font-extrabold text-[#322203] tracking-tight drop-shadow-sm">
-      Crea tu cuenta
+      Crea una cuenta
     </h1>
     <p class="text-gray-100/90 mt-1 text-base font-medium">
-      Únete al sistema de gestión de estudiantes
+      Registra a tu personal a VISION
     </p>
   </div>
 
@@ -28,22 +28,43 @@
       <div class="p-8 md:p-10 bg-[#fbf9f5]">
         <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
 
-          <!-- Nombre -->
+          <!-- NOMBRE -->
           <div>
             <label class="label">Nombre</label>
-            <input type="text" formControlName="nombre" class="input" placeholder="Sebastián"/>
+            <input type="text" formControlName="nombre" class="input" placeholder=""/>
+            <p *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid" class="error">
+              <span *ngIf="form.get('nombre')?.errors?.['required']">El nombre es obligatorio.</span>
+              <span *ngIf="form.get('nombre')?.errors?.['pattern']">Solo se permiten letras.</span>
+              <span *ngIf="form.get('nombre')?.errors?.['minlength']">Debe tener al menos 2 caracteres.</span>
+            </p>
           </div>
 
-          <!-- Apellidos -->
+          <!-- APELLIDOS -->
           <div>
             <label class="label">Apellidos</label>
-            <input type="text" formControlName="apellidos" class="input" placeholder="Romero"/>
+            <input type="text" formControlName="apellidos" class="input" placeholder=""/>
+            <p *ngIf="form.get('apellidos')?.touched && form.get('apellidos')?.invalid" class="error">
+              <span *ngIf="form.get('apellidos')?.errors?.['required']">Los apellidos son obligatorios.</span>
+              <span *ngIf="form.get('apellidos')?.errors?.['pattern']">Solo se permiten letras.</span>
+            </p>
           </div>
 
           <!-- Correo -->
           <div>
             <label class="label">Correo electrónico</label>
-            <input type="email" formControlName="correo" class="input" placeholder="correo@ejemplo.com"/>
+            <input
+              type="email"
+              formControlName="correo"
+              class="input"
+              placeholder="correo@ejemplo.com"
+              autocomplete="email"
+            />
+
+            <!-- 🧩 Alerta de validación -->
+            <p *ngIf="form.get('correo')?.touched && form.get('correo')?.invalid" class="error">
+              <span *ngIf="form.get('correo')?.errors?.['required']">El correo electrónico es obligatorio.</span>
+              <span *ngIf="form.get('correo')?.errors?.['email']">Debe tener un formato válido de email .</span>
+            </p>
           </div>
 
           <!-- Rol -->
@@ -66,16 +87,25 @@
               </select>
             </div>
 
+            <!-- FECHA NAC -->
             <div>
               <label class="label">Fecha Nac.</label>
               <input type="date" formControlName="fecha_nacimiento" class="input"/>
+              <p *ngIf="form.get('fecha_nacimiento')?.touched && form.get('fecha_nacimiento')?.invalid" class="error">
+                <span *ngIf="form.get('fecha_nacimiento')?.errors?.['required']">La fecha es obligatoria.</span>
+                <span *ngIf="form.get('fecha_nacimiento')?.errors?.['edadMinima']">Debe tener al menos 7 años.</span>
+              </p>
             </div>
           </div>
 
-          <!-- Celular -->
+          <!-- CELULAR -->
           <div>
             <label class="label">Celular</label>
-            <input type="text" formControlName="celular" class="input" placeholder="70123456"/>
+            <input type="text" formControlName="celular" class="input" placeholder=""/>
+            <p *ngIf="form.get('celular')?.touched && form.get('celular')?.invalid" class="error">
+              <span *ngIf="form.get('celular')?.errors?.['required']">El número es obligatorio.</span>
+              <span *ngIf="form.get('celular')?.errors?.['pattern']">Debe tener 8 dígitos y comenzar con 6 o 7.</span>
+            </p>
           </div>
 
           <!-- Botón -->
