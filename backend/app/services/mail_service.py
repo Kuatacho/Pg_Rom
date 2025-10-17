@@ -64,3 +64,31 @@ def resetear_contrasenia(token: str, nueva_password: str) -> bool:
     rec.usado = True
     db.session.commit()
     return True
+
+
+def enviar_credenciales_usuario(nombre: str, correo: str, contrasena: str, rol: str) -> None:
+    # Envia correo con las credenciales al usuario
+    try:
+        msg = Message(
+            subject="Bienvenido al Sistema de Apoyo y Correccion de LSB -> VISION",
+            recipients=[correo],
+            html=f"""
+                    <div style="font-family: Arial, sans-serif; color: #333;">
+                        <h2 style="color: #8b6b46;">¡Hola {nombre}!</h2>
+                        <p>Tu cuenta ha sido creada exitosamente.</p>
+                        <p><strong>Rol asignado:</strong> {rol}</p>
+                        <p>Podrás ingresar con las siguientes credenciales:</p>
+                        <ul>
+                            <li><strong>Correo:</strong> {correo}</li>
+                            <li><strong>Contraseña:</strong> {contrasena}</li>
+                        </ul>
+                        <p>Te recomendamos cambiar la contraseña tras tu primer inicio de sesión.</p>
+                        <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;">
+                        <p style="font-size: 0.9em;">Este mensaje fue generado automáticamente. No respondas a este correo.</p>
+                    </div>
+                    """
+        )
+        mail.send(msg)
+        print (f"Correo enviado a {correo}")
+    except Exception as e:
+        print(f"Error al enviar correo a {correo}: {e}")

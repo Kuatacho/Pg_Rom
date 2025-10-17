@@ -6,10 +6,7 @@ from app.models.Rol import Rol
 import string
 import secrets
 from app.models.Rol import Rol
-
-
-
-
+from app.services.mail_service import enviar_credenciales_usuario
 
 
 # --- Generar contraseña aleatoria ---
@@ -24,7 +21,8 @@ class AuthService:
     @staticmethod
     def registrar_usuario(data):
         """
-        Registra un nuevo usuario y le asigna un rol existente.
+        Registra un nuevo usuario y le asigna un rol existente y envia
+        credenciales al correo del user creado.
         """
         # Generar contraseña aleatoria y hashearla
         plain_password = generate_random_password()
@@ -49,17 +47,28 @@ class AuthService:
             fecha_nacimiento=data.get("fecha_nacimiento"),
             celular=data.get("celular"),
             contrasena=hashed_password,
-            id_rol=rol.id  # 👈 Aquí va la relación correcta
+            id_rol=rol.id
         )
 
         db.session.add(usuario)
         db.session.commit()
 
+        try:
+            enviar_credenciales_usuario(
+                nombre=usuario.nombre,
+                correo=usuario.correo,
+                contrasena= plain_password,
+                rol=rol_nombre
+            )
+        except Exception as e:
+            print(f"Error al enviar correo: {e}")
         return {
             "msg": f"Usuario registrado con rol '{rol_nombre}'",
             "usuario": usuario.to_dict(),
             "contrasenia_generada": plain_password
         }, 201
+
+
 
     @staticmethod
     def login_usuario(data):

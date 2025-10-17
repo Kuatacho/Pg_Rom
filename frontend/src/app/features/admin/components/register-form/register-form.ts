@@ -34,7 +34,7 @@ export class RegisterForm {
     apellidos: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.soloLetras)]],
     correo: ['', [Validators.required, Validators.email]],
     genero: [''],
-    fecha_nacimiento: ['',[ Validators.required, this.validarEdadMinima]],
+    fecha_nacimiento: ['', [Validators.required, this.validarEdadMinima]],
     celular: ['', [Validators.required, Validators.pattern(this.celularRegex)]],
     rol: ['User', Validators.required], // valor por defecto
   });
@@ -55,7 +55,7 @@ export class RegisterForm {
 
     //ajustamos
     const edadReal = ajusteMes < 0 || (ajusteMes === 0 && hoy.getDate() < nacimiento.getDate()) ? edad - 1 : edad;
-    return edadReal < 7 ?{edadMinima: true} : null;
+    return edadReal < 7 ? {edadMinima: true} : null;
   }
 
   submit() {
@@ -73,6 +73,8 @@ export class RegisterForm {
         const contrasena = res['contrasenia_generada'] || 'N/A';
         this.nuevoUsuario.set({nombre, contrasena});
         this.showModal.set(true);
+
+        console.log('Registro exitoso');
       },
       error: (err) => {
         this.loading.set(false);
@@ -83,7 +85,7 @@ export class RegisterForm {
 
   cerrarModal() {
     this.showModal.set(false);
-    this.router.navigate(['/login']);
+     // this.router.navigate(['/register-form']);
   }
 
   copiarContrasena() {

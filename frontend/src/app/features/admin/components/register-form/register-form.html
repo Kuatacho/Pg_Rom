@@ -133,21 +133,14 @@
   </div>
 </div>
 
-<!-- 🌟 MODAL -->
+<!-- MODAL -->
 <div *ngIf="showModal()" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-[9999]">
   <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-sm text-center animate-fadeIn">
-    <h2 class="text-2xl font-bold text-[#322203] mb-2">🎉 Registro exitoso</h2>
-    <p class="text-gray-600 mb-4">Usuario creado correctamente</p>
+    <h2 class="text-2xl font-bold text-[#322203] mb-2"> Registro exitoso</h2>
+    <p class="text-gray-700 mb-4">
+      El usuario fue creado correctamente y sus credenciales fueron enviadas a su correo electrónico.
+    </p>
 
-    <div *ngIf="nuevoUsuario() as user">
-      <p class="text-lg font-semibold">Nombre: <span class="text-[#322203]">{{ user.nombre }}</span></p>
-      <p class="text-lg font-semibold mt-2">Contraseña generada:</p>
-      <div class="bg-gray-100 rounded-lg py-2 px-4 mt-1 font-mono text-[#1f1502] select-all">
-        {{ user.contrasena }}
-      </div>
-      <button (click)="copiarContrasena()" class="btn-secondary mt-3 w-full">Copiar contraseña</button>
-    </div>
-
-    <button (click)="cerrarModal()" class="btn-primary mt-4 w-full">Ir al login</button>
+    <button (click)="cerrarModal()" class="btn-primary mt-6 w-full">Aceptar</button>
   </div>
 </div>
