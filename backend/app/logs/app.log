@@ -1,0 +1,19 @@
+2025-10-22 21:58:13,980 - app - INFO - Logger initialized
+2025-10-22 21:58:13,995 - app - INFO - Sistema iniciado
+2025-10-22 22:04:16,356 - app - INFO - Logger initialized
+2025-10-22 22:04:16,367 - app - INFO - Sistema iniciado
+2025-10-22 22:04:39,770 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-22 22:25:37,675 - app - INFO - Logger initialized
+2025-10-22 22:25:37,686 - app - INFO - Sistema iniciado
+2025-10-22 22:32:03,798 - app - INFO - Logger initialized
+2025-10-22 22:32:03,810 - app - INFO - Sistema iniciado
+2025-10-22 22:32:07,306 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-22 22:32:31,448 - app - INFO - Solicitud de recuperación de contraseña para maincra8157@gmail.com
+2025-10-22 22:33:32,481 - app - INFO - Intento de registro para log@test.com: 201
+2025-10-22 22:39:04,013 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-22 22:39:54,955 - app - INFO - Logger initialized
+2025-10-22 22:39:54,966 - app - INFO - Sistema iniciado
+2025-10-22 22:41:34,564 - app - INFO - Logger initialized
+2025-10-22 22:41:34,574 - app - INFO - Sistema iniciado
+2025-10-22 22:42:03,870 - app - INFO - Registro de usuario para ('logger@test.com', 'Administrador'): 201
+2025-10-22 22:43:18,461 - app - INFO - Registro de usuario para ('sanc@test.com', 'Estudiante'): 201

@@ -1,7 +1,7 @@
 # app/routes/usuarios.py
 from collections import OrderedDict
 import json
-from flask import request, Response, jsonify
+from flask import request, Response, jsonify, current_app
 from flask_jwt_extended import jwt_required
 
 from app.routes import bp
@@ -39,6 +39,7 @@ def _public_user_dict(u) -> OrderedDict:
 @jwt_required()
 def get_roles():
     roles=usuario_service.get_all_roles()
+    current_app.logger.info(f"Peticion de obtener Roles: {[r.nombre for r in roles]}")
     return jsonify([{"id": r.id, "nombre": r.nombre} for r in roles]), 200
 
 
@@ -47,6 +48,7 @@ def get_roles():
 @jwt_required()
 def listar_usuarios():
     usuarios = usuario_service.get_all_users()
+    current_app.logger.info(f"Peticion de listar Usuarios registrado")
     return json_response([_public_user_dict(u) for u in usuarios])
 
 
@@ -57,6 +59,8 @@ def obtener_usuario(user_id: int):
     u = usuario_service.get_user_by_id(user_id)
     if not u:
         return json_response({"error": "Usuario no encontrado"}, 404)
+
+    current_app.logger.info(f"Peticion de listar Usuarios por ID registrado")
     return json_response(_public_user_dict(u))
 
 
