@@ -79,6 +79,12 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/admin/components/notas-estudiantes/notas-estudiantes')
             .then(m => m.NotasEstudiantesComponent),
+      },
+      {
+        path: 'list-usuarios',
+        loadComponent: () =>
+          import('./features/admin/components/list-usuarios/list-usuarios')
+            .then(m => m.ListUsuarios)
       }
 
     ]

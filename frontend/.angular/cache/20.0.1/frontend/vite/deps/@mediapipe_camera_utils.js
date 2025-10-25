@@ -2,9 +2,9 @@ import {
   __commonJS
 } from "./chunk-H2SRQSE4.js";
 
-// node_modules/@mediapipe/camera_utils/camera_utils.js
+// ../../../../../node_modules/@mediapipe/camera_utils/camera_utils.js
 var require_camera_utils = __commonJS({
-  "node_modules/@mediapipe/camera_utils/camera_utils.js"(exports) {
+  "../../../../../node_modules/@mediapipe/camera_utils/camera_utils.js"(exports) {
     (function() {
       "use strict";
       function n(a) {

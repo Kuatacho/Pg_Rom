@@ -2,9 +2,9 @@ import {
   __commonJS
 } from "./chunk-H2SRQSE4.js";
 
-// node_modules/@mediapipe/hands/hands.js
+// ../../../../../node_modules/@mediapipe/hands/hands.js
 var require_hands = __commonJS({
-  "node_modules/@mediapipe/hands/hands.js"(exports) {
+  "../../../../../node_modules/@mediapipe/hands/hands.js"(exports) {
     (function() {
       "use strict";
       var x;

@@ -2,9 +2,9 @@ import {
   __commonJS
 } from "./chunk-H2SRQSE4.js";
 
-// node_modules/@mediapipe/drawing_utils/drawing_utils.js
+// ../../../../../node_modules/@mediapipe/drawing_utils/drawing_utils.js
 var require_drawing_utils = __commonJS({
-  "node_modules/@mediapipe/drawing_utils/drawing_utils.js"(exports) {
+  "../../../../../node_modules/@mediapipe/drawing_utils/drawing_utils.js"(exports) {
     (function() {
       "use strict";
       function h(a) {

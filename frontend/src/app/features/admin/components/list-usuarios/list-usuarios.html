@@ -1,1 +1,238 @@
-<p>list-usuarios works!</p>
+<div class="min-h-screen bg-gradient-to-br from-[#8b6b46] to-[#b8996c] flex flex-col items-center py-10 px-4">
+  <!-- Título -->
+  <h1 class="text-4xl md:text-5xl font-extrabold text-[#322203] tracking-tight drop-shadow-sm">
+    Listado de Usuarios
+  </h1>
+  <p class="text-gray-100/90 mt-1 text-base font-medium">
+    Gestiona y consulta los usuarios registrados en el sistema
+  </p>
+  <br>
+
+  <!-- Contenedor principal -->
+  <div class="w-full max-w-6xl bg-[#f9f7f3] rounded-3xl shadow-2xl overflow-hidden border border-[#3e2a13]/10">
+    <!-- Encabezado -->
+    <div class="bg-[#3e2a13] text-white px-6 py-4 flex justify-between items-center">
+      <h3 class="text-lg font-semibold">Usuarios Registrados</h3>
+      <span class="text-sm bg-[#8b6b46] px-3 py-1 rounded-full">
+        Total: {{ usuarios.length }}
+      </span>
+    </div>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-[#2b1b10]">
+        <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
+        <tr>
+          <th class="px-6 py-3 text-center">Nombre</th>
+          <th class="px-6 py-3 text-center">Apellidos</th>
+          <th class="px-6 py-3 text-center">Correo</th>
+          <th class="px-6 py-3 text-center">Rol</th>
+          <th class="px-6 py-3 text-center">Estado</th>
+          <th class="px-6 py-3 text-center">Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr
+          *ngFor="let u of usuarios"
+          class="border-b border-[#e5d7bf] hover:bg-[#f2e4cd] transition-colors duration-200 text-center"
+        >
+          <td class="px-6 py-4 font-medium text-[#322203]">{{ u.nombre }}</td>
+          <td class="px-6 py-4">{{ u.apellidos }}</td>
+          <td class="px-6 py-4">{{ u.correo }}</td>
+          <td class="px-6 py-4">{{ u.rol }}</td>
+
+          <!-- Estado -->
+          <td class="px-6 py-4">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold"
+                [ngClass]="{
+                  'bg-green-100 text-green-700': u.estado,
+                  'bg-red-100 text-red-700': !u.estado
+                }"
+              >
+                {{ u.estado ? 'ACTIVO' : 'INACTIVO' }}
+              </span>
+          </td>
+
+          <!-- Acciones -->
+          <td class="px-6 py-4 flex justify-center space-x-2">
+            <button
+              (click)="verDetalles(u)"
+              class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
+            >
+              Ver
+            </button>
+
+            <button
+              (click)="editarUsuario(u)"
+              class="bg-yellow-500 hover:bg-yellow-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
+            >
+              Editar
+            </button>
+
+            <button
+              (click)="desactivarUsuario(u)"
+              class="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
+            >
+              {{ u.estado ? 'Desactivar' : 'Activar' }}
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="usuarios.length === 0">
+          <td colspan="6" class="text-center py-8 text-[#2b1b10]/80 italic">
+            No hay usuarios registrados
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Detalle Usuario -->
+  <div
+    *ngIf="showModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
+      <button
+        (click)="cerrarModal()"
+        class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-lg font-bold"
+      >
+        ✖
+      </button>
+
+      <h2 class="text-2xl font-bold text-[#3e2a13] mb-4">Información del Usuario</h2>
+
+      <div class="space-y-2 text-[#2b1b10]">
+        <p><strong>Nombre:</strong> {{ selectedUser?.nombre }}</p>
+        <p><strong>Apellidos:</strong> {{ selectedUser?.apellidos }}</p>
+        <p><strong>Correo:</strong> {{ selectedUser?.correo }}</p>
+        <p><strong>Género:</strong> {{ selectedUser?.genero }}</p>
+        <p><strong>Celular:</strong> {{ selectedUser?.celular }}</p>
+        <p><strong>Rol:</strong> {{ selectedUser?.rol }}</p>
+        <p><strong>Estado:</strong>
+          <span [ngClass]="{
+            'text-green-700 font-semibold': selectedUser?.estado,
+            'text-red-700 font-semibold': !selectedUser?.estado
+          }">
+            {{ selectedUser?.estado ? 'ACTIVO' : 'INACTIVO' }}
+          </span>
+        </p>
+        <p><strong>Fecha Nacimiento:</strong>
+          {{ selectedUser?.fecha_nacimiento | date: 'dd/MM/yyyy' }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+<!--  modal Editar Usuario-->
+  <!-- Modal Editar Usuario -->
+  <div
+    *ngIf="showEditModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-lg p-6 relative">
+      <button
+        (click)="cerrarEditModal()"
+        class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-lg font-bold"
+        [disabled]="saving"
+      >
+        ✖
+      </button>
+
+      <h2 class="text-2xl font-bold text-[#3e2a13] mb-4">Editar Usuario</h2>
+
+      <form (ngSubmit)="guardarCambios()" *ngIf="editUser" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-[#3e2a13] mb-1">Nombre</label>
+            <input
+              type="text"
+              class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
+              [(ngModel)]="editUser.nombre"
+              name="nombre"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[#3e2a13] mb-1">Apellidos</label>
+            <input
+              type="text"
+              class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
+              [(ngModel)]="editUser.apellidos"
+              name="apellidos"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[#3e2a13] mb-1">Correo</label>
+            <input
+              type="email"
+              class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
+              [(ngModel)]="editUser.correo"
+              name="correo"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-[#3e2a13] mb-1">Celular</label>
+            <input
+              type="text"
+              class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
+              [(ngModel)]="editUser.celular"
+              name="celular"
+            />
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <span class="text-sm font-medium text-[#3e2a13]">Estado:</span>
+          <button
+            type="button"
+            (click)="editUser.estado = !editUser.estado"
+            class="relative inline-flex h-6 w-11 items-center rounded-full"
+            [ngClass]="editUser.estado ? 'bg-green-500' : 'bg-gray-300'"
+          >
+          <span
+            class="inline-block h-5 w-5 transform rounded-full bg-white transition"
+            [ngClass]="editUser.estado ? 'translate-x-5' : 'translate-x-1'"
+          ></span>
+          </button>
+          <span
+            class="text-xs font-semibold"
+            [ngClass]="editUser.estado ? 'text-green-700' : 'text-red-700'"
+          >
+          {{ editUser.estado ? 'ACTIVO' : 'INACTIVO' }}
+        </span>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-3">
+          <button
+            type="button"
+            (click)="cerrarEditModal()"
+            class="bg-gray-300 text-[#2b1b10] px-4 py-2 rounded-full hover:bg-gray-400"
+            [disabled]="saving"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            class="bg-[#8b6b46] text-white px-4 py-2 rounded-full hover:bg-[#6d5432]"
+            [disabled]="saving"
+          >
+            {{ saving ? 'Guardando...' : 'Guardar Cambios' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>

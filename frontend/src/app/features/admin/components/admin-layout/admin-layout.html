@@ -1,6 +1,7 @@
 <div class="flex h-screen overflow-hidden bg-[#f9f9f9]">
   <!-- SIDEBAR -->
-  <aside class="w-64 bg-gradient-to-b from-[#3b2a15] to-[#1f1502] text-[#f2f0eb] flex flex-col justify-between shadow-2xl h-full">
+  <aside
+    class="w-64 bg-gradient-to-b from-[#3b2a15] to-[#1f1502] text-[#f2f0eb] flex flex-col justify-between shadow-2xl h-full">
     <!-- LOGO + TÍTULO -->
     <div>
       <div class="text-center py-7 border-b border-[#ffffff1a]">
@@ -19,6 +20,19 @@
             <fa-icon [icon]="faUserPlus" class="text-[#f5f0e6] group-hover:text-white transition"></fa-icon>
           </div>
           <span class="font-medium group-hover:text-white transition">Registrar Usuario</span>
+        </a>
+
+
+
+        <a
+          routerLink="/admin/list-usuarios"
+          routerLinkActive="active-link"
+          class="group flex items-center gap-3 px-6 py-3 hover:bg-[#5a4226]/60 transition duration-300 ease-in-out rounded-r-full"
+        >
+          <div class="p-2 bg-[#f5f0e6]/10 rounded-md group-hover:bg-[#f5f0e6]/30 transition">
+            <fa-icon [icon]="faUserPlus" class="text-[#f5f0e6] group-hover:text-white transition"></fa-icon>
+          </div>
+          <span class="font-medium group-hover:text-white transition">Listar Estudiantes</span>
         </a>
 
         <a

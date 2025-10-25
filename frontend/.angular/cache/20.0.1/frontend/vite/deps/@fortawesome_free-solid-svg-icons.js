@@ -1,6 +1,6 @@
 import "./chunk-H2SRQSE4.js";
 
-// node_modules/@fortawesome/free-solid-svg-icons/index.mjs
+// ../../../../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs
 var prefix = "fas";
 var fa0 = {
   prefix: "fas",

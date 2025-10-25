@@ -88,13 +88,7 @@ export class RegisterForm {
      // this.router.navigate(['/register-form']);
   }
 
-  copiarContrasena() {
-    const contrasena = this.nuevoUsuario()?.contrasena;
-    if (contrasena) {
-      navigator.clipboard.writeText(contrasena);
-      alert('Contraseña copiada al portapapeles');
-    }
-  }
+
 
   cargarRoles() {
     this.api.getRoles().subscribe({
