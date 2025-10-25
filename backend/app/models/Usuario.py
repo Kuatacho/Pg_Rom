@@ -1,4 +1,8 @@
 from datetime import date
+from email.policy import default
+
+from sqlalchemy import Boolean
+
 from app.extensions import db
 from sqlalchemy.orm import relationship
 from collections import OrderedDict
@@ -17,18 +21,18 @@ class Usuario(db.Model):
     fecha_nacimiento = db.Column("fechanacimiento", db.Date)
     contrasena = db.Column("contrasena", db.String(255), nullable=False)
     celular = db.Column("celular", db.String(15))
+    estado= db.Column("estado", db.Boolean, default=True, nullable=False, server_default="TRUE")
 
-    # 🔄 Foreign Key al rol
+
+
+
     id_rol = db.Column("idrol", db.Integer, db.ForeignKey("rol.idrol", ondelete="SET NULL"), nullable=True)
-
-    # ✅ Relación uno a muchos inversa (un usuario tiene UN rol)
+    # Relación uno a muchos inversa (un usuario tiene UN rol)
     rol = relationship("Rol", back_populates="usuarios")
-
-    # Otras relaciones
     notas = relationship("Nota", back_populates="usuario", passive_deletes=True)
     recuperaciones = relationship("Recuperacion", back_populates="usuario", passive_deletes=True)
 
-    # Métodos utilitarios
+    # diccionario para serializar el objeto Usuario
     def to_dict(self):
         return OrderedDict({
             "id": self.id,
@@ -42,7 +46,8 @@ class Usuario(db.Model):
                 else None
             ),
             "celular": self.celular,
-            "rol": self.rol.nombre if self.rol else None
+            "rol": self.rol.nombre if self.rol else None,
+            "estado": bool(self.estado) if self.estado is not None else None,
         })
 
     def __repr__(self):

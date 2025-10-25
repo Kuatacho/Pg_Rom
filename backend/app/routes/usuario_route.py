@@ -3,7 +3,6 @@ from collections import OrderedDict
 import json
 from flask import request, Response, jsonify, current_app
 from flask_jwt_extended import jwt_required
-
 from app.routes import bp
 from app.services import usuario_service
 
@@ -29,7 +28,9 @@ def _public_user_dict(u) -> OrderedDict:
         ("genero", u.genero),
         ("fecha_nacimiento", u.fecha_nacimiento.isoformat() if u.fecha_nacimiento else None),
         ("celular", u.celular),
-        ("contrasena", u.contrasena)
+        ("contrasena", u.contrasena),
+        ("rol", u.rol.nombre if u.rol else None),
+        ("estado", bool(u.estado) if u.estado is not None else None),
     ])
 
 
@@ -60,8 +61,27 @@ def obtener_usuario(user_id: int):
     if not u:
         return json_response({"error": "Usuario no encontrado"}, 404)
 
-    current_app.logger.info(f"Peticion de listar Usuarios por ID registrado")
+    current_app.logger.info(f"Peticion de listar Usuarios por ID registrado", {"user_id": user_id})
     return json_response(_public_user_dict(u))
+
+
+# actualizar usuario
+@bp.put("/update-usuario/<int:user_id>")
+@jwt_required()
+def actualizar_usuario(user_id: int):
+    data= request.get_json()
+    if not data:
+        return json_response({"error": "No se proporcionaron datos"}, 400)
+    u = usuario_service.update_user(user_id, data)
+    if not u:
+        return json_response({"error": "Usuario no encontrado"}, 404)
+    current_app.logger.info(f"Peticion de actualizar Usuario registrado", {"user_id": user_id})
+    return json_response(_public_user_dict(u))
+
+
+
+
+
 
 
 

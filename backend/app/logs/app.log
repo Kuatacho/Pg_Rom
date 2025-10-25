@@ -17,3 +17,99 @@
 2025-10-22 22:41:34,574 - app - INFO - Sistema iniciado
 2025-10-22 22:42:03,870 - app - INFO - Registro de usuario para ('logger@test.com', 'Administrador'): 201
 2025-10-22 22:43:18,461 - app - INFO - Registro de usuario para ('sanc@test.com', 'Estudiante'): 201
+2025-10-24 16:33:59,107 - app - INFO - Logger initialized
+2025-10-24 16:33:59,178 - app - INFO - Sistema iniciado
+2025-10-24 17:43:07,096 - app - INFO - Logger initialized
+2025-10-24 17:43:07,230 - app - INFO - Sistema iniciado
+2025-10-24 17:44:07,104 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-24 17:44:37,656 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 17:55:15,801 - app - INFO - Logger initialized
+2025-10-24 17:55:15,811 - app - INFO - Sistema iniciado
+2025-10-24 17:55:19,253 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 17:56:59,164 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 17:57:50,184 - app - INFO - Logger initialized
+2025-10-24 17:57:50,194 - app - INFO - Sistema iniciado
+2025-10-24 17:57:52,759 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 17:59:06,776 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 17:59:33,065 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:02:42,546 - app - INFO - Logger initialized
+2025-10-24 18:02:42,559 - app - INFO - Sistema iniciado
+2025-10-24 18:02:44,735 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:05:13,593 - app - INFO - Logger initialized
+2025-10-24 18:05:13,610 - app - INFO - Sistema iniciado
+2025-10-24 18:05:17,349 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:06:34,496 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:06:40,290 - app - INFO - Logger initialized
+2025-10-24 18:06:40,302 - app - INFO - Sistema iniciado
+2025-10-24 18:06:42,619 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:06:42,622 - app - ERROR - Exception on /api/list-usuarios [GET]
+Traceback (most recent call last):
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\app\routes\usuario_route.py", line 53, in listar_usuarios
+    return json_response([_public_user_dict(u) for u in usuarios])
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\app\routes\usuario_route.py", line 31, in _public_user_dict
+    ("contrasena", u.contrasena)
+TypeError: 'tuple' object is not callable
+2025-10-24 18:07:21,589 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:07:21,590 - app - ERROR - Exception on /api/list-usuarios [GET]
+Traceback (most recent call last):
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\app\routes\usuario_route.py", line 53, in listar_usuarios
+    return json_response([_public_user_dict(u) for u in usuarios])
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Mis Cosas\workspace\Pg_Rom\backend\app\routes\usuario_route.py", line 31, in _public_user_dict
+    ("contrasena", u.contrasena),
+TypeError: 'tuple' object is not callable
+2025-10-24 18:07:30,716 - app - INFO - Logger initialized
+2025-10-24 18:07:30,727 - app - INFO - Sistema iniciado
+2025-10-24 18:07:32,674 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 18:10:58,473 - app - INFO - Logger initialized
+2025-10-24 18:10:58,484 - app - INFO - Sistema iniciado
+2025-10-24 18:11:04,159 - app - INFO - Peticion de listar Usuarios por ID registrado
+2025-10-24 18:12:54,668 - app - INFO - Logger initialized
+2025-10-24 18:12:54,679 - app - INFO - Sistema iniciado
+2025-10-24 18:12:57,675 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-24 18:13:04,099 - app - INFO - Peticion de listar Usuarios por ID registrado
+2025-10-24 18:13:08,607 - app - INFO - Peticion de listar Usuarios por ID registrado
+2025-10-24 18:13:13,374 - app - INFO - Peticion de listar Usuarios por ID registrado
+2025-10-24 23:04:42,969 - app - INFO - Logger initialized
+2025-10-24 23:04:43,029 - app - INFO - Sistema iniciado
+2025-10-24 23:07:10,936 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-24 23:07:51,681 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-24 23:10:51,576 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-24 23:13:25,767 - app - INFO - Peticion de actualizar Usuario registrado

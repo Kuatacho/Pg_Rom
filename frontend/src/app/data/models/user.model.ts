@@ -7,4 +7,5 @@ export interface User{
   fecha_nacimiento: string;
   celular?: string;
   rol?: string;
+  estado:boolean;
 }

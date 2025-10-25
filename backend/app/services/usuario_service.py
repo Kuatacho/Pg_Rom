@@ -14,12 +14,25 @@ def get_all_roles():
 
 # --- Obtener todos los usuarios ---
 def get_all_users():
-    return Usuario.query.order_by(Usuario.id.asc()).all()
+    return Usuario.query.all()
 
 
 # --- Obtener usuario por ID ---
 def get_user_by_id(user_id: int):
     return Usuario.query.get(user_id)
+
+# actualizar usuario
+def update_user(user_id: int, data: dict):
+    user = get_user_by_id(user_id)
+    if not user:
+        return None
+
+    for key, value in data.items():
+        if hasattr(user, key):
+            setattr(user, key, value)
+
+    db.session.commit()
+    return user
 
 
 
