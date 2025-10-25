@@ -9713,3 +9713,47 @@ TypeError: 'tuple' object is not callable
 2025-10-25 01:52:19,352 - app - INFO - Intento de login para maincra8157@gmail.com: 200
 2025-10-25 01:52:19,680 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
 2025-10-25 01:52:20,918 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:53:27,626 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:53:41,284 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 01:53:41,774 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:54:09,923 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:55:02,192 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:55:24,466 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:56:42,931 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 01:56:55,092 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:01:26,125 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:02:56,943 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:03:02,171 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:03:14,543 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 02:03:15,448 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:03:19,431 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:03:19,905 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 02:03:20,531 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:07:02,553 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:10:33,133 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:22:58,682 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:25:33,995 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:25:37,907 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:41,444 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:42,071 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:43,187 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:45,025 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:54,370 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:54,656 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:25:55,974 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:29:30,875 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:29:33,893 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:30:11,973 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:34:08,656 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:34:09,710 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:35:20,249 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:35:50,836 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:36:11,042 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:41:35,385 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:41:57,598 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:42:17,992 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:45:59,656 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:50:10,591 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 02:51:40,062 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:51:51,433 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 02:51:53,139 - app - INFO - Peticion de actualizar Usuario registrado

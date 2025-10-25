@@ -18,66 +18,151 @@
       </span>
     </div>
 
-    <!-- Tabla -->
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-sm text-left text-[#2b1b10]">
-        <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
+    <!-- Filtros arriba de la tabla -->
+    <!-- 🔍 Filtros de búsqueda -->
+    <div class="bg-[#f2ede6] border-t border-b border-[#d5c7a3] px-6 py-4 flex flex-wrap justify-between items-center gap-4 text-[#3e2a13]">
+
+      <!-- Campo de búsqueda -->
+      <div class="relative flex-grow max-w-sm w-full">
+        <fa-icon [icon]="faSearch" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#8b6b46]"></fa-icon>
+        <input
+          type="text"
+          placeholder="Buscar por nombre, apellido o correo..."
+          class="pl-10 pr-3 py-2 w-full border border-[#d5c7a3] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8b6b46]/50 transition"
+          [(ngModel)]="filtroTexto"
+          (input)="aplicarFiltros()"
+        />
+      </div>
+
+      <!-- Filtro por Rol -->
+      <div class="flex items-center space-x-2">
+        <label for="rolSelect" class="text-sm font-medium text-[#5c4522]">Rol:</label>
+        <select
+          id="rolSelect"
+          class="border border-[#d5c7a3] rounded-full px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8b6b46]/50"
+          [(ngModel)]="filtroRol"
+          (change)="aplicarFiltros()"
+        >
+          <option value="">Todos</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Estudiante">Estudiante</option>
+          <option value="Profesor">Profesor</option>
+        </select>
+      </div>
+
+      <!-- Filtro por Estado -->
+      <div class="flex items-center space-x-2">
+        <label for="estadoSelect" class="text-sm font-medium text-[#5c4522]">Estado:</label>
+        <select
+          id="estadoSelect"
+          class="border border-[#d5c7a3] rounded-full px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8b6b46]/50"
+          [(ngModel)]="filtroEstado"
+          (change)="aplicarFiltros()"
+        >
+          <option value="">Todos</option>
+          <option [ngValue]="true">Activos</option>
+          <option [ngValue]="false">Inactivos</option>
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="overflow-x-auto rounded-b-3xl">
+      <table class="min-w-full table-auto text-sm text-left text-[#2b1b10] border-separate border-spacing-y-1">
+        <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider rounded-t-3xl">
         <tr>
-          <th class="px-6 py-3 text-center">Nombre</th>
-          <th class="px-6 py-3 text-center">Apellidos</th>
-          <th class="px-6 py-3 text-center">Correo</th>
-          <th class="px-6 py-3 text-center">Rol</th>
-          <th class="px-6 py-3 text-center">Estado</th>
-          <th class="px-6 py-3 text-center">Acciones</th>
+          <th class="px-6 py-3 text-center font-semibold">Nombre</th>
+          <th class="px-6 py-3 text-center font-semibold">Apellidos</th>
+          <th class="px-6 py-3 text-center font-semibold">Correo</th>
+          <th class="px-6 py-3 text-center font-semibold">Rol</th>
+          <th class="px-6 py-3 text-center font-semibold">Estado</th>
+          <!-- ancho fijo para que los botones no se aprieten -->
+          <th class="px-6 py-3 text-center font-semibold w-64">Acciones</th>
         </tr>
         </thead>
 
         <tbody>
         <tr
-          *ngFor="let u of usuarios"
-          class="border-b border-[#e5d7bf] hover:bg-[#f2e4cd] transition-colors duration-200 text-center"
+          *ngFor="let u of usuariosPagina"
+          class="bg-[#fdfcf9] hover:bg-[#f2e4cd]/70 transition duration-200 text-center shadow-sm"
         >
-          <td class="px-6 py-4 font-medium text-[#322203]">{{ u.nombre }}</td>
-          <td class="px-6 py-4">{{ u.apellidos }}</td>
-          <td class="px-6 py-4">{{ u.correo }}</td>
-          <td class="px-6 py-4">{{ u.rol }}</td>
+          <td class="px-6 py-4 font-semibold text-[#322203] align-middle">{{ u.nombre }}</td>
+          <td class="px-6 py-4 align-middle">{{ u.apellidos }}</td>
 
-          <!-- Estado -->
-          <td class="px-6 py-4">
-              <span
-                class="px-3 py-1 rounded-full text-xs font-semibold"
-                [ngClass]="{
-                  'bg-green-100 text-green-700': u.estado,
-                  'bg-red-100 text-red-700': !u.estado
-                }"
+          <!-- truncate bien aplicado: requiere overflow-hidden y whitespace-nowrap -->
+          <td class="px-6 py-4 align-middle truncate max-w-[240px]">{{ u.correo }}</td>
+
+          <td class="px-6 py-4 align-middle">{{ u.rol }}</td>
+
+          <td class="px-6 py-4 align-middle">
+          <span
+            class="px-3 py-1 rounded-full text-xs font-semibold"
+            [ngClass]="{
+              'bg-green-100 text-green-700': u.estado,
+              'bg-red-100 text-red-700': !u.estado
+            }"
+          >
+            {{ u.estado ? 'ACTIVO' : 'INACTIVO' }}
+          </span>
+          </td>
+
+          <!-- ACCIONES: una sola línea, centrado vertical y botones con altura uniforme -->
+          <td class="px-6 py-4 align-middle">
+            <div class="flex justify-center items-center gap-3 whitespace-nowrap">
+              <!-- Ver -->
+              <button
+                (click)="verDetalles(u)"
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-500 hover:bg-blue-600 text-white transition"
+                title="Ver detalles"
+                aria-label="Ver detalles"
               >
-                {{ u.estado ? 'ACTIVO' : 'INACTIVO' }}
-              </span>
+                <fa-icon [icon]="faEye" class="text-[13px]"></fa-icon>
+              </button>
+
+              <!-- Editar -->
+              <button
+                (click)="editarUsuario(u)"
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-yellow-500 hover:bg-yellow-600 text-white transition"
+                title="Editar usuario"
+                aria-label="Editar usuario"
+              >
+                <fa-icon [icon]="faEdit" class="text-[13px]"></fa-icon>
+              </button>
+
+              <!-- Switch Activar/Desactivar -->
+              <label class="relative inline-flex items-center cursor-pointer select-none" title="Activar/Desactivar" aria-label="Cambiar estado">
+                <input
+                  #estadoSwitch
+                  type="checkbox"
+                  class="sr-only peer"
+                  [checked]="u.estado"
+                  (change)="solicitarConfirmacion(u, getCheckedValue($event), estadoSwitch)"
+                  [disabled]="savingIds.has(u.id)"
+                />
+
+
+
+                <div
+                  class="w-11 h-6 rounded-full bg-gray-300 peer-focus:outline-none
+               peer-checked:bg-green-500
+               relative transition-colors"
+                >
+        <span
+          class="absolute top-[2px] left-[2px] h-5 w-5 rounded-full bg-white border border-gray-300 transition-transform
+                 peer-checked:translate-x-5"
+        ></span>
+                </div>
+                <span
+                  class="ml-2 text-xs font-semibold min-w-[60px] text-left"
+                  [ngClass]="u.estado ? 'text-green-700' : 'text-red-700'"
+                >
+        {{ u.estado ? 'Activo' : 'Inactivo' }}
+      </span>
+              </label>
+            </div>
           </td>
 
-          <!-- Acciones -->
-          <td class="px-6 py-4 flex justify-center space-x-2">
-            <button
-              (click)="verDetalles(u)"
-              class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
-            >
-              Ver
-            </button>
-
-            <button
-              (click)="editarUsuario(u)"
-              class="bg-yellow-500 hover:bg-yellow-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
-            >
-              Editar
-            </button>
-
-            <button
-              (click)="desactivarUsuario(u)"
-              class="bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full transition"
-            >
-              {{ u.estado ? 'Desactivar' : 'Activar' }}
-            </button>
-          </td>
         </tr>
 
         <tr *ngIf="usuarios.length === 0">
@@ -87,6 +172,37 @@
         </tr>
         </tbody>
       </table>
+    </div>
+
+
+    <!-- Paginador -->
+    <div
+      class="flex justify-between items-center bg-[#3e2a13]/90 text-white px-6 py-3 rounded-b-3xl border-t border-[#8b6b46]/30 mt-1"
+    >
+      <button
+        (click)="anteriorPagina()"
+        [disabled]="paginaActual === 1"
+        class="flex items-center gap-1 bg-[#8b6b46] hover:bg-[#6d5432] text-white text-sm font-semibold px-3 py-1.5 rounded-full disabled:opacity-40 transition"
+      >
+        ◀ Anterior
+      </button>
+
+      <span class="text-sm font-medium">
+    Página {{ paginaActual }} / {{ Math.ceil(usuarios.length / porPagina) }}
+  </span>
+
+      <button
+        (click)="siguientePagina()"
+        [disabled]="paginaActual * porPagina >= usuarios.length"
+        class="flex items-center gap-1 bg-[#8b6b46] hover:bg-[#6d5432] text-white text-sm font-semibold px-3 py-1.5 rounded-full disabled:opacity-40 transition"
+      >
+        Siguiente ▶
+      </button>
+    </div>
+
+
+
+
     </div>
   </div>
 
@@ -128,7 +244,7 @@
   </div>
 
 
-<!--  modal Editar Usuario-->
+  <!--  modal Editar Usuario-->
   <!-- Modal Editar Usuario -->
   <div
     *ngIf="showEditModal"
@@ -234,5 +350,39 @@
     </div>
   </div>
 
+<!-- Modal Confirmación Activar/Desactivar -->
+<div
+  *ngIf="showConfirmModal"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+>
+  <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-sm p-6 relative text-center">
+    <h2 class="text-xl font-bold text-[#3e2a13] mb-3">
+      {{ newEstado ? 'Activar Usuario' : 'Desactivar Usuario' }}
+    </h2>
+    <p class="text-[#2b1b10] mb-6">
+      ¿Seguro que deseas
+      <strong>{{ newEstado ? 'activar' : 'desactivar' }}</strong>
+      la cuenta de
+      <strong>{{ userToConfirm?.nombre }} {{ userToConfirm?.apellidos }}</strong>?
+    </p>
 
+    <div class="flex justify-center gap-3">
+      <button
+        (click)="cancelarCambioEstado()"
+        class="bg-gray-300 text-[#2b1b10] px-4 py-2 rounded-full hover:bg-gray-400 transition"
+      >
+        Cancelar
+      </button>
+
+      <button
+        (click)="confirmarCambioEstado()"
+        [ngClass]="newEstado ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'"
+        class="text-white px-4 py-2 rounded-full transition"
+      >
+        {{ newEstado ? 'Activar' : 'Desactivar' }}
+      </button>
+    </div>
+  </div>
 </div>
+
+
