@@ -1,0 +1,38 @@
+<app-navbar>  </app-navbar>
+<div class="p-6 max-w-5xl mx-auto">
+
+  <h1 class="text-3xl font-semibold mb-6">📚 Lecciones</h1>
+
+  <!-- Loading -->
+  <div *ngIf="loading()" class="text-center text-slate-500 animate-pulse">
+    Cargando lecciones...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error()" class="text-center text-red-500">
+    {{ error() }}
+  </div>
+
+  <!-- Lecciones -->
+  <div *ngIf="!loading() && !error()" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <button
+      *ngFor="let leccion of lecciones(); trackBy: trackById"
+      (click)="openLesson(leccion)"
+      class="group flex flex-col justify-center items-center p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
+    >
+      <div class="text-5xl mb-3">
+        <!-- emoji temporal o ícono genérico -->
+        📘
+      </div>
+      <div class="text-lg font-medium text-slate-800 group-hover:text-indigo-600 transition">
+        {{ leccion.nombre }}
+      </div>
+      <div class="text-sm text-slate-500 mt-1">Toca para comenzar</div>
+    </button>
+  </div>
+
+  <!-- Vacío -->
+  <div *ngIf="!loading() && lecciones().length === 0 && !error()" class="text-center text-slate-500 mt-10">
+    No hay lecciones disponibles.
+  </div>
+</div>

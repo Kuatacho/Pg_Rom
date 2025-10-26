@@ -1,10 +1,10 @@
-import {Routes} from '@angular/router';
-import {AuthGuard} from './core/guards/auth.guard';
-import {RoleGuard} from './core/guards/role.guard';
+import { Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
+import { RoleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
-  // ----------   PÚBLICAS ----------
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  // ---------- PÚBLICAS ----------
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   {
     path: 'home',
@@ -12,86 +12,98 @@ export const routes: Routes = [
       import('./features/home/home').then(m => m.Home),
   },
   {
-    path: 'recuperar',
-    loadComponent: () =>
-      import('./features/auth/components/forgot/forgot')
-        .then(m => m.Forgot),
-  },
-  {
     path: 'login',
     loadComponent: () =>
-      import('./features/auth/components/login/login')
-        .then(m => m.Login),
+      import('./features/auth/components/login/login').then(m => m.Login),
+  },
+  {
+    path: 'recuperar',
+    loadComponent: () =>
+      import('./features/auth/components/forgot/forgot').then(m => m.Forgot),
   },
 
+  // ---------- PRIVADAS (AUTENTICADAS) ----------
+
+  // --- Rutas accesibles solo a usuarios con rol "Estudiante" ---
   {
-    path: 'notas',
+    path: 'lecciones',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Estudiante'] },
     loadComponent: () =>
-      import('./features/admin/components/notas-estudiantes/notas-estudiantes')
-        .then(m => m.NotasEstudiantesComponent),
+      import('./features/learning/components/lessons-list/lessons-list').then(
+        m => m.LessonsList
+      ),
+  },
+  {
+    path: 'lecciones/:id/gestos',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Estudiante'] },
+    loadComponent: () =>
+      import('./features/learning/components/gestures-list/gestures-list').then(m => m.GesturesListComponent)
+  },
+  {
+    path: 'lecciones/:id/gestos/:gestoId/practica',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Estudiante'] },
+    loadComponent: () =>
+      import('./features/hand-prediction/components/hand-prediction').then(m => m.HandPrediction)
   },
 
-  // ---------- PRIVADAS ----------
-  {
-    path: 'modulos',
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import('./features/modulos/modulos').then(m => m.Modulos),
-  },
-  {
-    path: 'learning',
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import('./features/learning/components/learning').then(m => m.Learning),
-  },
   {
     path: 'hand-prediction',
-    canActivate: [AuthGuard],
-
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Estudiante'] },
     loadComponent: () =>
-      import('./features/hand-prediction/components/hand-prediction')
-        .then(m => m.HandPrediction),
+      import('./features/hand-prediction/components/hand-prediction').then(
+        m => m.HandPrediction
+      ),
   },
 
+  // --- Acceso general autenticado (por ejemplo profesores o ambos roles) ---
+  {
+    path: 'notas',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./features/admin/components/notas-estudiantes/notas-estudiantes').then(
+        m => m.NotasEstudiantesComponent
+      ),
+  },
 
-//ROL ADMIN!
+  // ---------- ADMINISTRADOR ----------
   {
     path: 'admin',
     canActivate: [AuthGuard, RoleGuard],
-    data: {roles: ['Administrador']},
+    data: { roles: ['Administrador'] },
     loadComponent: () =>
-      import('./features/admin/components/admin-layout/admin-layout')
-        .then(m => m.AdminLayout),
+      import('./features/admin/components/admin-layout/admin-layout').then(
+        m => m.AdminLayout
+      ),
     children: [
-      {
-        path: '',
-        redirectTo: 'register',
-        pathMatch: 'full',
-      },
+      { path: '', redirectTo: 'register', pathMatch: 'full' },
       {
         path: 'register',
         loadComponent: () =>
-          import('./features/admin/components/register-form/register-form')
-            .then(m => m.RegisterForm),
+          import('./features/admin/components/register-form/register-form').then(
+            m => m.RegisterForm
+          ),
       },
       {
         path: 'notas',
         loadComponent: () =>
-          import('./features/admin/components/notas-estudiantes/notas-estudiantes')
-            .then(m => m.NotasEstudiantesComponent),
+          import('./features/admin/components/notas-estudiantes/notas-estudiantes').then(
+            m => m.NotasEstudiantesComponent
+          ),
       },
       {
         path: 'list-usuarios',
         loadComponent: () =>
-          import('./features/admin/components/list-usuarios/list-usuarios')
-            .then(m => m.ListUsuarios)
-      }
-
-    ]
-
+          import('./features/admin/components/list-usuarios/list-usuarios').then(
+            m => m.ListUsuarios
+          ),
+      },
+    ],
   },
 
-
   // ---------- WILDCARD ----------
-  {path: '**', redirectTo: '/home'},
+  { path: '**', redirectTo: '/home' },
 ];

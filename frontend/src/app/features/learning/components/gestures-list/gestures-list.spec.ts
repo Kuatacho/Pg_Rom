@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Modulos } from './modulos';
+import { GesturesList } from './gestures-list';
 
-describe('Modulos', () => {
-  let component: Modulos;
-  let fixture: ComponentFixture<Modulos>;
+describe('GesturesList', () => {
+  let component: GesturesList;
+  let fixture: ComponentFixture<GesturesList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Modulos]
+      imports: [GesturesList]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Modulos);
+    fixture = TestBed.createComponent(GesturesList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

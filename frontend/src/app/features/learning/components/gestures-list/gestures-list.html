@@ -1,0 +1,26 @@
+
+<app-navbar></app-navbar>
+<div class="p-6 max-w-5xl mx-auto">
+
+
+  <h1 class="text-3xl font-semibold mb-6">✋ Gestos de la lección</h1>
+
+  <div *ngIf="loading()" class="text-center text-slate-500 animate-pulse">
+    Cargando gestos...
+  </div>
+
+  <div *ngIf="!loading() && gestos().length === 0" class="text-center text-slate-500">
+    No hay gestos disponibles para esta lección.
+  </div>
+
+  <div *ngIf="!loading()" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div
+      *ngFor="let gesto of gestos()"
+      (click)="practicarGesto(gesto)"
+      class="cursor-pointer p-4 border border-slate-200 rounded-xl hover:shadow-md transition-all bg-white"
+    >
+      <h2 class="font-semibold text-lg text-indigo-600 mb-1">{{ gesto.nombre }}</h2>
+      <p class="text-slate-600 text-sm">{{ gesto.descripcion }}</p>
+    </div>
+  </div>
+</div>

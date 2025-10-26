@@ -79,25 +79,27 @@
           <a routerLink="/home" routerLinkActive="active-link"
              class="nav-link text-[#322203] hover:text-black">Home</a>
         </li>
-        <li>
-          <a routerLink="/contacto" routerLinkActive="active-link"
-             class="nav-link text-[#322203] hover:text-black">Contacto</a>
-        </li>
+<!--        <li>-->
+<!--          <a routerLink="/contacto" routerLinkActive="active-link"-->
+<!--             class="nav-link text-[#322203] hover:text-black">Contacto</a>-->
+<!--        </li>-->
 
         <!-- Si está logueado -->
         <ng-container *ngIf="isLoggedIn(); else loginLink">
           <li>
-            <a routerLink="/modulos" routerLinkActive="active-link"
-               class="nav-link text-[#322203] hover:text-black">Módulos</a>
+            <a routerLink="/lecciones" routerLinkActive="active-link"
+               class="nav-link text-[#322203] hover:text-black">Lecciones</a>
           </li>
-          <li>
-            <a routerLink="/learning" routerLinkActive="active-link"
-               class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>
-          </li>
-          <li>
-            <a routerLink="/hand-prediction" routerLinkActive="active-link"
-               class="nav-link text-[#322203] hover:text-black">Predicción</a>
-          </li>
+<!--          <li>-->
+<!--            <a routerLink="/learning" routerLinkActive="active-link"-->
+<!--               class="nav-link text-[#322203] hover:text-black">Aprendizaje</a>-->
+<!--          </li>-->
+
+
+<!--          <li>-->
+<!--            <a routerLink="/hand-prediction" routerLinkActive="active-link"-->
+<!--               class="nav-link text-[#322203] hover:text-black">Predicción</a>-->
+<!--          </li>-->
 
 
         </ng-container>

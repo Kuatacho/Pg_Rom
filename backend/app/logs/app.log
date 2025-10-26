@@ -9767,3 +9767,28 @@ TypeError: 'tuple' object is not callable
 2025-10-25 19:48:43,796 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
 2025-10-25 19:49:11,719 - app - INFO - Registro de usuario para ('conori8755@hh7f.com', 'Estudiante'): 201
 2025-10-25 19:49:34,822 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 11:52:51,536 - app - INFO - Logger initialized
+2025-10-26 11:52:51,655 - app - INFO - Sistema iniciado
+2025-10-26 11:53:31,385 - app - INFO - Logger initialized
+2025-10-26 11:53:31,396 - app - INFO - Sistema iniciado
+2025-10-26 12:01:31,933 - app - INFO - Logger initialized
+2025-10-26 12:01:31,992 - app - INFO - Sistema iniciado
+2025-10-26 12:09:42,671 - app - INFO - Logger initialized
+2025-10-26 12:09:42,693 - app - INFO - Sistema iniciado
+2025-10-26 12:10:40,492 - app - INFO - Logger initialized
+2025-10-26 12:10:40,553 - app - INFO - Sistema iniciado
+2025-10-26 12:10:51,756 - app - INFO - Error al obtener notas: '<' not supported between instances of 'str' and 'builtin_function_or_method'
+2025-10-26 12:13:57,561 - app - INFO - Logger initialized
+2025-10-26 12:13:57,573 - app - INFO - Sistema iniciado
+2025-10-26 12:14:00,613 - app - INFO - Error al obtener notas: '<' not supported between instances of 'str' and 'builtin_function_or_method'
+2025-10-26 12:16:26,484 - app - INFO - Logger initialized
+2025-10-26 12:16:26,496 - app - INFO - Sistema iniciado
+2025-10-26 12:19:27,209 - app - INFO - Error al crear nota: 'list' object has no attribute 'get'
+2025-10-26 12:21:02,982 - app - INFO - Error al obtener notas por usuario: '<' not supported between instances of 'str' and 'builtin_function_or_method'
+2025-10-26 12:21:19,679 - app - INFO - Error al obtener notas por usuario: '<' not supported between instances of 'str' and 'builtin_function_or_method'
+2025-10-26 12:23:10,795 - app - INFO - Logger initialized
+2025-10-26 12:23:10,856 - app - INFO - Sistema iniciado
+2025-10-26 13:10:39,176 - app - INFO - Logger initialized
+2025-10-26 13:10:39,242 - app - INFO - Sistema iniciado
+2025-10-26 14:04:56,267 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 14:49:05,074 - app - INFO - Intento de login para conori8755@hh7f.com: 200

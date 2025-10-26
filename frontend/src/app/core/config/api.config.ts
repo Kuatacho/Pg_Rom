@@ -14,4 +14,8 @@ export const API_CONFIG = {
     //forgotPassword: '/auth/forgotPassword'
 
   },
+
+  learning:{
+    lecciones:'/lecciones'
+  }
 } as const;

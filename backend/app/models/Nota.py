@@ -7,7 +7,7 @@ class Nota(db.Model):
     __tablename__ = "notas"
 
     id = db.Column("idnotas", db.Integer, primary_key=True, autoincrement=True)
-    puntuacion = db.Column("puntuacion", Numeric(5, 2), nullable=False)
+    puntuacion = db.Column("puntuacion", db.Numeric(5, 2), nullable=False)
 
     usuario_id = db.Column(
         "usuarios_idusuarios",

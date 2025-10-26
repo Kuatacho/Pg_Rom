@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { Navbar } from "../../shared/components/navbar/navbar";
-import { Modulos } from "../../features/modulos/modulos";
+
 
 @Component({
   selector: 'app-home',
   imports: [Navbar, ],
   templateUrl: './home.html',
-  
+
 })
 export class Home implements OnInit {
   constructor() {}
@@ -16,7 +16,7 @@ export class Home implements OnInit {
     initFlowbite();
     // Initialization logic can go here
   }
-    
+
 
 
 }
