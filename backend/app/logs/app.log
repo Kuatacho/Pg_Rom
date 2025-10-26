@@ -9757,3 +9757,13 @@ TypeError: 'tuple' object is not callable
 2025-10-25 02:51:40,062 - app - INFO - Peticion de actualizar Usuario registrado
 2025-10-25 02:51:51,433 - app - INFO - Peticion de actualizar Usuario registrado
 2025-10-25 02:51:53,139 - app - INFO - Peticion de actualizar Usuario registrado
+2025-10-25 19:42:52,328 - app - INFO - Logger initialized
+2025-10-25 19:42:52,467 - app - INFO - Sistema iniciado
+2025-10-25 19:47:44,650 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-25 19:47:44,996 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 19:47:50,098 - app - INFO - Peticion de listar Usuarios registrado
+2025-10-25 19:48:01,344 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 19:48:43,476 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-25 19:48:43,796 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-25 19:49:11,719 - app - INFO - Registro de usuario para ('conori8755@hh7f.com', 'Estudiante'): 201
+2025-10-25 19:49:34,822 - app - INFO - Intento de login para conori8755@hh7f.com: 200
