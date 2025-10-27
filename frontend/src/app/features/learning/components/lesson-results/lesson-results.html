@@ -1,49 +1,76 @@
 <app-navbar></app-navbar>
 
-<div class="container mx-auto px-4 py-6">
-  <h1 class="text-3xl font-bold text-center mb-6">
-    📊 Resultados de la lección
-  </h1>
+<section
+  class="bg-[#8B6B4C] text-white font-[Hatton] flex flex-col justify-center items-center min-h-screen px-6 py-12"
+>
+  <div
+    class="w-full max-w-4xl bg-white text-[#322203] rounded-3xl shadow-2xl p-10 flex flex-col justify-center items-center text-center"
+  >
+    <!-- Título -->
+    <h1 class="text-4xl md:text-5xl font-semibold mb-10 text-[#8B6B4C] tracking-wide">
+      Resultados de la lección
+    </h1>
 
-  <div class="bg-white p-6 rounded-xl shadow-lg max-w-3xl mx-auto">
-    <h2 class="text-2xl font-semibold text-center mb-4 text-indigo-600">
-      Promedio final: {{ promedio }} / 100
-    </h2>
+    <!-- Promedio -->
+    <div class="w-full max-w-md mb-8">
+      <h2 class="text-2xl font-medium mb-3">
+        Promedio final:
+        <span class="text-[#8B6B4C] font-semibold">{{ promedio }} / 100</span>
+      </h2>
 
-    <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-      <div class="bg-green-500 h-4 rounded-full transition-all duration-500"
-           [style.width.%]="promedio">
+      <div class="w-full bg-gray-200 rounded-full h-5 overflow-hidden shadow-inner">
+        <div
+          class="bg-green-500 h-5 rounded-full transition-all duration-700 ease-out"
+          [style.width.%]="promedio"
+        ></div>
       </div>
     </div>
 
-    <table class="w-full text-sm text-gray-700 border-t mt-4">
-      <thead>
-      <tr class="border-b bg-gray-100">
-        <th class="py-2 px-3 text-left">#</th>
-        <th class="py-2 px-3 text-left">Gesto</th>
-        <th class="py-2 px-3 text-right">Nota</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let g of gestosResultados; let i = index"
-          class="border-b hover:bg-gray-50">
-        <td class="py-2 px-3">{{ i + 1 }}</td>
-        <td class="py-2 px-3 font-medium">{{ g.nombre }}</td>
-        <td class="py-2 px-3 text-right">{{ g.nota }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <!-- Tabla de resultados -->
+    <div class="w-full overflow-x-auto">
+      <table class="w-full text-base text-gray-700 border-t border-gray-200">
+        <thead>
+        <tr class="bg-[#F6E7D8] text-[#322203] border-b border-gray-200">
+          <th class="py-3 px-4 text-left font-semibold">#</th>
+          <th class="py-3 px-4 text-left font-semibold">Gesto</th>
+          <th class="py-3 px-4 text-right font-semibold">Nota</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          *ngFor="let g of gestosResultados; let i = index"
+          class="border-b border-gray-200 hover:bg-gray-50 transition-colors"
+        >
+          <td class="py-2 px-4">{{ i + 1 }}</td>
+          <td class="py-2 px-4 font-medium">{{ g.nombre }}</td>
+          <td class="py-2 px-4 text-right">{{ g.nota }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <div class="mt-6 flex justify-center gap-4">
-      <button (click)="volverAIntentar()"
-              class="bg-yellow-500 text-white px-5 py-2 rounded-lg hover:bg-yellow-600 transition-all">
-        🔁 Volver a intentar
+    <!-- Botones -->
+    <div class="mt-10 flex flex-wrap justify-center gap-6">
+      <button
+        (click)="volverAIntentar()"
+        class="bg-[#F5C542] text-[#322203] px-8 py-3 rounded-md hover:bg-[#e0b337] transition font-medium shadow-sm"
+      >
+        Volver a intentar
       </button>
 
-      <button (click)="registrarNota()"
-              class="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition-all">
-        💾 Registrar nota
+      <button
+        (click)="registrarNota()"
+        class="bg-[#8B6B4C] text-white px-8 py-3 rounded-md hover:bg-[#6e553f] transition font-medium shadow-sm"
+      >
+        Registrar nota
       </button>
+
+<!--      <button-->
+<!--        (click)="volverALecciones()"-->
+<!--        class="bg-gray-200 text-[#322203] px-8 py-3 rounded-md hover:bg-gray-300 transition font-medium shadow-sm"-->
+<!--      >-->
+<!--        Volver a lecciones-->
+<!--      </button>-->
     </div>
   </div>
-</div>
+</section>

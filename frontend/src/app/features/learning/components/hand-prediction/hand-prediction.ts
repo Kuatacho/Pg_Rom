@@ -12,7 +12,7 @@ import { Hands, HAND_CONNECTIONS, Results } from '@mediapipe/hands';
 import { Camera } from '@mediapipe/camera_utils';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import { Navbar } from '../../../../shared/components/navbar/navbar';
-import { DecimalPipe, NgIf, NgClass } from '@angular/common';
+import {DecimalPipe, NgIf, NgClass, CommonModule} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PredictionService, PredictionResponse } from '../../services/hand-prediction.service';
 import { GesturesService, Gesto } from '../../../learning/services/gestures.service';
@@ -26,7 +26,7 @@ interface GestureScore {
 @Component({
   selector: 'app-hand-prediction',
   standalone: true,
-  imports: [Navbar, NgIf, NgClass, DecimalPipe],
+  imports: [Navbar, NgIf, NgClass, DecimalPipe, CommonModule],
   templateUrl: './hand-prediction.html',
   styleUrls: ['./hand-prediction.css'],
 })

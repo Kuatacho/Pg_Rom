@@ -1,4 +1,5 @@
 export interface Lesson{
   id: number;
-  nombre:string
+  nombre:string,
+  imagen?:string;
 }

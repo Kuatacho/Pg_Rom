@@ -17,44 +17,120 @@
 }
 
 /* ---------------------------------------
+   Variables de color y tipografía
+----------------------------------------- */
+:root {
+  --color-bg: #EBEBEB;
+  --color-text: #322203;
+  --color-accent: #8B6B4C;
+  --color-hover: #000000;
+  --color-light: #F8F6F3;
+  --font-primary: 'Hatton', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+/* ---------------------------------------
    Estilos Globales
 ----------------------------------------- */
 html, body {
   height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 body {
   margin: 0;
-  font-family: 'Hatton', Roboto, "Helvetica Neue", sans-serif;
-  background-color: #ebebeb; /* Fondo claro */
-  color: #322203;           /* Texto por defecto oscuro */
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------
+   Tipografía general
+----------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+p {
+  color: #4A3B1D;
+  margin-bottom: 1rem;
 }
 
 /* ---------------------------------------
    Componentes Personalizados
 ----------------------------------------- */
 @layer components {
-  /* Links del navbar */
+  /* 🔹 Navbar links */
   .nav-link {
-    @apply relative block py-2 px-3 
-           text-[#322203] 
-           hover:text-black 
-           transition;
+    @apply relative block py-2 px-3
+    text-[var(--color-text)]
+    transition-colors duration-300;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute left-0 bottom-0 w-0 h-0.5 
-           bg-[#322203] 
-           transition-all duration-300;
+    @apply absolute left-0 bottom-0 w-0 h-0.5
+    bg-[var(--color-text)]
+    transition-all duration-300;
+  }
+
+  .nav-link:hover {
+    @apply text-[var(--color-hover)];
   }
 
   .nav-link:hover::after {
     @apply w-full;
   }
 
-  /* Link activo */
+  /* 🔸 Link activo */
   .active-link {
-    @apply text-[#322203] font-extrabold;
+    @apply text-[var(--color-text)] font-extrabold;
   }
+
+  /* 🔹 Botón base */
+  .btn {
+    @apply inline-block px-6 py-3 rounded-md font-medium
+    text-white bg-[var(--color-accent)]
+    hover:bg-[var(--color-text)]
+    transition-all duration-300;
+  }
+
+  /* 🔸 Sección hero base */
+  .hero-section {
+    @apply relative overflow-hidden;
+  }
+
+  .hero-overlay {
+    @apply absolute bottom-0 w-full py-6 text-center
+    bg-[var(--color-accent)] text-white tracking-widest;
+  }
+
+  /* 🔹 Decoración puntos esquinas */
+  .corner-dots {
+    @apply absolute bottom-0 w-16 h-16 flex items-end justify-center pb-2;
+  }
+  .corner-dots-grid {
+    @apply grid grid-cols-3 gap-1;
+  }
+  .corner-dot {
+    @apply w-1.5 h-1.5 bg-black rounded-full;
+  }
+}
+
+/* ---------------------------------------
+   Utilidades adicionales
+----------------------------------------- */
+.container-default {
+  @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
 }

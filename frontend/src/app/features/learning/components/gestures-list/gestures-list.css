@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  background-color: #8b6b4c;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Hatton', sans-serif;
+}
+
+h1 {
+  letter-spacing: 0.05em;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #322203;
+}

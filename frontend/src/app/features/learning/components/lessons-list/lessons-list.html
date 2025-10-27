@@ -1,38 +1,75 @@
-<app-navbar>  </app-navbar>
-<div class="p-6 max-w-5xl mx-auto">
+<app-navbar></app-navbar>
 
-  <h1 class="text-3xl font-semibold mb-6">📚 Lecciones</h1>
+<!-- Contenedor principal -->
+<section class="relative bg-[#8B6B4C] min-h-screen text-white py-16 px-6 overflow-hidden">
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <!-- Decoraciones esquinas -->
+    <div class="absolute top-0 left-0 w-16 h-16 flex items-start justify-start pt-2 pl-3">
+      <div class="grid grid-cols-3 gap-1">
+        <div *ngFor="let _ of [].constructor(9)" class="w-1.5 h-1.5 bg-black rounded-full"></div>
+      </div>
+    </div>
+    <div class="absolute top-0 right-0 w-16 h-16 flex items-start justify-end pt-2 pr-3">
+      <div class="grid grid-cols-3 gap-1">
+        <div *ngFor="let _ of [].constructor(9)" class="w-1.5 h-1.5 bg-black rounded-full"></div>
+      </div>
+    </div>
 
-  <!-- Loading -->
-  <div *ngIf="loading()" class="text-center text-slate-500 animate-pulse">
-    Cargando lecciones...
-  </div>
+    <!-- Título principal -->
+    <h1 class="text-4xl md:text-5xl font-[Hatton] mb-12 tracking-wide">APRENDAMOS</h1>
 
-  <!-- Error -->
-  <div *ngIf="error()" class="text-center text-red-500">
-    {{ error() }}
-  </div>
+    <!-- Subtítulo / módulo -->
+    <h2 class="text-2xl font-light mb-8">Módulo 1</h2>
 
-  <!-- Lecciones -->
-  <div *ngIf="!loading() && !error()" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <button
-      *ngFor="let leccion of lecciones(); trackBy: trackById"
-      (click)="openLesson(leccion)"
-      class="group flex flex-col justify-center items-center p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150"
+    <!-- Loading -->
+    <div *ngIf="loading()" class="text-center text-white/80 animate-pulse">
+      Cargando lecciones...
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="error()" class="text-center text-red-300">
+      {{ error() }}
+    </div>
+
+    <!-- Lista de lecciones -->
+    <div
+      *ngIf="!loading() && !error()"
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 justify-items-center"
     >
-      <div class="text-5xl mb-3">
-        <!-- emoji temporal o ícono genérico -->
-        📘
+      <div
+        *ngFor="let leccion of lecciones(); trackBy: trackById"
+        (click)="openLesson(leccion)"
+        class="group cursor-pointer flex flex-col items-center transition-transform duration-300 hover:scale-105"
+      >
+        <!-- Imagen circular -->
+        <div
+          class="w-36 h-36 rounded-full overflow-hidden border-4 border-[#B38758] shadow-lg mb-4 bg-white"
+        >
+          <img
+            [src]="leccion.imagen || 'assets/img/lecciones/default.jpg'"
+            [alt]="leccion.nombre"
+            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+
+        <!-- Nombre -->
+        <h3 class="text-lg font-medium mb-1">{{ leccion.nombre }}</h3>
       </div>
-      <div class="text-lg font-medium text-slate-800 group-hover:text-indigo-600 transition">
-        {{ leccion.nombre }}
-      </div>
-      <div class="text-sm text-slate-500 mt-1">Toca para comenzar</div>
-    </button>
+    </div>
+
+    <!-- Estado vacío -->
+    <div
+      *ngIf="!loading() && lecciones().length === 0 && !error()"
+      class="text-center text-white/80 mt-10"
+    >
+      No hay lecciones disponibles.
+    </div>
   </div>
 
-  <!-- Vacío -->
-  <div *ngIf="!loading() && lecciones().length === 0 && !error()" class="text-center text-slate-500 mt-10">
-    No hay lecciones disponibles.
+  <!-- Decoración esquina inferior derecha -->
+  <div class="absolute bottom-0 right-0 w-16 h-16 flex items-end justify-end pb-2 pr-3">
+    <div class="grid grid-cols-3 gap-1">
+      <div *ngFor="let _ of [].constructor(9)" class="w-1.5 h-1.5 bg-black rounded-full"></div>
+    </div>
   </div>
-</div>
+</section>

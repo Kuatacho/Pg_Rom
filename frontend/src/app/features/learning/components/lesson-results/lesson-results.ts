@@ -82,4 +82,8 @@ export class LessonResults implements OnInit {
       }
     });
   }
+
+  protected volverALecciones() {
+
+  }
 }

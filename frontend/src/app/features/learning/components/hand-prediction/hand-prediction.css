@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  background-color: #8b6b4c;
+  color: #fff;
+  height: 100vh;
+  font-family: 'Hatton', serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h1, h2 {
+  letter-spacing: 0.04em;
+}
+
+button {
+  font-family: 'Hatton', serif;
+  font-weight: 500;
+}
