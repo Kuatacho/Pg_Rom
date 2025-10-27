@@ -4,7 +4,7 @@ import { Home } from "./features/home/home";
 import { Navbar } from "./shared/components/navbar/navbar";
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { HandPrediction } from './features/hand-prediction/components/hand-prediction';
+import { HandPrediction } from './features/learning/components/hand-prediction/hand-prediction';
 
 import { HttpClientModule } from '@angular/common/http';
 @Component({
@@ -14,8 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     RouterModule,
     HttpClientModule
-    
-],  
+
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

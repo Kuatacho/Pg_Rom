@@ -1,4 +1,4 @@
-// shared/components/navbar/navbar.ts
+// shared/hand-prediction/navbar/navbar.ts
 import { Component, inject } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';

@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+
+<div class="container mx-auto px-4 py-6">
+  <h1 class="text-3xl font-semibold mb-6 text-center">
+    ✋ Práctica del gesto: <span class="text-indigo-600">{{ gestoEsperado?.nombre }}</span>
+  </h1>
+
+  <!-- Layout principal: cámara (izq) / ejemplo (der) -->
+  <div class="flex flex-col md:flex-row gap-6 items-start justify-center">
+
+    <!-- 🎥 Cámara -->
+    <div class="md:w-1/2 bg-gray-100 p-4 rounded-xl shadow-md flex flex-col items-center">
+      <h2 class="text-xl font-semibold mb-3">Tu cámara</h2>
+
+      <video #videoElement class="hidden"></video>
+
+      <!-- Mismo tamaño que el panel de ejemplo: aspect-video -->
+      <canvas
+        #canvasElement
+        class="w-full rounded-lg border border-gray-300 aspect-video shadow-inner">
+      </canvas>
+
+      <!-- Feedback -->
+      <div class="mt-4 text-center">
+        <p *ngIf="feedback"
+           [ngClass]="{
+             'text-green-600 font-semibold': feedback.startsWith('✅'),
+             'text-red-600 font-semibold': feedback.startsWith('❌')
+           }">
+          {{ feedback }}
+        </p>
+
+        <p *ngIf="warning" class="text-yellow-600 font-medium">
+          ⚠️ {{ warning }}
+        </p>
+      </div>
+
+      <!-- Controles -->
+      <div class="mt-4 flex flex-wrap gap-3 justify-center">
+        <!-- Ver → Practicar -->
+        <button *ngIf="modo === 'ver'"
+                (click)="startPractice()"
+                class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-all">
+          🎬 ¡Tu turno!
+        </button>
+
+        <!-- Practicar → Reiniciar -->
+        <button *ngIf="modo === 'practicar'"
+                (click)="retryGesture()"
+                class="bg-gray-300 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-400 transition-all">
+          🔁 Reiniciar
+        </button>
+
+        <!-- Resultado → Intentar de nuevo / Siguiente -->
+        <button *ngIf="modo === 'resultado'"
+                (click)="retryGesture()"
+                class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition-all">
+          🔁 Intentar de nuevo
+        </button>
+
+        <button *ngIf="modo === 'resultado'"
+                (click)="nextGesture()"
+                [disabled]="false"
+                class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+          {{ isLast ? 'Ver resultados' : '➡️ Siguiente gesto' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- 🎞️ Ejemplo del gesto (mismo tamaño visual que la cámara) -->
+    <div class="md:w-1/2 bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
+      <h2 class="text-xl font-semibold mb-3">Ejemplo del gesto</h2>
+
+      <ng-container *ngIf="gestoEsperado; else cargandoGesto">
+        <div class="w-full aspect-video flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg">
+          <img
+            [src]="gifSrc"
+            (error)="gifError = true"
+            alt="GIF del gesto"
+            class="max-h-full max-w-full object-contain"
+          />
+        </div>
+
+        <p class="mt-3 text-gray-600 text-center">
+          {{ gestoEsperado.descripcion }}
+        </p>
+      </ng-container>
+
+      <ng-template #cargandoGesto>
+        <p class="text-gray-500 italic">Cargando gesto...</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Barra de confianza + nota -->
+  <div *ngIf="modo === 'resultado' || confidence > 0" class="mt-6 text-center">
+    <h3 *ngIf="modo === 'resultado'" class="text-2xl font-semibold text-indigo-600">
+      Tu nota: {{ nota }} / 100
+    </h3>
+
+    <div class="max-w-lg mx-auto mt-3">
+      <div class="w-full bg-gray-200 rounded-full h-4">
+        <div class="bg-green-500 h-4 rounded-full transition-all duration-500"
+             [style.width.%]="confidence * 100"></div>
+      </div>
+      <p class="text-sm text-gray-600 mt-1">
+        Confianza: {{ (confidence * 100) | number:'1.0-0' }}%
+      </p>
+    </div>
+  </div>
+</div>

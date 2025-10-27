@@ -7,6 +7,7 @@ export interface Gesto {
   id:number;
   nombre:string;
   descripcion:string;
+  gif:string;
 
 }
 

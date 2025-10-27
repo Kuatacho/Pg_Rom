@@ -9792,3 +9792,23 @@ TypeError: 'tuple' object is not callable
 2025-10-26 13:10:39,242 - app - INFO - Sistema iniciado
 2025-10-26 14:04:56,267 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-10-26 14:49:05,074 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 15:49:56,439 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 15:57:39,761 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 16:44:50,601 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 17:10:14,505 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 17:11:52,459 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 19:42:58,682 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 19:44:24,312 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 19:54:17,301 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 20:02:05,032 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-10-26 20:02:05,419 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-10-26 20:03:18,628 - app - INFO - Registro de usuario para ('hibeyoj909@hh7f.com', 'Estudiante'): 201
+2025-10-26 20:03:53,728 - app - INFO - Intento de login para hibeyoj909@hh7f.com: 200
+2025-10-26 20:16:11,761 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 20:45:30,896 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 20:49:32,911 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 21:08:16,236 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 21:11:39,211 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 21:17:30,953 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 21:31:32,530 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 21:38:58,287 - app - INFO - Intento de login para conori8755@hh7f.com: 200

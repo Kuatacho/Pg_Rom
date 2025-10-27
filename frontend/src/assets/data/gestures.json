@@ -1,34 +1,53 @@
 {
   "1": [
-    { "id": 1, "nombre": "Hola", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 2, "nombre": "Chau", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 3, "nombre": "Permiso", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 4, "nombre": "Buenos Dias", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 5, "nombre": "Buenas Tardes", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 6, "nombre": "Gracias", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 7, "nombre": "Buenas Noches", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 8, "nombre": "Por Favor", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 9, "nombre": "Como Estas", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 10, "nombre": "Estoy Bien", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 11, "nombre": "Puedo", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 12, "nombre": "No Puedo", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 13, "nombre": "Mal", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 14, "nombre": "Mas O Menos", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 15, "nombre": "Nombre", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 16, "nombre": "Si", "descripcion": "Saludo con la mano derecha levantada." },
-    { "id": 17, "nombre": "No", "descripcion": "Mano en el mentón hacia adelante." },
-    { "id": 18, "nombre": "Lo Siento", "descripcion": "Movimiento de mano abierta de lado a lado." },
-    { "id": 19, "nombre": "Te Amo", "descripcion": "Movimiento de mano abierta de lado a lado." }
+    {
+      "id": 1,
+      "nombre": "Hola",
+      "descripcion": "Saludo con la mano derecha levantada.",
+      "gif": "assets/gifs/hola.gif"
+    },
+    {
+      "id": 2,
+      "nombre": "Chau",
+      "descripcion": "Mano en el mentón hacia adelante."
+    }
+
   ],
   "2": [
-    { "id": 1, "nombre": "Lunes", "descripcion": "Gesto del día lunes." },
-    { "id": 2, "nombre": "Martes", "descripcion": "Gesto del día martes." },
-    { "id": 3, "nombre": "Miercoles", "descripcion": "Gesto del día martes." },
-    { "id": 4, "nombre": "Jueves", "descripcion": "Gesto del día martes." },
-    { "id": 5, "nombre": "Viernes", "descripcion": "Gesto del día martes." },
-    { "id": 6, "nombre": "Sabado", "descripcion": "Gesto del día martes." },
-    { "id": 7, "nombre": "Domingo", "descripcion": "Gesto del día martes." }
-
+    {
+      "id": 1,
+      "nombre": "Lunes",
+      "descripcion": "Gesto del día lunes."
+    },
+    {
+      "id": 2,
+      "nombre": "Martes",
+      "descripcion": "Gesto del día martes."
+    },
+    {
+      "id": 3,
+      "nombre": "Miercoles",
+      "descripcion": "Gesto del día martes."
+    },
+    {
+      "id": 4,
+      "nombre": "Jueves",
+      "descripcion": "Gesto del día martes."
+    },
+    {
+      "id": 5,
+      "nombre": "Viernes",
+      "descripcion": "Gesto del día martes."
+    },
+    {
+      "id": 6,
+      "nombre": "Sabado",
+      "descripcion": "Gesto del día martes."
+    },
+    {
+      "id": 7,
+      "nombre": "Domingo",
+      "descripcion": "Gesto del día martes."
+    }
   ]
-
 }

@@ -10,12 +10,15 @@ export const API_CONFIG = {
   auth:{
     login: '/auth/login',
     register: '/auth/register',
+
     //todo: corregir ruta forgot
     //forgotPassword: '/auth/forgotPassword'
 
   },
 
+
   learning:{
-    lecciones:'/lecciones'
+    lecciones:'/lecciones',
+    create_nota:'/create-nota'
   }
 } as const;

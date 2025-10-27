@@ -3,7 +3,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { RoleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
-  // ---------- PÚBLICAS ----------
+  // ---------- 🌐 PÚBLICAS ----------
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   {
@@ -22,9 +22,7 @@ export const routes: Routes = [
       import('./features/auth/components/forgot/forgot').then(m => m.Forgot),
   },
 
-  // ---------- PRIVADAS (AUTENTICADAS) ----------
-
-  // --- Rutas accesibles solo a usuarios con rol "Estudiante" ---
+  // ---------- 🎓 ESTUDIANTE (PRIVADAS CON ROLEGUARD) ----------
   {
     path: 'lecciones',
     canActivate: [AuthGuard, RoleGuard],
@@ -39,27 +37,30 @@ export const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     data: { roles: ['Estudiante'] },
     loadComponent: () =>
-      import('./features/learning/components/gestures-list/gestures-list').then(m => m.GesturesListComponent)
+      import('./features/learning/components/gestures-list/gestures-list').then(
+        m => m.GesturesListComponent
+      ),
   },
   {
-    path: 'lecciones/:id/gestos/:gestoId/practica',
+    path: 'lecciones/:leccionId/gestos/:gestoId/practica',
     canActivate: [AuthGuard, RoleGuard],
     data: { roles: ['Estudiante'] },
     loadComponent: () =>
-      import('./features/hand-prediction/components/hand-prediction').then(m => m.HandPrediction)
-  },
-
-  {
-    path: 'hand-prediction',
-    canActivate: [AuthGuard, RoleGuard],
-    data: { roles: ['Estudiante'] },
-    loadComponent: () =>
-      import('./features/hand-prediction/components/hand-prediction').then(
+      import('./features/learning/components/hand-prediction/hand-prediction').then(
         m => m.HandPrediction
       ),
   },
+  {
+    path: 'lecciones/:leccionId/resultados',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['Estudiante'] },
+    loadComponent: () =>
+      import('./features/learning/components/lesson-results/lesson-results').then(
+        m => m.LessonResults
+      ),
+  },
 
-  // --- Acceso general autenticado (por ejemplo profesores o ambos roles) ---
+  // ---------- 👨‍🏫 GENERAL AUTH ----------
   {
     path: 'notas',
     canActivate: [AuthGuard],
@@ -69,7 +70,7 @@ export const routes: Routes = [
       ),
   },
 
-  // ---------- ADMINISTRADOR ----------
+  // ---------- 🛠️ ADMINISTRADOR ----------
   {
     path: 'admin',
     canActivate: [AuthGuard, RoleGuard],
@@ -104,6 +105,6 @@ export const routes: Routes = [
     ],
   },
 
-  // ---------- WILDCARD ----------
+  // ---------- ❓ WILDCARD ----------
   { path: '**', redirectTo: '/home' },
 ];
