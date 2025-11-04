@@ -5,14 +5,16 @@ export const API_CONFIG = {
     list_users:'/list-usuarios',
     list_users_id:'/list-usuarios-by',
     update_users:'/update-usuario',
+    get_notas:'/notas'
+
   },
 
   auth:{
     login: '/auth/login',
     register: '/auth/register',
 
-    //todo: corregir ruta forgot
-    //forgotPassword: '/auth/forgotPassword'
+
+    forgotPassword: '/auth/forgot'
 
   },
 

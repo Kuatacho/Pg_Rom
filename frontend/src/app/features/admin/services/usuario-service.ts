@@ -17,7 +17,7 @@ export class UsuarioService {
 
   //getall users
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.base + API_CONFIG.admin.list_users);
+    return this.http.get<User[]>(this.base + API_CONFIG.admin.list_users);``
   }
 
   // get by id users

@@ -60,7 +60,7 @@ export const routes: Routes = [
       ),
   },
 
-  // ---------- 👨‍🏫 GENERAL AUTH ----------
+  // ---------- GENERAL AUTH ----------
   {
     path: 'notas',
     canActivate: [AuthGuard],

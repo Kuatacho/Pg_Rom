@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Navbar } from '../../../../shared/components/navbar/navbar';
 import {NotaService} from '../../services/nota.service';
 import { TokenService } from '../../../../core/services/token.service';
-import { Nota } from '../../../../data/models/nota.model';
+import {Nota, NuevaNota} from '../../../../data/models/nota.model';
 
 @Component({
   selector: 'app-lesson-results',
@@ -62,7 +62,7 @@ export class LessonResults implements OnInit {
   }
 
   registrarNota() {
-    const payload: Nota = {
+    const payload: NuevaNota = {
       usuario_id: this.usuarioId,
       leccion_id: this.leccionId,
       puntuacion: this.promedio

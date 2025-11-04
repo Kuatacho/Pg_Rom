@@ -27,7 +27,7 @@ def register():
 # recuperar contra
 
 
-@bp.post("auth/recover/forgot")
+@bp.post("auth/forgot")
 def forgot_password():
     data = request.get_json(silent=True) or {}
     email = data.get("email", "").strip().lower()

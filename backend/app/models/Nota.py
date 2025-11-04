@@ -1,4 +1,6 @@
 # app/models/nota.py
+from datetime import datetime
+
 from app.extensions import db
 from sqlalchemy import Numeric, ForeignKey
 from sqlalchemy.orm import relationship
@@ -8,7 +10,7 @@ class Nota(db.Model):
 
     id = db.Column("idnotas", db.Integer, primary_key=True, autoincrement=True)
     puntuacion = db.Column("puntuacion", db.Numeric(5, 2), nullable=False)
-
+    fecha = db.Column(db.Date, default=datetime.utcnow)
     usuario_id = db.Column(
         "usuarios_idusuarios",
         db.Integer,

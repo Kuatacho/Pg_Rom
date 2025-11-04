@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Nota } from '../../../data/models/nota.model';
+import {Nota, NuevaNota} from '../../../data/models/nota.model';
 import { API_CONFIG } from '../../../core/config/api.config';
 import { TokenService } from '../../../core/services/token.service';
 
@@ -18,11 +18,14 @@ export class NotaService {
   ) {}
 
   /** 🔹 Registrar promedio (nota final) de una lección */
-  registerAverage(payload: Nota): Observable<any> {
+  registerAverage(payload: NuevaNota): Observable<any> {
     // POST → base + endpoint definido en tu config
     return this.http.post(
       this.base + API_CONFIG.learning.create_nota,
       payload
     );
   }
+
+
+
 }

@@ -2,7 +2,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import { ApiService } from '../../../../core/services/api.service';
 import {TokenService} from '../../../../core/services/token.service';
 
@@ -10,7 +10,7 @@ import {TokenService} from '../../../../core/services/token.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
 })

@@ -9814,3 +9814,122 @@ TypeError: 'tuple' object is not callable
 2025-10-26 21:38:58,287 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-10-26 22:49:05,759 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-10-26 23:18:54,382 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-10-26 23:30:32,786 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-03 19:13:58,373 - app - INFO - Logger initialized
+2025-11-03 19:13:58,392 - app - INFO - Sistema iniciado
+2025-11-03 19:27:03,689 - app - INFO - Logger initialized
+2025-11-03 19:27:03,726 - app - INFO - Sistema iniciado
+2025-11-03 19:27:14,068 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 19:27:14,424 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-11-03 19:27:17,739 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 19:27:26,072 - app - INFO - Error al obtener notas: module 'app.services.nota_service' has no attribute 'obtener_notas'
+2025-11-03 19:31:05,037 - app - INFO - Logger initialized
+2025-11-03 19:31:05,083 - app - INFO - Sistema iniciado
+2025-11-03 19:31:06,366 - app - INFO - Error al obtener notas: module 'app.services.nota_service' has no attribute 'obtener_notas'
+2025-11-03 19:31:21,982 - app - INFO - Error al obtener notas: module 'app.services.nota_service' has no attribute 'obtener_notas'
+2025-11-03 19:31:27,736 - app - INFO - Logger initialized
+2025-11-03 19:31:27,753 - app - INFO - Sistema iniciado
+2025-11-03 19:31:29,901 - app - INFO - Error al obtener notas: Object of type Nota is not JSON serializable
+2025-11-03 19:54:29,196 - app - INFO - Logger initialized
+2025-11-03 19:54:29,209 - app - INFO - Sistema iniciado
+2025-11-03 19:54:58,984 - app - INFO - Error al obtener notas: Object of type Nota is not JSON serializable
+2025-11-03 19:55:04,783 - app - INFO - Error al obtener notas: Object of type Nota is not JSON serializable
+2025-11-03 19:55:26,786 - app - INFO - Logger initialized
+2025-11-03 19:55:26,799 - app - INFO - Sistema iniciado
+2025-11-03 19:55:29,328 - app - INFO - Error al obtener notas: 'Usuario' object has no attribute 'apellido'
+2025-11-03 19:56:19,319 - app - INFO - Logger initialized
+2025-11-03 19:56:19,333 - app - INFO - Sistema iniciado
+2025-11-03 20:27:19,664 - app - INFO - Logger initialized
+2025-11-03 20:27:19,720 - app - INFO - Sistema iniciado
+2025-11-03 20:32:08,011 - app - INFO - Logger initialized
+2025-11-03 20:32:08,024 - app - INFO - Sistema iniciado
+2025-11-03 20:33:32,143 - app - INFO - Error al crear nota: (psycopg2.errors.UndefinedColumn) no existe la columna notas.fecha_creacion
+LINE 1: ...as_idnotas, notas.puntuacion AS notas_puntuacion, notas.fech...
+                                                             ^
+
+[SQL: SELECT notas.idnotas AS notas_idnotas, notas.puntuacion AS notas_puntuacion, notas.fecha_creacion AS notas_fecha_creacion, notas.usuarios_idusuarios AS notas_usuarios_idusuarios, notas.lecciones_idlecciones AS notas_lecciones_idlecciones 
+FROM notas 
+WHERE notas.idnotas = %(pk_1)s]
+[parameters: {'pk_1': '2012-04-23T18:25:43.511Z'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-03 20:33:51,932 - app - INFO - Error al crear nota: (psycopg2.errors.UndefinedColumn) no existe la columna notas.fecha_creacion
+LINE 1: ...as_idnotas, notas.puntuacion AS notas_puntuacion, notas.fech...
+                                                             ^
+
+[SQL: SELECT notas.idnotas AS notas_idnotas, notas.puntuacion AS notas_puntuacion, notas.fecha_creacion AS notas_fecha_creacion, notas.usuarios_idusuarios AS notas_usuarios_idusuarios, notas.lecciones_idlecciones AS notas_lecciones_idlecciones 
+FROM notas 
+WHERE notas.idnotas = %(pk_1)s]
+[parameters: {'pk_1': '2024-11-03'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-03 20:33:56,327 - app - INFO - Error al crear nota: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-11-03 20:34:44,813 - app - INFO - Error al crear nota: (psycopg2.errors.UndefinedColumn) no existe la columna notas.fecha_creacion
+LINE 1: ...as_idnotas, notas.puntuacion AS notas_puntuacion, notas.fech...
+                                                             ^
+
+[SQL: SELECT notas.idnotas AS notas_idnotas, notas.puntuacion AS notas_puntuacion, notas.fecha_creacion AS notas_fecha_creacion, notas.usuarios_idusuarios AS notas_usuarios_idusuarios, notas.lecciones_idlecciones AS notas_lecciones_idlecciones 
+FROM notas 
+WHERE notas.idnotas = %(pk_1)s]
+[parameters: {'pk_1': '2024-11-03'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-03 20:35:34,069 - app - INFO - Logger initialized
+2025-11-03 20:35:34,083 - app - INFO - Sistema iniciado
+2025-11-03 20:35:36,400 - app - INFO - Error al crear nota: (psycopg2.errors.InvalidTextRepresentation) la sintaxis de entrada no es válida para tipo integer: «2024-11-03»
+LINE 3: WHERE notas.idnotas = '2024-11-03'
+                              ^
+
+[SQL: SELECT notas.idnotas AS notas_idnotas, notas.puntuacion AS notas_puntuacion, notas.fecha AS notas_fecha, notas.usuarios_idusuarios AS notas_usuarios_idusuarios, notas.lecciones_idlecciones AS notas_lecciones_idlecciones 
+FROM notas 
+WHERE notas.idnotas = %(pk_1)s]
+[parameters: {'pk_1': '2024-11-03'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-11-03 20:36:08,079 - app - INFO - Logger initialized
+2025-11-03 20:36:08,092 - app - INFO - Sistema iniciado
+2025-11-03 20:36:23,697 - app - INFO - Error al crear nota: (psycopg2.errors.InvalidTextRepresentation) la sintaxis de entrada no es válida para tipo integer: «2024-11-03»
+LINE 3: WHERE notas.idnotas = '2024-11-03'
+                              ^
+
+[SQL: SELECT notas.idnotas AS notas_idnotas, notas.puntuacion AS notas_puntuacion, notas.fecha AS notas_fecha, notas.usuarios_idusuarios AS notas_usuarios_idusuarios, notas.lecciones_idlecciones AS notas_lecciones_idlecciones 
+FROM notas 
+WHERE notas.idnotas = %(pk_1)s]
+[parameters: {'pk_1': '2024-11-03'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-11-03 20:39:59,804 - app - INFO - Logger initialized
+2025-11-03 20:39:59,817 - app - INFO - Sistema iniciado
+2025-11-03 20:41:34,918 - app - INFO - Logger initialized
+2025-11-03 20:41:34,932 - app - INFO - Sistema iniciado
+2025-11-03 20:41:43,436 - app - INFO - Error al obtener notas: 'NoneType' object has no attribute 'isoformat'
+2025-11-03 20:42:39,493 - app - INFO - Error al obtener notas: 'NoneType' object has no attribute 'isoformat'
+2025-11-03 20:42:46,118 - app - INFO - Logger initialized
+2025-11-03 20:42:46,131 - app - INFO - Sistema iniciado
+2025-11-03 21:16:13,788 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 21:16:14,132 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-11-03 21:16:16,150 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:16:37,523 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:16:58,206 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:17:03,669 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:17:04,012 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-11-03 21:17:06,246 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:27:07,357 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:35:33,221 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:35:35,210 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:35:36,852 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Profesor', 'Estudiante']
+2025-11-03 21:39:31,436 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:41:04,821 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:52:55,925 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:53:02,276 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:53:02,585 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:55:07,152 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:55:09,433 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:55:10,346 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:55:37,583 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 21:55:37,918 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 21:55:38,992 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 21:57:15,457 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 21:58:28,393 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:10:42,750 - app - INFO - Logger initialized
+2025-11-03 22:10:42,799 - app - INFO - Sistema iniciado
+2025-11-03 22:10:50,090 - app - INFO - Solicitud de recuperacion de contrasenia para 
+2025-11-03 22:12:51,800 - app - INFO - Solicitud de recuperacion de contrasenia para 
+2025-11-03 22:13:21,888 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 22:16:19,133 - app - INFO - Solicitud de recuperacion de contrasenia para 
+2025-11-03 22:17:55,603 - app - INFO - Solicitud de recuperacion de contrasenia para 

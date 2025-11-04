@@ -1,28 +1,46 @@
 <div class="min-h-screen bg-gradient-to-br from-[#8b6b46] to-[#b8996c] flex flex-col items-center py-10 px-4">
-  <!-- Título -->
   <h1 class="text-4xl md:text-5xl font-extrabold text-[#322203] tracking-tight drop-shadow-sm">
-    Listado de Estudiantes
+    Notas De Los Estudiantes
   </h1>
   <p class="text-gray-100/90 mt-1 text-base font-medium">
     Consulta las notas del estudiante que desees
   </p>
-  <br>
 
-  <!-- Contenedor de tabla -->
-  <div class="w-full max-w-5xl bg-[#f9f7f3] rounded-3xl shadow-2xl overflow-hidden border border-[#3e2a13]/10">
-    <!-- Encabezado de sección -->
+  <div class="mt-6 flex flex-wrap gap-3 justify-center">
+    <input
+      type="text"
+      placeholder="Filtrar por nombre"
+      class="px-4 py-2 rounded-lg border text-sm focus:outline-none"
+      [(ngModel)]="filtroNombre"
+    />
+    <input
+      type="text"
+      placeholder="Filtrar por lección"
+      class="px-4 py-2 rounded-lg border text-sm focus:outline-none"
+      [(ngModel)]="filtroLeccion"
+    />
+  </div>
+
+  <br />
+
+  <div
+    *ngFor="let estudiante of estudiantesPaginados"
+    class="w-full max-w-5xl bg-[#f9f7f3] rounded-3xl shadow-2xl overflow-hidden border border-[#3e2a13]/10 mb-6"
+  >
     <div class="bg-[#3e2a13] text-white px-6 py-4 flex justify-between items-center">
-      <h3 class="text-lg font-semibold ">Listado General</h3>
-<!--      <span class="text-sm bg-[#8b6b46] px-3 py-1 rounded-full">Total: {{ notas.length }}</span>-->
+      <h3
+        class="text-lg font-semibold cursor-pointer underline text-white"
+        (click)="abrirModal(estudiante)"
+      >Estudiante:
+        {{ estudiante.nombre }} {{ estudiante.apellido }}
+      </h3>
+      <span class="text-sm text-gray-200">Notas: {{ estudiante.notas.length }}</span>
     </div>
 
-    <!-- Tabla -->
     <div class="overflow-x-auto">
       <table class="min-w-full text-sm text-left text-[#2b1b10]">
         <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
         <tr>
-          <th class="px-6 py-3 text-center">Nombre</th>
-          <th class="px-6 py-3 text-center">Apellido</th>
           <th class="px-6 py-3 text-center">Lección</th>
           <th class="px-6 py-3 text-center">Promedio Nota</th>
           <th class="px-6 py-3 text-center">Fecha</th>
@@ -30,36 +48,119 @@
         </thead>
 
         <tbody>
-        <!-- Filas -->
         <tr
-          *ngFor="let n of notas"
+          *ngFor="let n of estudiante.notas"
+          [hidden]="
+              filtroLeccion &&
+              !n.leccion.toLowerCase().includes(filtroLeccion.toLowerCase())
+            "
           class="border-b border-[#e5d7bf] hover:bg-[#f2e4cd] transition-colors duration-200 text-center"
         >
-          <td class="px-6 py-4 font-medium text-[#322203]">{{ n.nombre }}</td>
-          <td class="px-6 py-4">{{ n.apellido }}</td>
           <td class="px-6 py-4">{{ n.leccion }}</td>
-
-          <!-- Nota con color según promedio -->
           <td class="px-6 py-4">
               <span
                 class="px-3 py-1 rounded-full font-semibold text-xs"
                 [ngClass]="{
-                  'bg-green-100 text-green-700': n.nota >= 85,
-                  'bg-yellow-100 text-yellow-700': n.nota >= 70 && n.nota < 85,
-                  'bg-red-100 text-red-700': n.nota < 70
+                  'bg-green-100 text-green-700': n.puntuacion >= 85,
+                  'bg-yellow-100 text-yellow-700': n.puntuacion >= 70 && n.puntuacion < 85,
+                  'bg-red-100 text-red-700': n.puntuacion < 70
                 }"
               >
-                {{ n.nota | number: '1.0-2' }}
+                {{ n.puntuacion | number: '1.0-2' }}
               </span>
           </td>
-
-          <td class="px-6 py-4 text-[#5a4324]">{{ n.fecha | date: 'dd/MM/yyyy' }}</td>
+          <td class="px-6 py-4 text-[#5a4324]">
+            {{ n.fecha | date: 'dd/MM/yyyy' }}
+          </td>
         </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-        <!-- Mensaje sin registros -->
-        <tr *ngIf="notas.length === 0">
-          <td colspan="5" class="text-center py-8 text-[#2b1b10]/80 italic">
-            No hay registros disponibles
+  <!-- Paginación -->
+  <div class="flex justify-center items-center gap-3 mt-4">
+    <button
+      class="px-3 py-1 bg-[#3e2a13] text-white rounded disabled:opacity-50"
+      (click)="cambiarPagina(-1)"
+      [disabled]="pagina === 1"
+    >
+      Anterior
+    </button>
+    <span class="text-white font-medium">
+      Página {{ pagina }} / {{ totalPaginas }}
+    </span>
+    <button
+      class="px-3 py-1 bg-[#3e2a13] text-white rounded disabled:opacity-50"
+      (click)="cambiarPagina(1)"
+      [disabled]="pagina >= totalPaginas"
+    >
+      Siguiente
+    </button>
+  </div>
+</div>
+
+
+<!-- Modal Estudiante -->
+<div
+  *ngIf="mostrarModal && estudianteSeleccionado"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+>
+  <div class="bg-white rounded-lg shadow-xl w-full max-w-xl p-6 relative">
+    <button
+      class="absolute top-2 right-3 text-gray-500 hover:text-black text-lg"
+      (click)="cerrarModal()"
+    >
+      &times;
+    </button>
+
+    <h2 class="text-2xl font-bold mb-2 text-[#322203]">
+      {{ estudianteSeleccionado.nombre }} {{ estudianteSeleccionado.apellido }}
+    </h2>
+
+    <p class="text-sm text-gray-600 mb-4">
+      Promedio general:
+      <span
+        class="font-semibold"
+        [ngClass]="{
+          'text-green-600': promedioEstudiante >= 85,
+          'text-yellow-600': promedioEstudiante >= 70 && promedioEstudiante < 85,
+          'text-red-600': promedioEstudiante < 70
+        }"
+      >
+        {{ promedioEstudiante | number: '1.0-2' }}
+      </span>
+    </p>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-[#2b1b10]">
+        <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider">
+        <tr>
+          <th class="px-4 py-2 text-center">Lección</th>
+          <th class="px-4 py-2 text-center">Nota</th>
+          <th class="px-4 py-2 text-center">Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          *ngFor="let n of estudianteSeleccionado.notas"
+          class="border-b hover:bg-[#f2e4cd] text-center"
+        >
+          <td class="px-4 py-2">{{ n.leccion }}</td>
+          <td class="px-4 py-2">
+              <span
+                class="px-3 py-1 rounded-full font-semibold text-xs"
+                [ngClass]="{
+                  'bg-green-100 text-green-700': n.puntuacion >= 85,
+                  'bg-yellow-100 text-yellow-700': n.puntuacion >= 70 && n.puntuacion < 85,
+                  'bg-red-100 text-red-700': n.puntuacion < 70
+                }"
+              >
+                {{ n.puntuacion | number: '1.0-2' }}
+              </span>
+          </td>
+          <td class="px-4 py-2">
+            {{ n.fecha | date: 'dd/MM/yyyy' }}
           </td>
         </tr>
         </tbody>
@@ -67,3 +168,4 @@
     </div>
   </div>
 </div>
+

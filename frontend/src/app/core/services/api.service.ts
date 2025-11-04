@@ -36,18 +36,13 @@ export class ApiService {
   }
 
 
-// TODO
-  // forgotPassword(correo: string): Observable<any> {
-  //   return this.http.post(`${this.base}${API_CONFIG.auth.forgot}`, { correo });
-  // }
-  //
-  // resetPassword(token: string, nueva_contrasena: string): Observable<any> {
-  //   return this.http.post(`${this.base}${API_CONFIG.auth.reset}`, { token, nueva_contrasena });
-  // }
-  //
-  // me(): Observable<User> {
-  //   return this.http.get<User>(`${this.base}${API_CONFIG.auth.me}`);
-  // }
+
+  forgotPassword(correo: string): Observable<any> {
+    return this.http.post(`${this.base}${API_CONFIG.auth.forgotPassword}`, { correo },  // cuerpo correcto
+      { headers: { 'Content-Type': 'application/json' }} );// importante     })  ;
+  }
+
+
 
   logout(): void {
     this.token.clear();
