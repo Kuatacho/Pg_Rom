@@ -41,7 +41,7 @@ def forgot_password():
     )
 
 
-@bp.get("auth/recover/verify")
+@bp.get("auth/verify")
 def verify_token():
     token = request.args.get("token", "")
     valido = rs.verificar_token(token)
@@ -53,7 +53,7 @@ def verify_token():
     )
 
 
-@bp.post("auth/recover/reset")
+@bp.post("auth/reset")
 def reset_password():
     data = request.get_json(silent=True) or {}
     token = data.get("token", "")

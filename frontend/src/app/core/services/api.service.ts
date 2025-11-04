@@ -37,12 +37,23 @@ export class ApiService {
 
 
 
-  forgotPassword(correo: string): Observable<any> {
-    return this.http.post(`${this.base}${API_CONFIG.auth.forgotPassword}`, { correo },  // cuerpo correcto
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${this.base}${API_CONFIG.auth.forgotPassword}`, { email },  // cuerpo correcto
       { headers: { 'Content-Type': 'application/json' }} );// importante     })  ;
   }
 
+  verifyToken(token: string): Observable<{ valid: boolean }> {
+    return this.http.get<{ valid: boolean }>(
+      this.base + API_CONFIG.auth.verify_token + `?token=${token}`
+    );
+  }
 
+  resetPassword(token: string, new_password: string): Observable<{ ok: boolean }> {
+    return this.http.post<{ ok: boolean }>(
+      this.base + API_CONFIG.auth.resetPassword,
+      { token, new_password }
+    );
+  }
 
   logout(): void {
     this.token.clear();

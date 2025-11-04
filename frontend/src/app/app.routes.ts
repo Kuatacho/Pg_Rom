@@ -3,7 +3,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { RoleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
-  // ---------- 🌐 PÚBLICAS ----------
+  // ----------  PÚBLICAS ----------
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   {
@@ -22,7 +22,26 @@ export const routes: Routes = [
       import('./features/auth/components/forgot/forgot').then(m => m.Forgot),
   },
 
-  // ---------- 🎓 ESTUDIANTE (PRIVADAS CON ROLEGUARD) ----------
+//  Nueva ruta: verificación de token
+  {
+    path: 'recuperar/verificar',
+    loadComponent: () =>
+      import('./features/auth/components/verify-token/verify-token').then(
+        m => m.VerifyTokenComponent
+      ),
+  },
+
+// Nueva ruta: formulario para resetear
+  {
+    path: 'auth/reset',
+    loadComponent: () =>
+      import('./features/auth/components/reset-password/reset-password').then(
+        m => m.ResetPasswordComponent
+      ),
+  },
+
+
+  // ---------- ESTUDIANTE (PRIVADAS CON ROLEGUARD) ----------
   {
     path: 'lecciones',
     canActivate: [AuthGuard, RoleGuard],
@@ -60,15 +79,7 @@ export const routes: Routes = [
       ),
   },
 
-  // ---------- GENERAL AUTH ----------
-  {
-    path: 'notas',
-    canActivate: [AuthGuard],
-    loadComponent: () =>
-      import('./features/admin/components/notas-estudiantes/notas-estudiantes').then(
-        m => m.NotasEstudiantesComponent
-      ),
-  },
+
 
   // ---------- 🛠️ ADMINISTRADOR ----------
   {

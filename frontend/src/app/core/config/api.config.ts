@@ -12,9 +12,9 @@ export const API_CONFIG = {
   auth:{
     login: '/auth/login',
     register: '/auth/register',
-
-
-    forgotPassword: '/auth/forgot'
+    verify_token: '/auth/verify',
+    forgotPassword: '/auth/forgot',
+    resetPassword: '/auth/reset'
 
   },
 

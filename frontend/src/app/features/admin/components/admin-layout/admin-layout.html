@@ -1,7 +1,8 @@
 <div class="flex h-screen overflow-hidden bg-[#f9f9f9]">
   <!-- SIDEBAR -->
   <aside
-    class="w-64 bg-gradient-to-b from-[#3b2a15] to-[#1f1502] text-[#f2f0eb] flex flex-col justify-between shadow-2xl h-full">
+    class="w-64 bg-gradient-to-b from-[#3b2a15] to-[#1f1502] text-[#f2f0eb] flex flex-col justify-between shadow-2xl h-full"
+  >
     <!-- LOGO + TÍTULO -->
     <div>
       <div class="text-center py-7 border-b border-[#ffffff1a]">
@@ -11,6 +12,7 @@
 
       <!-- NAVIGATION LINKS -->
       <nav class="mt-6 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[#6d5432] scrollbar-track-transparent">
+        <!-- Registrar -->
         <a
           routerLink="/admin/register"
           routerLinkActive="active-link"
@@ -22,19 +24,19 @@
           <span class="font-medium group-hover:text-white transition">Registrar Usuario</span>
         </a>
 
-
-
+        <!-- Usuarios -->
         <a
           routerLink="/admin/list-usuarios"
           routerLinkActive="active-link"
           class="group flex items-center gap-3 px-6 py-3 hover:bg-[#5a4226]/60 transition duration-300 ease-in-out rounded-r-full"
         >
           <div class="p-2 bg-[#f5f0e6]/10 rounded-md group-hover:bg-[#f5f0e6]/30 transition">
-            <fa-icon [icon]="faUserPlus" class="text-[#f5f0e6] group-hover:text-white transition"></fa-icon>
+            <fa-icon [icon]="faUsersGear" class="text-[#f5f0e6] group-hover:text-white transition"></fa-icon>
           </div>
-          <span class="font-medium group-hover:text-white transition">Listar Estudiantes</span>
+          <span class="font-medium group-hover:text-white transition">Administración de Usuarios</span>
         </a>
 
+        <!-- Notas -->
         <a
           routerLink="/admin/notas"
           routerLinkActive="active-link"
@@ -54,7 +56,7 @@
         (click)="logout()"
         class="group flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-[#5a4226]/60 rounded-lg transition duration-300"
       >
-        <fa-icon [icon]="faSignOutAlt" class="text-[#f2f0eb] group-hover:text-white transition"></fa-icon>
+        <fa-icon [icon]="faLogout" class="text-[#f2f0eb] group-hover:text-white transition"></fa-icon>
         <span class="font-medium group-hover:text-white transition">Cerrar sesión</span>
       </button>
     </div>

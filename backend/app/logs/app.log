@@ -9933,3 +9933,73 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-11-03 22:13:21,888 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
 2025-11-03 22:16:19,133 - app - INFO - Solicitud de recuperacion de contrasenia para 
 2025-11-03 22:17:55,603 - app - INFO - Solicitud de recuperacion de contrasenia para 
+2025-11-03 22:19:37,434 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 22:22:26,902 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 22:28:28,514 - app - INFO - Logger initialized
+2025-11-03 22:28:28,568 - app - INFO - Sistema iniciado
+2025-11-03 22:38:03,118 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 22:41:36,343 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 22:41:57,196 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 22:41:57,545 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:44:14,528 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:44:53,942 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:47:32,520 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 22:48:01,750 - app - INFO - Cambio de contrasenia realizado con status: 400
+2025-11-03 22:48:10,393 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 22:48:25,524 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 22:48:25,873 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:48:27,137 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:48:33,615 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:03,956 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:24,522 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:49:28,425 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:29,007 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:29,997 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:49:36,469 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:37,597 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:49:38,432 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:39,579 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:39,956 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:49:41,742 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:49:48,271 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:49:48,987 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:52:13,904 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 22:52:14,240 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 22:53:11,726 - app - INFO - Registro de usuario para ('tekoka5613@burangir.com', 'Estudiante'): 201
+2025-11-03 22:53:23,686 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:57:04,387 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:57:05,687 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:57:07,462 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:57:09,658 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:57:26,242 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:57:55,788 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 22:58:14,473 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:58:38,743 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:58:44,669 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 22:58:53,380 - app - INFO - Peticion de actualizar Usuario registrado
+2025-11-03 23:05:30,968 - app - INFO - Intento de login para tekoka5613@burangir.com: 200
+2025-11-03 23:08:07,871 - app - INFO - Intento de login para tekoka5613@burangir.com: 200
+2025-11-03 23:09:36,936 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 23:09:37,312 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 23:10:46,947 - app - INFO - Solicitud de recuperacion de contrasenia para tekoka5613@burangir.com
+2025-11-03 23:11:25,922 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 23:11:55,419 - app - INFO - Intento de login para tekoka5613@burangir.com: 200
+2025-11-03 23:12:21,406 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 23:13:40,934 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 23:14:08,050 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 23:16:42,023 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 23:17:44,587 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 23:17:51,367 - app - INFO - Cambio de contrasenia realizado con status: 400
+2025-11-03 23:18:11,853 - app - INFO - Cambio de contrasenia realizado con status: 400
+2025-11-03 23:18:20,696 - app - INFO - Solicitud de recuperacion de contrasenia para maincra8157@gmail.com
+2025-11-03 23:18:40,578 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-03 23:18:55,321 - app - INFO - Cambio de contrasenia realizado con status: 400
+2025-11-03 23:19:14,298 - app - INFO - Cambio de contrasenia realizado con status: 400
+2025-11-03 23:20:05,256 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 23:20:05,604 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 23:20:06,686 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 23:20:07,252 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-03 23:20:07,969 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 23:21:13,382 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-03 23:29:53,244 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 23:29:53,610 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
