@@ -191,13 +191,13 @@ export class HandPrediction implements OnInit, OnDestroy {
       this.mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
       video.srcObject = this.mediaStream;
 
-      // ✅ esperar dimensiones reales
+      //  esperar dimensiones reales
       await this.waitLoadedMetadata(video);
       await video.play();
       this.videoReady = video.videoWidth > 0 && video.videoHeight > 0;
       this.sizeCanvasToVideo();
 
-      // ✅ nueva Camera por inicio; solo enviamos si el vídeo está listo
+      // nueva Camera por inicio; solo enviamos si el vídeo está listo
       this.cameraInstance = new Camera(video, {
         onFrame: async () => {
           if (
@@ -326,7 +326,7 @@ export class HandPrediction implements OnInit, OnDestroy {
   }
 
   private onResults(results: Results) {
-    // ✅ no procesar si no estamos practicando o el video no está listo
+    // no procesar si no estamos practicando o el video no está listo
     if (this.modo !== 'practicar' || !this.videoReady) return;
 
     const canvas = this.canvasElement.nativeElement;
