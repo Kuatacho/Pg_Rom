@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # ----- Configuración del modelo (puede quedarse igual) -----
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "models" / "modelo_lstm_lessonOne.h5"
+MODEL_PATH = BASE_DIR / "models" / "modelo_lstm_lessonTwo.h5"
 SEQUENCE_LENGTH = 30
 NUM_LANDMARKS_PER_HAND = 21 * 3
 NUM_HANDS = 2
@@ -13,7 +13,8 @@ NUM_LANDMARKS = NUM_LANDMARKS_PER_HAND * NUM_HANDS
 GESTURES = [
     "hola","chau","permiso","buenos_dias","buenas_tardes","gracias",
     "buenas_noches","por_favor","como_estas","estoy_bien","puedo",
-    "no_puedo","mal","mas_o_menos","nombre","si","no","lo_siento","te_amo"
+    "no_puedo","mal","mas_o_menos","nombre","si","no","lo_siento","te_amo",
+    "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo",
 ]
 
 # ----- Configuración BD -----

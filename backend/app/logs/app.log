@@ -10003,3 +10003,12 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-11-03 23:21:13,382 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-11-03 23:29:53,244 - app - INFO - Intento de login para maincra8157@gmail.com: 200
 2025-11-03 23:29:53,610 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-03 23:41:21,534 - app - INFO - Logger initialized
+2025-11-03 23:41:21,609 - app - INFO - Sistema iniciado
+2025-11-03 23:43:38,598 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-03 23:48:05,192 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-03 23:48:05,551 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-04 00:01:10,511 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-04 00:09:13,915 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-04 00:43:06,586 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-04 00:56:23,043 - app - INFO - Intento de login para conori8755@hh7f.com: 200
