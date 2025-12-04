@@ -99,7 +99,7 @@ export class HandPrediction implements OnInit, OnDestroy {
       maxNumHands: 2,
       modelComplexity: 1,
       selfieMode: false,
-      minDetectionConfidence: 0.7,
+      minDetectionConfidence: 0.6,
       minTrackingConfidence: 0.7,
     });
     this.handsInstance.onResults((r: Results) => this.onResults(r));
@@ -392,10 +392,10 @@ export class HandPrediction implements OnInit, OnDestroy {
         this.prediction = this.gestures[maxIndex] || '';
         this.confidence = maxProb;
 
-        if (this.confidence >= 0.7 && this.gestoEsperado) {
+        if (this.confidence >= 0.6 && this.gestoEsperado) {
           const normalize = (s: string) => s.toLowerCase().replace(/_/g, ' ').trim();
           if (normalize(this.prediction) === normalize(this.gestoEsperado!.nombre)) {
-            this.feedback = '✅ ¡Correcto!';
+            this.feedback = '¡Correcto!';
             this.nota = Math.round(this.confidence * 100);
 
             // guarda para el resumen de la lección
@@ -408,7 +408,7 @@ export class HandPrediction implements OnInit, OnDestroy {
             this.modo = 'resultado';
             this.stopCamera(); // pausa cámara en pantalla de resultado
           } else {
-            this.feedback = `❌ Detectado "${this.prediction}". Intenta hacer "${this.gestoEsperado.nombre}"`;
+            this.feedback = `Detectado "${this.prediction}". Intenta hacer "${this.gestoEsperado.nombre}"`;
           }
         } else {
           this.feedback = 'Predicción con baja confianza';

@@ -12,17 +12,15 @@
   <div class="w-full max-w-6xl bg-[#f9f7f3] rounded-3xl shadow-2xl overflow-hidden border border-[#3e2a13]/10">
     <!-- Encabezado -->
     <div class="bg-[#3e2a13] text-white px-6 py-4 flex justify-between items-center">
-      <h3 class="text-lg font-semibold text-white">Usuarios Registrados</h3>
+      <h3 class="text-lg font-semibold">Usuarios Registrados</h3>
       <span class="text-sm bg-[#8b6b46] px-3 py-1 rounded-full">
         Total: {{ usuarios.length }}
       </span>
     </div>
 
-    <!-- Filtros arriba de la tabla -->
-    <!-- 🔍 Filtros de búsqueda -->
+    <!-- Filtros -->
     <div class="bg-[#f2ede6] border-t border-b border-[#d5c7a3] px-6 py-4 flex flex-wrap justify-between items-center gap-4 text-[#3e2a13]">
-
-      <!-- Campo de búsqueda -->
+      <!-- Búsqueda -->
       <div class="relative flex-grow max-w-sm w-full">
         <fa-icon [icon]="faSearch" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#8b6b46]"></fa-icon>
         <input
@@ -46,7 +44,6 @@
           <option value="">Todos</option>
           <option value="Administrador">Administrador</option>
           <option value="Estudiante">Estudiante</option>
-
         </select>
       </div>
 
@@ -66,8 +63,7 @@
       </div>
     </div>
 
-
-
+    <!-- Tabla -->
     <div class="overflow-x-auto rounded-b-3xl">
       <table class="min-w-full table-auto text-sm text-left text-[#2b1b10] border-separate border-spacing-y-1">
         <thead class="bg-[#a88b66] text-white uppercase text-xs tracking-wider rounded-t-3xl">
@@ -77,7 +73,6 @@
           <th class="px-6 py-3 text-center font-semibold">Correo</th>
           <th class="px-6 py-3 text-center font-semibold">Rol</th>
           <th class="px-6 py-3 text-center font-semibold">Estado</th>
-          <!-- ancho fijo para que los botones no se aprieten -->
           <th class="px-6 py-3 text-center font-semibold w-64">Acciones</th>
         </tr>
         </thead>
@@ -89,25 +84,19 @@
         >
           <td class="px-6 py-4 font-semibold text-[#322203] align-middle">{{ u.nombre }}</td>
           <td class="px-6 py-4 align-middle">{{ u.apellidos }}</td>
-
-          <!-- truncate bien aplicado: requiere overflow-hidden y whitespace-nowrap -->
           <td class="px-6 py-4 align-middle truncate max-w-[240px]">{{ u.correo }}</td>
-
           <td class="px-6 py-4 align-middle">{{ u.rol }}</td>
-
           <td class="px-6 py-4 align-middle">
-          <span
-            class="px-3 py-1 rounded-full text-xs font-semibold"
-            [ngClass]="{
-              'bg-green-100 text-green-700': u.estado,
-              'bg-red-100 text-red-700': !u.estado
-            }"
-          >
-            {{ u.estado ? 'ACTIVO' : 'INACTIVO' }}
-          </span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold"
+                [ngClass]="{
+                  'bg-green-100 text-green-700': u.estado,
+                  'bg-red-100 text-red-700': !u.estado
+                }"
+              >
+                {{ u.estado ? 'ACTIVO' : 'INACTIVO' }}
+              </span>
           </td>
-
-          <!-- ACCIONES: una sola línea, centrado vertical y botones con altura uniforme -->
           <td class="px-6 py-4 align-middle">
             <div class="flex justify-center items-center gap-3 whitespace-nowrap">
               <!-- Ver -->
@@ -140,29 +129,15 @@
                   (change)="solicitarConfirmacion(u, getCheckedValue($event), estadoSwitch)"
                   [disabled]="savingIds.has(u.id)"
                 />
-
-
-
-                <div
-                  class="w-11 h-6 rounded-full bg-gray-300 peer-focus:outline-none
-               peer-checked:bg-green-500
-               relative transition-colors"
-                >
-        <span
-          class="absolute top-[2px] left-[2px] h-5 w-5 rounded-full bg-white border border-gray-300 transition-transform
-                 peer-checked:translate-x-5"
-        ></span>
+                <div class="w-11 h-6 rounded-full bg-gray-300 peer-focus:outline-none peer-checked:bg-green-500 relative transition-colors">
+                  <span class="absolute top-[2px] left-[2px] h-5 w-5 rounded-full bg-white border border-gray-300 transition-transform peer-checked:translate-x-5"></span>
                 </div>
-                <span
-                  class="ml-2 text-xs font-semibold min-w-[60px] text-left"
-                  [ngClass]="u.estado ? 'text-green-700' : 'text-red-700'"
-                >
-        {{ u.estado ? 'Activo' : 'Inactivo' }}
-      </span>
+                <span class="ml-2 text-xs font-semibold min-w-[60px] text-left" [ngClass]="u.estado ? 'text-green-700' : 'text-red-700'">
+                    {{ u.estado ? 'Activo' : 'Inactivo' }}
+                  </span>
               </label>
             </div>
           </td>
-
         </tr>
 
         <tr *ngIf="usuarios.length === 0">
@@ -174,11 +149,8 @@
       </table>
     </div>
 
-
     <!-- Paginador -->
-    <div
-      class="flex justify-between items-center bg-[#3e2a13]/90 text-white px-6 py-3 rounded-b-3xl border-t border-[#8b6b46]/30 mt-1"
-    >
+    <div class="flex justify-between items-center bg-[#3e2a13]/90 text-white px-6 py-3 rounded-b-3xl border-t border-[#8b6b46]/30 mt-1">
       <button
         (click)="anteriorPagina()"
         [disabled]="paginaActual === 1"
@@ -188,8 +160,8 @@
       </button>
 
       <span class="text-sm font-medium">
-    Página {{ paginaActual }} / {{ Math.ceil(usuarios.length / porPagina) }}
-  </span>
+        Página {{ paginaActual }} / {{ Math.ceil(usuarios.length / porPagina) }}
+      </span>
 
       <button
         (click)="siguientePagina()"
@@ -199,28 +171,13 @@
         Siguiente ▶
       </button>
     </div>
-
-
-
-
-    </div>
   </div>
 
   <!-- Modal Detalle Usuario -->
-  <div
-    *ngIf="showModal"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-  >
+  <div *ngIf="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-md p-6 relative">
-      <button
-        (click)="cerrarModal()"
-        class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-lg font-bold"
-      >
-        ✖
-      </button>
-
+      <button (click)="cerrarModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-lg font-bold">✖</button>
       <h2 class="text-2xl font-bold text-[#3e2a13] mb-4">Información del Usuario</h2>
-
       <div class="space-y-2 text-[#2b1b10]">
         <p><strong>Nombre:</strong> {{ selectedUser?.nombre }}</p>
         <p><strong>Apellidos:</strong> {{ selectedUser?.apellidos }}</p>
@@ -236,15 +193,11 @@
             {{ selectedUser?.estado ? 'ACTIVO' : 'INACTIVO' }}
           </span>
         </p>
-        <p><strong>Fecha Nacimiento:</strong>
-          {{ selectedUser?.fecha_nacimiento | date: 'dd/MM/yyyy' }}
-        </p>
+        <p><strong>Fecha Nacimiento:</strong> {{ selectedUser?.fecha_nacimiento | date: 'dd/MM/yyyy' }}</p>
       </div>
     </div>
   </div>
 
-
-  <!--  modal Editar Usuario-->
   <!-- Modal Editar Usuario -->
   <div
     *ngIf="showEditModal"
@@ -261,53 +214,78 @@
 
       <h2 class="text-2xl font-bold text-[#3e2a13] mb-4">Editar Usuario</h2>
 
-      <form (ngSubmit)="guardarCambios()" *ngIf="editUser" class="space-y-4">
+      <form #editUserForm="ngForm" (ngSubmit)="guardarCambios()" *ngIf="editUser" class="space-y-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Nombre -->
           <div>
             <label class="block text-sm font-medium text-[#3e2a13] mb-1">Nombre</label>
             <input
               type="text"
+              name="nombre"
               class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
               [(ngModel)]="editUser.nombre"
-              name="nombre"
               required
+              pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+              #nombre="ngModel"
             />
+            <div *ngIf="nombre.invalid && nombre.touched" class="text-red-600 text-xs mt-1">
+              El nombre es obligatorio y solo puede contener letras y espacios
+            </div>
           </div>
 
+          <!-- Apellidos -->
           <div>
             <label class="block text-sm font-medium text-[#3e2a13] mb-1">Apellidos</label>
             <input
               type="text"
+              name="apellidos"
               class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
               [(ngModel)]="editUser.apellidos"
-              name="apellidos"
               required
+              pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+              #apellidos="ngModel"
             />
+            <div *ngIf="apellidos.invalid && apellidos.touched" class="text-red-600 text-xs mt-1">
+              Los apellidos son obligatorios y solo pueden contener letras y espacios
+            </div>
           </div>
 
+          <!-- Correo -->
           <div>
             <label class="block text-sm font-medium text-[#3e2a13] mb-1">Correo</label>
             <input
               type="email"
+              name="correo"
               class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
               [(ngModel)]="editUser.correo"
-              name="correo"
               required
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              #correo="ngModel"
             />
+            <div *ngIf="correo.invalid && correo.touched" class="text-red-600 text-xs mt-1">
+              Ingresa un correo válido
+            </div>
           </div>
 
+          <!-- Celular -->
           <div>
             <label class="block text-sm font-medium text-[#3e2a13] mb-1">Celular</label>
             <input
               type="text"
+              name="celular"
               class="w-full border border-[#e5d7bf] rounded-lg px-3 py-2"
               [(ngModel)]="editUser.celular"
-              name="celular"
+              pattern="^[0-9]{8,10}$"
+              #celular="ngModel"
             />
+            <div *ngIf="celular.invalid && celular.touched" class="text-red-600 text-xs mt-1">
+              Ingresa un número válido de 8 digitos
+            </div>
           </div>
         </div>
 
-        <div class="flex items-center space-x-3">
+        <!-- Estado -->
+        <div class="flex items-center space-x-3 mt-2">
           <span class="text-sm font-medium text-[#3e2a13]">Estado:</span>
           <button
             type="button"
@@ -320,14 +298,12 @@
             [ngClass]="editUser.estado ? 'translate-x-5' : 'translate-x-1'"
           ></span>
           </button>
-          <span
-            class="text-xs font-semibold"
-            [ngClass]="editUser.estado ? 'text-green-700' : 'text-red-700'"
-          >
+          <span class="text-xs font-semibold" [ngClass]="editUser.estado ? 'text-green-700' : 'text-red-700'">
           {{ editUser.estado ? 'ACTIVO' : 'INACTIVO' }}
         </span>
         </div>
 
+        <!-- Botones -->
         <div class="flex justify-end space-x-2 pt-3">
           <button
             type="button"
@@ -341,7 +317,7 @@
           <button
             type="submit"
             class="bg-[#8b6b46] text-white px-4 py-2 rounded-full hover:bg-[#6d5432]"
-            [disabled]="saving"
+            [disabled]="saving || editUserForm.invalid"
           >
             {{ saving ? 'Guardando...' : 'Guardar Cambios' }}
           </button>
@@ -350,39 +326,20 @@
     </div>
   </div>
 
-<!-- Modal Confirmación Activar/Desactivar -->
-<div
-  *ngIf="showConfirmModal"
-  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
->
-  <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-sm p-6 relative text-center">
-    <h2 class="text-xl font-bold text-[#3e2a13] mb-3">
-      {{ newEstado ? 'Activar Usuario' : 'Desactivar Usuario' }}
-    </h2>
-    <p class="text-[#2b1b10] mb-6">
-      ¿Seguro que deseas
-      <strong>{{ newEstado ? 'activar' : 'desactivar' }}</strong>
-      la cuenta de
-      <strong>{{ userToConfirm?.nombre }} {{ userToConfirm?.apellidos }}</strong>?
-    </p>
 
-    <div class="flex justify-center gap-3">
-      <button
-        (click)="cancelarCambioEstado()"
-        class="bg-gray-300 text-[#2b1b10] px-4 py-2 rounded-full hover:bg-gray-400 transition"
-      >
-        Cancelar
-      </button>
-
-      <button
-        (click)="confirmarCambioEstado()"
-        [ngClass]="newEstado ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'"
-        class="text-white px-4 py-2 rounded-full transition"
-      >
-        {{ newEstado ? 'Activar' : 'Desactivar' }}
-      </button>
+  <!-- Modal Confirmación Activar/Desactivar -->
+  <div *ngIf="showConfirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-[#f9f7f3] rounded-2xl shadow-2xl w-full max-w-sm p-6 relative text-center">
+      <h2 class="text-xl font-bold text-[#3e2a13] mb-3">{{ newEstado ? 'Activar Usuario' : 'Desactivar Usuario' }}</h2>
+      <p class="text-[#2b1b10] mb-6">
+        ¿Seguro que deseas <strong>{{ newEstado ? 'activar' : 'desactivar' }}</strong> la cuenta de <strong>{{ userToConfirm?.nombre }} {{ userToConfirm?.apellidos }}</strong>?
+      </p>
+      <div class="flex justify-center gap-3">
+        <button (click)="cancelarCambioEstado()" class="bg-gray-300 text-[#2b1b10] px-4 py-2 rounded-full hover:bg-gray-400 transition">Cancelar</button>
+        <button (click)="confirmarCambioEstado()" [ngClass]="newEstado ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'" class="text-white px-4 py-2 rounded-full transition">
+          {{ newEstado ? 'Activar' : 'Desactivar' }}
+        </button>
+      </div>
     </div>
   </div>
 </div>
-
-

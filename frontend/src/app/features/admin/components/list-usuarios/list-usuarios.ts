@@ -219,7 +219,7 @@ export class ListUsuarios {
   aplicarFiltros() {
     let filtrados = this.usuarios;
 
-    // 🔍 Texto
+    // Texto
     if (this.filtroTexto.trim()) {
       const txt = this.filtroTexto.toLowerCase();
       filtrados = filtrados.filter(u =>
@@ -229,7 +229,7 @@ export class ListUsuarios {
       );
     }
 
-    // 🎭 Rol
+    // Rol
     if (this.filtroRol) {
       filtrados = filtrados.filter(u => u.rol === this.filtroRol);
     }
