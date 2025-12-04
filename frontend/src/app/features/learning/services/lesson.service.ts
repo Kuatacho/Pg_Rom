@@ -36,6 +36,16 @@ export class LessonService {
     if (name.includes('tiempo')) return 'assets/img/Tiempo.jpg';
     if (name.includes('pronombres')) return 'assets/img/Pronombres.jpg';
     if (name.includes('sustantivos')) return 'assets/img/Sustantivos.jpg';
+    if (name.includes('cuerpo humano')) return 'assets/img/Cuerpo Humano.jpg';
+    if (name.includes('alimentos')) return 'assets/img/Alimentos.jpg';
+    if (name.includes('medios de transporte')) return 'assets/img/medios de transporte.jpg';
+    if (name.includes('naturaleza')) return 'assets/img/Naturaleza.jpg';
+    if (name.includes('preguntas')) return 'assets/img/preguntas.jpg';
+    if (name.includes('calendario')) return 'assets/img/calendario.jpg';
+    if (name.includes('verbos')) return 'assets/img/verbos.jpg';
+    if (name.includes('numeros')) return 'assets/img/Numeros.jpg';
+
+
     // fallback
     return 'assets/img/lecciones/default.jpg';
   }

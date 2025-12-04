@@ -10012,3 +10012,46 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-11-04 00:09:13,915 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-11-04 00:43:06,586 - app - INFO - Intento de login para conori8755@hh7f.com: 200
 2025-11-04 00:56:23,043 - app - INFO - Intento de login para conori8755@hh7f.com: 200
+2025-11-14 10:35:49,275 - app - INFO - Logger initialized
+2025-11-14 10:35:49,373 - app - INFO - Sistema iniciado
+2025-11-14 10:39:05,374 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-14 10:39:05,722 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-14 10:39:06,740 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-14 10:39:07,006 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-14 10:39:07,713 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-14 10:39:10,736 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-14 10:50:35,131 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-14 10:50:35,743 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-25 15:37:27,057 - app - INFO - Logger initialized
+2025-11-25 15:37:27,151 - app - INFO - Sistema iniciado
+2025-11-25 15:38:28,003 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-25 15:38:28,345 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-25 15:39:42,056 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-25 15:40:22,432 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-25 15:41:13,943 - app - INFO - Registro de usuario para ('diceray889@izeao.com', 'Estudiante'): 201
+2025-11-25 15:41:19,856 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-25 15:41:42,184 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-11-25 15:42:02,967 - app - INFO - Solicitud de recuperacion de contrasenia para diceray889@izeao.com
+2025-11-25 15:42:23,851 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-11-25 15:42:30,676 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-11-25 15:43:02,792 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-25 15:43:03,118 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-25 16:12:58,262 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-11-25 16:20:15,676 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-25 16:20:29,200 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-26 19:39:28,898 - app - INFO - Logger initialized
+2025-11-26 19:39:28,965 - app - INFO - Sistema iniciado
+2025-11-26 19:44:04,239 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-11-26 19:45:07,713 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-11-26 19:45:08,049 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-26 19:45:11,582 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-26 20:26:38,973 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-11-26 20:27:35,119 - app - INFO - Peticion de listar Usuarios registrado
+2025-11-26 20:28:11,830 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-04 13:46:00,957 - app - INFO - Logger initialized
+2025-12-04 13:46:01,061 - app - INFO - Sistema iniciado
+2025-12-04 14:07:08,389 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2025-12-04 14:07:12,609 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2025-12-04 14:07:15,140 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-04 14:07:23,158 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-04 14:07:31,358 - app - INFO - Intento de login para diceray889@izeao.com: 200

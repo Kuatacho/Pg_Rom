@@ -25,13 +25,10 @@ def predict():
         data = request.get_json(silent=True)
         if not data or "sequence" not in data:
             return response(error="No se recibió 'sequence'", status=400)
-
         # Llamar al servicio de predicción
         predicted_gesture, predicted_index, probabilities = predict_gesture(data["sequence"])
-
         # Calcular confianza
         confidence = max(probabilities) if probabilities else 0.0
-
         return response({
             "prediction": predicted_gesture,
             "prediction_index": predicted_index,

@@ -18,6 +18,8 @@
     <!-- Título -->
     <h1 class="text-4xl md:text-5xl font-[Hatton] mb-10 tracking-wide">
       Gestos de la Lección
+      <span *ngIf="leccion()" class="block text-lg mt-2 text-white/80">
+      {{ leccion()!.nombre }}</span>
     </h1>
 
     <!-- Loading -->
