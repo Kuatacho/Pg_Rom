@@ -20,7 +20,7 @@ GESTURES = [
     "naranja", "uva", "platano", "guineo","piña",  "rojo", "amarillo", "cafe", "azul", "blanco", "verde", "rosado",
     "negro", "anaranjado", "celeste", "lila", "hombre", "mujer", "padre", "esposo", "mama", "esposa", "bebe", "abuelo",
     "abuela","hijo", "hija","hermano", "hermana", "casa", "cuarto", "dormitorio", "baño", "plaza", "escuela", "hospital",
-    "iglesia", "farmacia", "mercado", "jardín", "hotel", "restaurante", "la_paz", "sanata_cruz", "cochabamba", "oruro",
+    "iglesia", "farmacia", "mercado", "jardín", "hotel", "restaurante", "la_paz", "santa_cruz", "cochabamba", "oruro",
     "tarija", "beni", "chuquisaca", "potosi", "pando", "litoral","mes", "dia", "semana", "año", "ayer", "anteayer",
     "hoy", "ahora", "mañana", "pasado_mañana", "fecha", "yo", "tu", "nosotros", "el", "ustedes", "ella", "nuestro",
     "ellos", "ellas", "suyo", "tuyo", "mio", "mesa", "silla", "puerta", "telefono", "fax", "pelota", "televisor",

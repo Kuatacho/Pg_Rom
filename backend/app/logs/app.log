@@ -10076,3 +10076,7 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-12-04 17:08:35,543 - app - INFO - Peticion de listar Usuarios registrado
 2025-12-04 17:09:45,235 - app - INFO - Peticion de actualizar Usuario registrado
 2025-12-04 17:09:54,028 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-04 17:10:25,363 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-04 17:11:49,353 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-04 17:18:16,631 - app - INFO - Logger initialized
+2025-12-04 17:18:16,646 - app - INFO - Sistema iniciado
