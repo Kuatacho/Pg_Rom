@@ -10080,3 +10080,5 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-12-04 17:11:49,353 - app - INFO - Intento de login para diceray889@izeao.com: 200
 2025-12-04 17:18:16,631 - app - INFO - Logger initialized
 2025-12-04 17:18:16,646 - app - INFO - Sistema iniciado
+2025-12-04 23:14:45,964 - app - INFO - Logger initialized
+2025-12-04 23:14:46,041 - app - INFO - Sistema iniciado

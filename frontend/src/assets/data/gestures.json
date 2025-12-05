@@ -115,6 +115,12 @@
       "gif": "assets/gifs/te_amo.gif"
     }
   ],
+
+
+
+
+
+
   "2": [
     {
       "id": 1,
@@ -165,405 +171,454 @@
 
 
 
+
+
   "3": [
     {
       "id": 1,
       "nombre": "Perro",
       "descripcion": "Gesto del animal Perro.",
-      "gif": "assets/gifs/animales/perro.gif"
+      "gif": "assets/gifs/perro.gif"
     },
     {
       "id": 2,
       "nombre": "Gato",
       "descripcion": "Gesto del animal Gato.",
-      "gif": "assets/gifs/animales/gato.gif"
+      "gif": "assets/gifs/gato.gif"
     },
     {
       "id": 3,
       "nombre": "Vaca",
       "descripcion": "Gesto del animal Vaca.",
-      "gif": "assets/gifs/animales/vaca.gif"
+      "gif": "assets/gifs/vaca.gif"
     },
     {
       "id": 4,
       "nombre": "Condor",
       "descripcion": "Gesto del animal Condor.",
-      "gif": "assets/gifs/animales/condor.gif"
+      "gif": "assets/gifs/condor.gif"
     },
     {
       "id": 5,
       "nombre": "Loro",
       "descripcion": "Gesto del animal Loro.",
-      "gif": "assets/gifs/animales/loro.gif"
+      "gif": "assets/gifs/loro.gif"
     },
     {
       "id": 6,
       "nombre": "Tortuga",
       "descripcion": "Gesto del animal Tortuga.",
-      "gif": "assets/gifs/animales/tortuga.gif"
+      "gif": "assets/gifs/tortuga.gif"
     },
     {
       "id": 7,
       "nombre": "Vibora",
       "descripcion": "Gesto del animal Vibora.",
-      "gif": "assets/gifs/animales/vibora.gif"
+      "gif": "assets/gifs/vibora.gif"
     },
     {
       "id": 8,
       "nombre": "Gallo",
       "descripcion": "Gesto del animal Gallo.",
-      "gif": "assets/gifs/animales/gallo.gif"
+      "gif": "assets/gifs/gallo.gif"
     },
     {
       "id": 9,
       "nombre": "Gallina",
       "descripcion": "Gesto del animal Gallina.",
-      "gif": "assets/gifs/animales/gallina.gif"
+      "gif": "assets/gifs/gallina.gif"
     },
     {
       "id": 10,
       "nombre": "Pez",
       "descripcion": "Gesto del animal Pez.",
-      "gif": "assets/gifs/animales/pez.gif"
+      "gif": "assets/gifs/pez.gif"
     },
     {
       "id": 11,
       "nombre": "Pato",
       "descripcion": "Gesto del animal Pato.",
-      "gif": "assets/gifs/animales/pato.gif"
+      "gif": "assets/gifs/pato.gif"
     },
     {
       "id": 12,
       "nombre": "Conejo",
       "descripcion": "Gesto del animal Conejo.",
-      "gif": "assets/gifs/animales/conejo.gif"
+      "gif": "assets/gifs/conejo.gif"
     },
     {
       "id": 13,
       "nombre": "Chancho",
       "descripcion": "Gesto del animal Chancho.",
-      "gif": "assets/gifs/animales/chancho.gif"
+      "gif": "assets/gifs/chancho.gif"
     },
     {
       "id": 14,
       "nombre": "Caballo",
       "descripcion": "Gesto del animal Caballo.",
-      "gif": "assets/gifs/animales/caballo.gif"
+      "gif": "assets/gifs/caballo.gif"
     },
     {
       "id": 15,
       "nombre": "Llama",
       "descripcion": "Gesto del animal Llama.",
-      "gif": "assets/gifs/animales/llama.gif"
+      "gif": "assets/gifs/llama.gif"
     },
     {
       "id": 16,
       "nombre": "Oveja",
       "descripcion": "Gesto del animal Oveja.",
-      "gif": "assets/gifs/animales/oveja.gif"
+      "gif": "assets/gifs/oveja.gif"
     },
     {
       "id": 17,
       "nombre": "Toro",
       "descripcion": "Gesto del animal Toro.",
-      "gif": "assets/gifs/animales/toro.gif"
+      "gif": "assets/gifs/toro.gif"
     }
   ],
+
+
+
+
+
+
+
+
   "4": [
     {
       "id": 1,
       "nombre": "Tomate",
       "descripcion": "Gesto de la verdura Tomate.",
-      "gif": "assets/gifs/verduras/tomate.gif"
+      "gif": "assets/gifs/tomate.gif"
     },
     {
       "id": 2,
       "nombre": "Cebolla",
       "descripcion": "Gesto de la verdura Cebolla.",
-      "gif": "assets/gifs/verduras/cebolla.gif"
+      "gif": "assets/gifs/cebolla.gif"
     },
     {
       "id": 3,
       "nombre": "Zanahoria",
       "descripcion": "Gesto de la verdura Zanahoria.",
-      "gif": "assets/gifs/verduras/zanahoria.gif"
+      "gif": "assets/gifs/zanahoria.gif"
     },
     {
       "id": 4,
       "nombre": "Papa",
       "descripcion": "Gesto de la verdura Papa.",
-      "gif": "assets/gifs/verduras/papa.gif"
+      "gif": "assets/gifs/papa.gif"
     }
   ],
+
+
+
+
+
+
+
+
   "5": [
     {
       "id": 1,
       "nombre": "Manzana",
       "descripcion": "Gesto de la fruta Manzana.",
-      "gif": "assets/gifs/frutas/manzana.gif"
+      "gif": "assets/gifs/manzana.gif"
     },
     {
       "id": 2,
       "nombre": "Naranja",
       "descripcion": "Gesto de la fruta Naranja.",
-      "gif": "assets/gifs/frutas/naranja.gif"
+      "gif": "assets/gifs/naranja.gif"
     },
     {
       "id": 3,
       "nombre": "Uva",
       "descripcion": "Gesto de la fruta Uva.",
-      "gif": "assets/gifs/frutas/uva.gif"
+      "gif": "assets/gifs/uva.gif"
     },
     {
       "id": 4,
       "nombre": "Platano",
       "descripcion": "Gesto de la fruta Platano.",
-      "gif": "assets/gifs/frutas/platano.gif"
+      "gif": "assets/gifs/platano.gif"
     },
     {
       "id": 5,
       "nombre": "Guineo",
       "descripcion": "Gesto de la fruta Guineo.",
-      "gif": "assets/gifs/frutas/guineo.gif"
+      "gif": "assets/gifs/guineo.gif"
     },
     {
       "id": 6,
       "nombre": "Piña",
       "descripcion": "Gesto de la fruta Piña.",
-      "gif": "assets/gifs/frutas/pina.gif"
+      "gif": "assets/gifs/pina.gif"
     }
   ],
+
+
+
+
+
+
+
 
   "6": [
     {
       "id": 1,
       "nombre": "Rojo",
       "descripcion": "Gesto del color Rojo.",
-      "gif": "assets/gifs/colores/rojo.gif"
+      "gif": "assets/gifs/rojo.gif"
     },
     {
       "id": 2,
       "nombre": "Amarillo",
       "descripcion": "Gesto del color Amarillo.",
-      "gif": "assets/gifs/colores/amarillo.gif"
+      "gif": "assets/gifs/amarillo.gif"
     },
     {
       "id": 3,
       "nombre": "Marron",
       "descripcion": "Gesto del color Marron.",
-      "gif": "assets/gifs/colores/Marron.gif"
+      "gif": "assets/gifs/Marron.gif"
     },
     {
       "id": 4,
       "nombre": "Azul",
       "descripcion": "Gesto del color Azul.",
-      "gif": "assets/gifs/colores/azul.gif"
+      "gif": "assets/gifs/azul.gif"
     },
     {
       "id": 5,
       "nombre": "Blanco",
       "descripcion": "Gesto del color Blanco.",
-      "gif": "assets/gifs/colores/blanco.gif"
+      "gif": "assets/gifs/blanco.gif"
     },
     {
       "id": 6,
       "nombre": "Verde",
       "descripcion": "Gesto del color Verde.",
-      "gif": "assets/gifs/colores/verde.gif"
+      "gif": "assets/gifs/verde.gif"
     },
     {
       "id": 7,
       "nombre": "Rosado",
       "descripcion": "Gesto del color Rosado.",
-      "gif": "assets/gifs/colores/rosado.gif"
+      "gif": "assets/gifs/rosado.gif"
     },
     {
       "id": 8,
       "nombre": "Negro",
       "descripcion": "Gesto del color Negro.",
-      "gif": "assets/gifs/colores/negro.gif"
+      "gif": "assets/gifs/negro.gif"
     },
     {
       "id": 9,
       "nombre": "Anaranjado",
       "descripcion": "Gesto del color Anaranjado.",
-      "gif": "assets/gifs/colores/anaranjado.gif"
+      "gif": "assets/gifs/anaranjado.gif"
     },
     {
       "id": 10,
       "nombre": "Celeste",
       "descripcion": "Gesto del color Celeste.",
-      "gif": "assets/gifs/colores/celeste.gif"
+      "gif": "assets/gifs/celeste.gif"
     },
     {
       "id": 11,
       "nombre": "Lila",
       "descripcion": "Gesto del color Lila.",
-      "gif": "assets/gifs/colores/lila.gif"
+      "gif": "assets/gifs/lila.gif"
     }
   ],
+
+
+
+
+
+
+
+
 
   "7": [
     {
       "id": 1,
       "nombre": "Hombre",
       "descripcion": "Gesto de la familia Hombre.",
-      "gif": "assets/gifs/familia/hombre.gif"
+      "gif": "assets/gifs/hombre.gif"
     },
     {
       "id": 2,
       "nombre": "Mujer",
       "descripcion": "Gesto de la familia Mujer.",
-      "gif": "assets/gifs/familia/mujer.gif"
+      "gif": "assets/gifs/mujer.gif"
     },
     {
       "id": 3,
       "nombre": "Padre",
       "descripcion": "Gesto de la familia Padre.",
-      "gif": "assets/gifs/familia/padre.gif"
+      "gif": "assets/gifs/padre.gif"
     },
     {
       "id": 4,
       "nombre": "Esposo",
       "descripcion": "Gesto de la familia Esposo.",
-      "gif": "assets/gifs/familia/esposo.gif"
+      "gif": "assets/gifs/esposo.gif"
     },
     {
       "id": 5,
       "nombre": "Madre",
       "descripcion": "Gesto de la familia Madre.",
-      "gif": "assets/gifs/familia/Madre.gif"
+      "gif": "assets/gifs/Madre.gif"
     },
     {
       "id": 6,
       "nombre": "Esposa",
       "descripcion": "Gesto de la familia Esposa.",
-      "gif": "assets/gifs/familia/esposa.gif"
+      "gif": "assets/gifs/esposa.gif"
     },
     {
       "id": 7,
       "nombre": "Bebe",
       "descripcion": "Gesto de la familia Bebe.",
-      "gif": "assets/gifs/familia/bebe.gif"
+      "gif": "assets/gifs/bebe.gif"
     },
     {
       "id": 8,
       "nombre": "Abuelo",
       "descripcion": "Gesto de la familia Abuelo.",
-      "gif": "assets/gifs/familia/abuelo.gif"
+      "gif": "assets/gifs/abuelo.gif"
     },
     {
       "id": 9,
       "nombre": "Abuela",
       "descripcion": "Gesto de la familia Abuela.",
-      "gif": "assets/gifs/familia/abuela.gif"
+      "gif": "assets/gifs/abuela.gif"
     },
     {
       "id": 10,
       "nombre": "Hijo",
       "descripcion": "Gesto de la familia Hijo.",
-      "gif": "assets/gifs/familia/hijo.gif"
+      "gif": "assets/gifs/hijo.gif"
     },
     {
       "id": 11,
       "nombre": "Hija",
       "descripcion": "Gesto de la familia Hija.",
-      "gif": "assets/gifs/familia/hija.gif"
+      "gif": "assets/gifs/hija.gif"
     },
     {
       "id": 12,
       "nombre": "Hermano",
       "descripcion": "Gesto de la familia Hermano.",
-      "gif": "assets/gifs/familia/hermano.gif"
+      "gif": "assets/gifs/hermano.gif"
     },
     {
       "id": 13,
       "nombre": "Hermana",
       "descripcion": "Gesto de la familia Hermana.",
-      "gif": "assets/gifs/familia/hermana.gif"
+      "gif": "assets/gifs/hermana.gif"
     }
   ],
+
+
+
+
+
+
+
+
 
   "8": [
     {
       "id": 1,
       "nombre": "Casa",
       "descripcion": "Gesto del lugar Casa.",
-      "gif": "assets/gifs/lugares/casa.gif"
+      "gif": "assets/gifs/casa.gif"
     },
     {
       "id": 2,
       "nombre": "Cuarto",
       "descripcion": "Gesto del lugar Cuarto.",
-      "gif": "assets/gifs/lugares/cuarto.gif"
+      "gif": "assets/gifs/cuarto.gif"
     },
     {
       "id": 3,
       "nombre": "Dormitorio",
       "descripcion": "Gesto del lugar Dormitorio.",
-      "gif": "assets/gifs/lugares/dormitorio.gif"
+      "gif": "assets/gifs/dormitorio.gif"
     },
     {
       "id": 4,
       "nombre": "Baño",
       "descripcion": "Gesto del lugar Baño.",
-      "gif": "assets/gifs/lugares/bano.gif"
+      "gif": "assets/gifs/bano.gif"
     },
     {
       "id": 5,
       "nombre": "Plaza",
       "descripcion": "Gesto del lugar Plaza.",
-      "gif": "assets/gifs/lugares/plaza.gif"
+      "gif": "assets/gifs/plaza.gif"
     },
     {
       "id": 6,
       "nombre": "Escuela",
       "descripcion": "Gesto del lugar Escuela.",
-      "gif": "assets/gifs/lugares/escuela.gif"
+      "gif": "assets/gifs/escuela.gif"
     },
     {
       "id": 7,
       "nombre": "Hospital",
       "descripcion": "Gesto del lugar Hospital.",
-      "gif": "assets/gifs/lugares/hospital.gif"
+      "gif": "assets/gifs/hospital.gif"
     },
     {
       "id": 8,
       "nombre": "Iglesia",
       "descripcion": "Gesto del lugar Iglesia.",
-      "gif": "assets/gifs/lugares/iglesia.gif"
+      "gif": "assets/gifs/iglesia.gif"
     },
     {
       "id": 9,
       "nombre": "Farmacia",
       "descripcion": "Gesto del lugar Farmacia.",
-      "gif": "assets/gifs/lugares/farmacia.gif"
+      "gif": "assets/gifs/farmacia.gif"
     },
     {
       "id": 10,
       "nombre": "Mercado",
       "descripcion": "Gesto del lugar Mercado.",
-      "gif": "assets/gifs/lugares/mercado.gif"
+      "gif": "assets/gifs/mercado.gif"
     },
     {
       "id": 11,
       "nombre": "Jardín",
       "descripcion": "Gesto del lugar Jardín.",
-      "gif": "assets/gifs/lugares/jardin.gif"
+      "gif": "assets/gifs/jardin.gif"
     },
     {
       "id": 12,
       "nombre": "Hotel",
       "descripcion": "Gesto del lugar Hotel.",
-      "gif": "assets/gifs/lugares/hotel.gif"
+      "gif": "assets/gifs/hotel.gif"
     },
     {
       "id": 13,
       "nombre": "Restaurante",
       "descripcion": "Gesto del lugar Restaurante.",
-      "gif": "assets/gifs/lugares/restaurante.gif"
+      "gif": "assets/gifs/restaurante.gif"
     }
   ],
+
+
+
+
+
+
+
+
   "9": [
     {
       "id": 1,
@@ -626,6 +681,15 @@
       "gif": "assets/gifs/departamentos/litoral.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
   "10": [
     {
       "id": 1,
@@ -694,6 +758,15 @@
       "gif": "assets/gifs/tiempo/fecha.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
   "11": [
     {
       "id": 1,
@@ -768,6 +841,17 @@
       "gif": "assets/gifs/pronombres/mio.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
+
   "12": [
     {
       "id": 1,
@@ -902,6 +986,16 @@
       "gif": "assets/gifs/sustantivos/borrador.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
   "13": [
     {
       "id": 1,
@@ -994,6 +1088,15 @@
       "gif": "assets/gifs/cuerpoHumano/cabeza.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
   "14": [
     {
       "id": 1,
@@ -1074,6 +1177,14 @@
       "gif": "assets/gifs/alimentos/galletas.gif"
     }
   ],
+
+
+
+
+
+
+
+
   "15": [
     {
       "id": 1,
@@ -1142,6 +1253,15 @@
       "gif": "assets/gifs/mediosTransporte/barco.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
   "16": [
     {
       "id": 1,
@@ -1270,6 +1390,16 @@
       "gif": "assets/gifs/naturaleza/lluvia.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
   "17": [
     {
       "id": 1,
@@ -1332,6 +1462,17 @@
       "gif": "assets/gifs/preguntas/cuando.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
+
   "18": [
     {
       "id": 1,
@@ -1406,6 +1547,17 @@
       "gif": "assets/gifs/calendario/diciembre.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
+
   "19": [
     {
       "id": 1,
@@ -1570,6 +1722,17 @@
       "gif": "assets/gifs/verbos/atender.gif"
     }
   ],
+
+
+
+
+
+
+
+
+
+
+
   "20": [
     {
       "id": 1,
