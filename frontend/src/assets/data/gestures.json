@@ -624,61 +624,61 @@
       "id": 1,
       "nombre": "La Paz",
       "descripcion": "Gesto del departamento La Paz.",
-      "gif": "assets/gifs/departamentos/la_paz.gif"
+      "gif": "assets/gifs/la_paz.gif"
     },
     {
       "id": 2,
       "nombre": "Santa Cruz",
       "descripcion": "Gesto del departamento Santa Cruz.",
-      "gif": "assets/gifs/departamentos/santa_cruz.gif"
+      "gif": "assets/gifs/santa_cruz.gif"
     },
     {
       "id": 3,
       "nombre": "Cochabamba",
       "descripcion": "Gesto del departamento Cochabamba.",
-      "gif": "assets/gifs/departamentos/cochabamba.gif"
+      "gif": "assets/gifs/cochabamba.gif"
     },
     {
       "id": 4,
       "nombre": "Oruro",
       "descripcion": "Gesto del departamento Oruro.",
-      "gif": "assets/gifs/departamentos/oruro.gif"
+      "gif": "assets/gifs/oruro.gif"
     },
     {
       "id": 5,
       "nombre": "Tarija",
       "descripcion": "Gesto del departamento Tarija.",
-      "gif": "assets/gifs/departamentos/tarija.gif"
+      "gif": "assets/gifs/tarija.gif"
     },
     {
       "id": 6,
       "nombre": "Beni",
       "descripcion": "Gesto del departamento Beni.",
-      "gif": "assets/gifs/departamentos/beni.gif"
+      "gif": "assets/gifs/beni.gif"
     },
     {
       "id": 7,
       "nombre": "Chuquisaca",
       "descripcion": "Gesto del departamento Chuquisaca.",
-      "gif": "assets/gifs/departamentos/chuquisaca.gif"
+      "gif": "assets/gifs/chuquisaca.gif"
     },
     {
       "id": 8,
       "nombre": "Potosí",
       "descripcion": "Gesto del departamento Potosí.",
-      "gif": "assets/gifs/departamentos/potosi.gif"
+      "gif": "assets/gifs/potosi.gif"
     },
     {
       "id": 9,
       "nombre": "Pando",
       "descripcion": "Gesto del departamento Pando.",
-      "gif": "assets/gifs/departamentos/pando.gif"
+      "gif": "assets/gifs/pando.gif"
     },
     {
       "id": 10,
       "nombre": "Litoral",
       "descripcion": "Gesto del departamento Litoral.",
-      "gif": "assets/gifs/departamentos/litoral.gif"
+      "gif": "assets/gifs/litoral.gif"
     }
   ],
 
@@ -695,67 +695,67 @@
       "id": 1,
       "nombre": "Mes",
       "descripcion": "Gesto de tiempo Mes.",
-      "gif": "assets/gifs/tiempo/mes.gif"
+      "gif": "assets/gifs/mes.gif"
     },
     {
       "id": 2,
       "nombre": "Dia",
       "descripcion": "Gesto de tiempo Dia.",
-      "gif": "assets/gifs/tiempo/dia.gif"
+      "gif": "assets/gifs/dia.gif"
     },
     {
       "id": 3,
       "nombre": "Semana",
       "descripcion": "Gesto de tiempo Semana.",
-      "gif": "assets/gifs/tiempo/semana.gif"
+      "gif": "assets/gifs/semana.gif"
     },
     {
       "id": 4,
       "nombre": "Año",
       "descripcion": "Gesto de tiempo Año.",
-      "gif": "assets/gifs/tiempo/ano.gif"
+      "gif": "assets/gifs/ano.gif"
     },
     {
       "id": 5,
       "nombre": "Ayer",
       "descripcion": "Gesto de tiempo Ayer.",
-      "gif": "assets/gifs/tiempo/ayer.gif"
+      "gif": "assets/gifs/ayer.gif"
     },
     {
       "id": 6,
       "nombre": "Anteayer",
       "descripcion": "Gesto de tiempo Anteayer.",
-      "gif": "assets/gifs/tiempo/anteayer.gif"
+      "gif": "assets/gifs/anteayer.gif"
     },
     {
       "id": 7,
       "nombre": "Hoy",
       "descripcion": "Gesto de tiempo Hoy.",
-      "gif": "assets/gifs/tiempo/hoy.gif"
+      "gif": "assets/gifs/hoy.gif"
     },
     {
       "id": 8,
       "nombre": "Ahora",
       "descripcion": "Gesto de tiempo Ahora.",
-      "gif": "assets/gifs/tiempo/ahora.gif"
+      "gif": "assets/gifs/ahora.gif"
     },
     {
       "id": 9,
       "nombre": "Mañana",
       "descripcion": "Gesto de tiempo Mañana.",
-      "gif": "assets/gifs/tiempo/manana.gif"
+      "gif": "assets/gifs/manana.gif"
     },
     {
       "id": 10,
       "nombre": "Pasado Mañana",
       "descripcion": "Gesto de tiempo Pasado Mañana.",
-      "gif": "assets/gifs/tiempo/pasado_manana.gif"
+      "gif": "assets/gifs/pasado_manana.gif"
     },
     {
       "id": 11,
       "nombre": "Fecha",
       "descripcion": "Gesto de tiempo Fecha.",
-      "gif": "assets/gifs/tiempo/fecha.gif"
+      "gif": "assets/gifs/fecha.gif"
     }
   ],
 
@@ -772,73 +772,73 @@
       "id": 1,
       "nombre": "Yo",
       "descripcion": "Gesto del pronombre Yo.",
-      "gif": "assets/gifs/pronombres/yo.gif"
+      "gif": "assets/gifs/yo.gif"
     },
     {
       "id": 2,
       "nombre": "Tu",
       "descripcion": "Gesto del pronombre Tu.",
-      "gif": "assets/gifs/pronombres/tu.gif"
+      "gif": "assets/gifs/tu.gif"
     },
     {
       "id": 3,
       "nombre": "Nosotros",
       "descripcion": "Gesto del pronombre Nosotros.",
-      "gif": "assets/gifs/pronombres/nosotros.gif"
+      "gif": "assets/gifs/nosotros.gif"
     },
     {
       "id": 4,
       "nombre": "El",
       "descripcion": "Gesto del pronombre El.",
-      "gif": "assets/gifs/pronombres/el.gif"
+      "gif": "assets/gifs/el.gif"
     },
     {
       "id": 5,
       "nombre": "Ustedes",
       "descripcion": "Gesto del pronombre Ustedes.",
-      "gif": "assets/gifs/pronombres/ustedes.gif"
+      "gif": "assets/gifs/ustedes.gif"
     },
     {
       "id": 6,
       "nombre": "Ella",
       "descripcion": "Gesto del pronombre Ella.",
-      "gif": "assets/gifs/pronombres/ella.gif"
+      "gif": "assets/gifs/ella.gif"
     },
     {
       "id": 7,
       "nombre": "Nuestro",
       "descripcion": "Gesto del pronombre Nuestro.",
-      "gif": "assets/gifs/pronombres/nuestro.gif"
+      "gif": "assets/gifs/nuestro.gif"
     },
     {
       "id": 8,
       "nombre": "Ellos",
       "descripcion": "Gesto del pronombre Ellos.",
-      "gif": "assets/gifs/pronombres/ellos.gif"
+      "gif": "assets/gifs/ellos.gif"
     },
     {
       "id": 9,
       "nombre": "Ellas",
       "descripcion": "Gesto del pronombre Ellas.",
-      "gif": "assets/gifs/pronombres/ellas.gif"
+      "gif": "assets/gifs/ellas.gif"
     },
     {
       "id": 10,
       "nombre": "Suyo",
       "descripcion": "Gesto del pronombre Suyo.",
-      "gif": "assets/gifs/pronombres/suyo.gif"
+      "gif": "assets/gifs/suyo.gif"
     },
     {
       "id": 11,
       "nombre": "Tuyo",
       "descripcion": "Gesto del pronombre Tuyo.",
-      "gif": "assets/gifs/pronombres/tuo.gif"
+      "gif": "assets/gifs/tuo.gif"
     },
     {
       "id": 12,
       "nombre": "Mio",
       "descripcion": "Gesto del pronombre Mio.",
-      "gif": "assets/gifs/pronombres/mio.gif"
+      "gif": "assets/gifs/mio.gif"
     }
   ],
 
@@ -857,133 +857,133 @@
       "id": 1,
       "nombre": "Mesa",
       "descripcion": "Gesto del sustantivo Mesa.",
-      "gif": "assets/gifs/sustantivos/mesa.gif"
+      "gif": "assets/gifs/mesa.gif"
     },
     {
       "id": 2,
       "nombre": "Silla",
       "descripcion": "Gesto del sustantivo Silla.",
-      "gif": "assets/gifs/sustantivos/silla.gif"
+      "gif": "assets/gifs/silla.gif"
     },
     {
       "id": 3,
       "nombre": "Puerta",
       "descripcion": "Gesto del sustantivo Puerta.",
-      "gif": "assets/gifs/sustantivos/puerta.gif"
+      "gif": "assets/gifs/puerta.gif"
     },
     {
       "id": 4,
       "nombre": "Telefono",
       "descripcion": "Gesto del sustantivo Telefono.",
-      "gif": "assets/gifs/sustantivos/telefono.gif"
+      "gif": "assets/gifs/telefono.gif"
     },
     {
       "id": 5,
       "nombre": "Fax",
       "descripcion": "Gesto del sustantivo Fax.",
-      "gif": "assets/gifs/sustantivos/fax.gif"
+      "gif": "assets/gifs/fax.gif"
     },
     {
       "id": 6,
       "nombre": "Pelota",
       "descripcion": "Gesto del sustantivo Pelota.",
-      "gif": "assets/gifs/sustantivos/pelota.gif"
+      "gif": "assets/gifs/pelota.gif"
     },
     {
       "id": 7,
       "nombre": "Televisor",
       "descripcion": "Gesto del sustantivo Televisor.",
-      "gif": "assets/gifs/sustantivos/televisor.gif"
+      "gif": "assets/gifs/televisor.gif"
     },
     {
       "id": 8,
       "nombre": "Tenedor",
       "descripcion": "Gesto del sustantivo Tenedor.",
-      "gif": "assets/gifs/sustantivos/tenedor.gif"
+      "gif": "assets/gifs/tenedor.gif"
     },
     {
       "id": 9,
       "nombre": "Heladera",
       "descripcion": "Gesto del sustantivo Heladera.",
-      "gif": "assets/gifs/sustantivos/heladera.gif"
+      "gif": "assets/gifs/heladera.gif"
     },
     {
       "id": 10,
       "nombre": "Cuchillo",
       "descripcion": "Gesto del sustantivo Cuchillo.",
-      "gif": "assets/gifs/sustantivos/cuchillo.gif"
+      "gif": "assets/gifs/cuchillo.gif"
     },
     {
       "id": 11,
       "nombre": "Cuchara",
       "descripcion": "Gesto del sustantivo Cuchara.",
-      "gif": "assets/gifs/sustantivos/cuchara.gif"
+      "gif": "assets/gifs/cuchara.gif"
     },
     {
       "id": 12,
       "nombre": "Taza",
       "descripcion": "Gesto del sustantivo Taza.",
-      "gif": "assets/gifs/sustantivos/taza.gif"
+      "gif": "assets/gifs/taza.gif"
     },
     {
       "id": 13,
       "nombre": "Plato",
       "descripcion": "Gesto del sustantivo Plato.",
-      "gif": "assets/gifs/sustantivos/plato.gif"
+      "gif": "assets/gifs/plato.gif"
     },
     {
       "id": 14,
       "nombre": "Cama",
       "descripcion": "Gesto del sustantivo Cama.",
-      "gif": "assets/gifs/sustantivos/cama.gif"
+      "gif": "assets/gifs/cama.gif"
     },
     {
       "id": 15,
       "nombre": "Frazada",
       "descripcion": "Gesto del sustantivo Frazada.",
-      "gif": "assets/gifs/sustantivos/frazada.gif"
+      "gif": "assets/gifs/frazada.gif"
     },
     {
       "id": 16,
       "nombre": "Regla",
       "descripcion": "Gesto del sustantivo Regla.",
-      "gif": "assets/gifs/sustantivos/regla.gif"
+      "gif": "assets/gifs/regla.gif"
     },
     {
       "id": 17,
       "nombre": "Papel",
       "descripcion": "Gesto del sustantivo Papel.",
-      "gif": "assets/gifs/sustantivos/papel.gif"
+      "gif": "assets/gifs/papel.gif"
     },
     {
       "id": 18,
       "nombre": "Sabana",
       "descripcion": "Gesto del sustantivo Sabana.",
-      "gif": "assets/gifs/sustantivos/sabana.gif"
+      "gif": "assets/gifs/sabana.gif"
     },
     {
       "id": 19,
       "nombre": "Pizarra",
       "descripcion": "Gesto del sustantivo Pizarra.",
-      "gif": "assets/gifs/sustantivos/pizarra.gif"
+      "gif": "assets/gifs/pizarra.gif"
     },
     {
       "id": 20,
       "nombre": "Libro",
       "descripcion": "Gesto del sustantivo Libro.",
-      "gif": "assets/gifs/sustantivos/libro.gif"
+      "gif": "assets/gifs/libro.gif"
     },
     {
       "id": 21,
       "nombre": "Lapiz",
       "descripcion": "Gesto del sustantivo Lapiz.",
-      "gif": "assets/gifs/sustantivos/lapiz.gif"
+      "gif": "assets/gifs/lapiz.gif"
     },
     {
       "id": 22,
       "nombre": "Borrador",
       "descripcion": "Gesto del sustantivo Borrador.",
-      "gif": "assets/gifs/sustantivos/borrador.gif"
+      "gif": "assets/gifs/borrador.gif"
     }
   ],
 
@@ -1001,91 +1001,91 @@
       "id": 1,
       "nombre": "Cuello",
       "descripcion": "Gesto de la parte del cuerpo Cuello.",
-      "gif": "assets/gifs/cuerpoHumano/cuello.gif"
+      "gif": "assets/gifs/cuello.gif"
     },
     {
       "id": 2,
       "nombre": "Pulmones",
       "descripcion": "Gesto de la parte del cuerpo Pulmones.",
-      "gif": "assets/gifs/cuerpoHumano/pulmones.gif"
+      "gif": "assets/gifs/pulmones.gif"
     },
     {
       "id": 3,
       "nombre": "Corazon",
       "descripcion": "Gesto de la parte del cuerpo Corazon.",
-      "gif": "assets/gifs/cuerpoHumano/corazon.gif"
+      "gif": "assets/gifs/corazon.gif"
     },
     {
       "id": 4,
       "nombre": "Manos",
       "descripcion": "Gesto de la parte del cuerpo Manos.",
-      "gif": "assets/gifs/cuerpoHumano/manos.gif"
+      "gif": "assets/gifs/manos.gif"
     },
     {
       "id": 5,
       "nombre": "Brazo",
       "descripcion": "Gesto de la parte del cuerpo Brazo.",
-      "gif": "assets/gifs/cuerpoHumano/brazo.gif"
+      "gif": "assets/gifs/brazo.gif"
     },
     {
       "id": 6,
       "nombre": "Estomago",
       "descripcion": "Gesto de la parte del cuerpo Estomago.",
-      "gif": "assets/gifs/cuerpoHumano/estomago.gif"
+      "gif": "assets/gifs/estomago.gif"
     },
     {
       "id": 7,
       "nombre": "Dedos",
       "descripcion": "Gesto de la parte del cuerpo Dedos.",
-      "gif": "assets/gifs/cuerpoHumano/dedos.gif"
+      "gif": "assets/gifs/dedos.gif"
     },
     {
       "id": 8,
       "nombre": "Pies",
       "descripcion": "Gesto de la parte del cuerpo Pies.",
-      "gif": "assets/gifs/cuerpoHumano/pies.gif"
+      "gif": "assets/gifs/pies.gif"
     },
     {
       "id": 9,
       "nombre": "Ojos",
       "descripcion": "Gesto de la parte del cuerpo Ojos.",
-      "gif": "assets/gifs/cuerpoHumano/ojos.gif"
+      "gif": "assets/gifs/ojos.gif"
     },
     {
       "id": 10,
       "nombre": "Nariz",
       "descripcion": "Gesto de la parte del cuerpo Nariz.",
-      "gif": "assets/gifs/cuerpoHumano/nariz.gif"
+      "gif": "assets/gifs/nariz.gif"
     },
     {
       "id": 11,
       "nombre": "Dientes",
       "descripcion": "Gesto de la parte del cuerpo Dientes.",
-      "gif": "assets/gifs/cuerpoHumano/dientes.gif"
+      "gif": "assets/gifs/dientes.gif"
     },
     {
       "id": 12,
       "nombre": "Boca",
       "descripcion": "Gesto de la parte del cuerpo Boca.",
-      "gif": "assets/gifs/cuerpoHumano/boca.gif"
+      "gif": "assets/gifs/boca.gif"
     },
     {
       "id": 13,
       "nombre": "Oreja",
       "descripcion": "Gesto de la parte del cuerpo Oreja.",
-      "gif": "assets/gifs/cuerpoHumano/oreja.gif"
+      "gif": "assets/gifs/oreja.gif"
     },
     {
       "id": 14,
       "nombre": "Cabello",
       "descripcion": "Gesto de la parte del cuerpo Cabello.",
-      "gif": "assets/gifs/cuerpoHumano/cabello.gif"
+      "gif": "assets/gifs/cabello.gif"
     },
     {
       "id": 15,
       "nombre": "Cabeza",
       "descripcion": "Gesto de la parte del cuerpo Cabeza.",
-      "gif": "assets/gifs/cuerpoHumano/cabeza.gif"
+      "gif": "assets/gifs/cabeza.gif"
     }
   ],
 
@@ -1102,79 +1102,79 @@
       "id": 1,
       "nombre": "Pan",
       "descripcion": "Gesto del alimento Pan.",
-      "gif": "assets/gifs/alimentos/pan.gif"
+      "gif": "assets/gifs/pan.gif"
     },
     {
       "id": 2,
       "nombre": "Leche",
       "descripcion": "Gesto del alimento Leche.",
-      "gif": "assets/gifs/alimentos/leche.gif"
+      "gif": "assets/gifs/leche.gif"
     },
     {
       "id": 3,
       "nombre": "Carne",
       "descripcion": "Gesto del alimento Carne.",
-      "gif": "assets/gifs/alimentos/carne.gif"
+      "gif": "assets/gifs/carne.gif"
     },
     {
       "id": 4,
       "nombre": "Fideo",
       "descripcion": "Gesto del alimento Fideo.",
-      "gif": "assets/gifs/alimentos/fideo.gif"
+      "gif": "assets/gifs/fideo.gif"
     },
     {
       "id": 5,
       "nombre": "Queso",
       "descripcion": "Gesto del alimento Queso.",
-      "gif": "assets/gifs/alimentos/queso.gif"
+      "gif": "assets/gifs/queso.gif"
     },
     {
       "id": 6,
       "nombre": "Arroz 1",
       "descripcion": "Gesto del alimento Arroz1.",
-      "gif": "assets/gifs/alimentos/arroz1.gif"
+      "gif": "assets/gifs/arroz1.gif"
     },
     {
       "id": 7,
       "nombre": "Arroz 2",
       "descripcion": "Gesto del alimento Arroz2.",
-      "gif": "assets/gifs/alimentos/arroz2.gif"
+      "gif": "assets/gifs/arroz2.gif"
     },
     {
       "id": 8,
       "nombre": "Sal",
       "descripcion": "Gesto del alimento Sal.",
-      "gif": "assets/gifs/alimentos/sal.gif"
+      "gif": "assets/gifs/sal.gif"
     },
     {
       "id": 9,
       "nombre": "Aceite",
       "descripcion": "Gesto del alimento Aceite.",
-      "gif": "assets/gifs/alimentos/aceite.gif"
+      "gif": "assets/gifs/aceite.gif"
     },
     {
       "id": 10,
       "nombre": "Cafe",
       "descripcion": "Gesto del alimento Cafe.",
-      "gif": "assets/gifs/alimentos/cafe.gif"
+      "gif": "assets/gifs/cafe.gif"
     },
     {
       "id": 11,
       "nombre": "Azucar",
       "descripcion": "Gesto del alimento Azucar.",
-      "gif": "assets/gifs/alimentos/azucar.gif"
+      "gif": "assets/gifs/azucar.gif"
     },
     {
       "id": 12,
       "nombre": "Te",
       "descripcion": "Gesto del alimento Te.",
-      "gif": "assets/gifs/alimentos/te.gif"
+      "gif": "assets/gifs/te.gif"
     },
     {
       "id": 13,
       "nombre": "Galletas",
       "descripcion": "Gesto del alimento Galletas.",
-      "gif": "assets/gifs/alimentos/galletas.gif"
+      "gif": "assets/gifs/galletas.gif"
     }
   ],
 
@@ -1190,67 +1190,67 @@
       "id": 1,
       "nombre": "Auto",
       "descripcion": "Gesto del medio de transporte Auto.",
-      "gif": "assets/gifs/mediosTransporte/auto.gif"
+      "gif": "assets/gifs/auto.gif"
     },
     {
       "id": 2,
       "nombre": "Tren",
       "descripcion": "Gesto del medio de transporte Tren.",
-      "gif": "assets/gifs/mediosTransporte/tren.gif"
+      "gif": "assets/gifs/tren.gif"
     },
     {
       "id": 3,
       "nombre": "Avion",
       "descripcion": "Gesto del medio de transporte Avion.",
-      "gif": "assets/gifs/mediosTransporte/avion.gif"
+      "gif": "assets/gifs/avion.gif"
     },
     {
       "id": 4,
       "nombre": "Flota",
       "descripcion": "Gesto del medio de transporte Flota.",
-      "gif": "assets/gifs/mediosTransporte/flota.gif"
+      "gif": "assets/gifs/flota.gif"
     },
     {
       "id": 5,
       "nombre": "Micro",
       "descripcion": "Gesto del medio de transporte Micro.",
-      "gif": "assets/gifs/mediosTransporte/micro.gif"
+      "gif": "assets/gifs/micro.gif"
     },
     {
       "id": 6,
       "nombre": "Trufi",
       "descripcion": "Gesto del medio de transporte Trufi.",
-      "gif": "assets/gifs/mediosTransporte/trufi.gif"
+      "gif": "assets/gifs/trufi.gif"
     },
     {
       "id": 7,
       "nombre": "Taxi",
       "descripcion": "Gesto del medio de transporte Taxi.",
-      "gif": "assets/gifs/mediosTransporte/taxi.gif"
+      "gif": "assets/gifs/taxi.gif"
     },
     {
       "id": 8,
       "nombre": "Motocicleta",
       "descripcion": "Gesto del medio de transporte Motocicleta.",
-      "gif": "assets/gifs/mediosTransporte/motocicleta.gif"
+      "gif": "assets/gifs/motocicleta.gif"
     },
     {
       "id": 9,
       "nombre": "Helicoptero",
       "descripcion": "Gesto del medio de transporte Helicoptero.",
-      "gif": "assets/gifs/mediosTransporte/helicoptero.gif"
+      "gif": "assets/gifs/helicoptero.gif"
     },
     {
       "id": 10,
       "nombre": "Bicicleta",
       "descripcion": "Gesto del medio de transporte Bicicleta.",
-      "gif": "assets/gifs/mediosTransporte/bicicleta.gif"
+      "gif": "assets/gifs/bicicleta.gif"
     },
     {
       "id": 11,
       "nombre": "Barco",
       "descripcion": "Gesto del medio de transporte Barco.",
-      "gif": "assets/gifs/mediosTransporte/barco.gif"
+      "gif": "assets/gifs/barco.gif"
     }
   ],
 
@@ -1267,127 +1267,127 @@
       "id": 1,
       "nombre": "Arbol",
       "descripcion": "Gesto de la naturaleza Arbol.",
-      "gif": "assets/gifs/naturaleza/arbol.gif"
+      "gif": "assets/gifs/arbol.gif"
     },
     {
       "id": 2,
       "nombre": "Bosque",
       "descripcion": "Gesto de la naturaleza Bosque.",
-      "gif": "assets/gifs/naturaleza/bosque.gif"
+      "gif": "assets/gifs/bosque.gif"
     },
     {
       "id": 3,
       "nombre": "Flor",
       "descripcion": "Gesto de la naturaleza Flor.",
-      "gif": "assets/gifs/naturaleza/flor.gif"
+      "gif": "assets/gifs/flor.gif"
     },
     {
       "id": 4,
       "nombre": "Pasto",
       "descripcion": "Gesto de la naturaleza Pasto.",
-      "gif": "assets/gifs/naturaleza/pasto.gif"
+      "gif": "assets/gifs/pasto.gif"
     },
     {
       "id": 5,
       "nombre": "Mar",
       "descripcion": "Gesto de la naturaleza Mar.",
-      "gif": "assets/gifs/naturaleza/mar.gif"
+      "gif": "assets/gifs/mar.gif"
     },
     {
       "id": 6,
       "nombre": "Piedra",
       "descripcion": "Gesto de la naturaleza Piedra.",
-      "gif": "assets/gifs/naturaleza/piedra.gif"
+      "gif": "assets/gifs/piedra.gif"
     },
     {
       "id": 7,
       "nombre": "Rio",
       "descripcion": "Gesto de la naturaleza Rio.",
-      "gif": "assets/gifs/naturaleza/rio.gif"
+      "gif": "assets/gifs/rio.gif"
     },
     {
       "id": 8,
       "nombre": "Tierra",
       "descripcion": "Gesto de la naturaleza Tierra.",
-      "gif": "assets/gifs/naturaleza/tierra.gif"
+      "gif": "assets/gifs/tierra.gif"
     },
     {
       "id": 9,
       "nombre": "Hoja",
       "descripcion": "Gesto de la naturaleza Hoja.",
-      "gif": "assets/gifs/naturaleza/hoja.gif"
+      "gif": "assets/gifs/hoja.gif"
     },
     {
       "id": 10,
       "nombre": "Frio",
       "descripcion": "Gesto de la naturaleza Frio.",
-      "gif": "assets/gifs/naturaleza/frio.gif"
+      "gif": "assets/gifs/frio.gif"
     },
     {
       "id": 11,
       "nombre": "Calor",
       "descripcion": "Gesto de la naturaleza Calor.",
-      "gif": "assets/gifs/naturaleza/calor.gif"
+      "gif": "assets/gifs/calor.gif"
     },
     {
       "id": 12,
       "nombre": "Campo",
       "descripcion": "Gesto de la naturaleza Campo.",
-      "gif": "assets/gifs/naturaleza/campo.gif"
+      "gif": "assets/gifs/campo.gif"
     },
     {
       "id": 13,
       "nombre": "Valle",
       "descripcion": "Gesto de la naturaleza Valle.",
-      "gif": "assets/gifs/naturaleza/valle.gif"
+      "gif": "assets/gifs/valle.gif"
     },
     {
       "id": 14,
       "nombre": "Luna",
       "descripcion": "Gesto de la naturaleza Luna.",
-      "gif": "assets/gifs/naturaleza/luna.gif"
+      "gif": "assets/gifs/luna.gif"
     },
     {
       "id": 15,
-      "nombre": "Montana",
-      "descripcion": "Gesto de la naturaleza Montana.",
-      "gif": "assets/gifs/naturaleza/montana.gif"
+      "nombre": "Montaña",
+      "descripcion": "Gesto de la naturaleza Montaña.",
+      "gif": "assets/gifs/montana.gif"
     },
     {
       "id": 16,
       "nombre": "Nieve",
       "descripcion": "Gesto de la naturaleza Nieve.",
-      "gif": "assets/gifs/naturaleza/nieve.gif"
+      "gif": "assets/gifs/nieve.gif"
     },
     {
       "id": 17,
       "nombre": "Sol",
       "descripcion": "Gesto de la naturaleza Sol.",
-      "gif": "assets/gifs/naturaleza/sol.gif"
+      "gif": "assets/gifs/sol.gif"
     },
     {
       "id": 18,
       "nombre": "Estrella",
       "descripcion": "Gesto de la naturaleza Estrella.",
-      "gif": "assets/gifs/naturaleza/estrella.gif"
+      "gif": "assets/gifs/estrella.gif"
     },
     {
       "id": 19,
       "nombre": "Nube",
       "descripcion": "Gesto de la naturaleza Nube.",
-      "gif": "assets/gifs/naturaleza/nube.gif"
+      "gif": "assets/gifs/nube.gif"
     },
     {
       "id": 20,
       "nombre": "Cielo",
       "descripcion": "Gesto de la naturaleza Cielo.",
-      "gif": "assets/gifs/naturaleza/cielo.gif"
+      "gif": "assets/gifs/cielo.gif"
     },
     {
       "id": 21,
       "nombre": "Lluvia",
       "descripcion": "Gesto de la naturaleza Lluvia.",
-      "gif": "assets/gifs/naturaleza/lluvia.gif"
+      "gif": "assets/gifs/lluvia.gif"
     }
   ],
 
@@ -1404,62 +1404,62 @@
     {
       "id": 1,
       "nombre": "Quien 1",
-      "descripcion": "Gesto de la pregunta Quien1.",
-      "gif": "assets/gifs/preguntas/quien1.gif"
+      "descripcion": "Gesto de la pregunta Quien 1.",
+      "gif": "assets/gifs/quien1.gif"
     },
     {
       "id": 2,
       "nombre": "Quien 2",
-      "descripcion": "Gesto de la pregunta Quien2.",
-      "gif": "assets/gifs/preguntas/quien2.gif"
+      "descripcion": "Gesto de la pregunta Quien 2.",
+      "gif": "assets/gifs/quien2.gif"
     },
     {
       "id": 3,
       "nombre": "Donde",
       "descripcion": "Gesto de la pregunta Donde.",
-      "gif": "assets/gifs/preguntas/donde.gif"
+      "gif": "assets/gifs/donde.gif"
     },
     {
       "id": 4,
       "nombre": "Como",
       "descripcion": "Gesto de la pregunta Como.",
-      "gif": "assets/gifs/preguntas/como.gif"
+      "gif": "assets/gifs/como.gif"
     },
     {
       "id": 5,
       "nombre": "Por que",
-      "descripcion": "Gesto de la pregunta Por_que.",
-      "gif": "assets/gifs/preguntas/por_que.gif"
+      "descripcion": "Gesto de la pregunta Por que.",
+      "gif": "assets/gifs/por que.gif"
     },
     {
       "id": 6,
       "nombre": "Que",
       "descripcion": "Gesto de la pregunta Que.",
-      "gif": "assets/gifs/preguntas/que.gif"
+      "gif": "assets/gifs/que.gif"
     },
     {
       "id": 7,
       "nombre": "Cual",
       "descripcion": "Gesto de la pregunta Cual.",
-      "gif": "assets/gifs/preguntas/cual.gif"
+      "gif": "assets/gifs/cual.gif"
     },
     {
       "id": 8,
       "nombre": "Para que",
-      "descripcion": "Gesto de la pregunta Para_que.",
-      "gif": "assets/gifs/preguntas/para_que.gif"
+      "descripcion": "Gesto de la pregunta Para que.",
+      "gif": "assets/gifs/para que .gif"
     },
     {
       "id": 9,
       "nombre": "Cuantos",
       "descripcion": "Gesto de la pregunta Cuantos.",
-      "gif": "assets/gifs/preguntas/cuantos.gif"
+      "gif": "assets/gifs/cuanto.gif"
     },
     {
       "id": 10,
       "nombre": "Cuando",
       "descripcion": "Gesto de la pregunta Cuando.",
-      "gif": "assets/gifs/preguntas/cuando.gif"
+      "gif": "assets/gifs/cuando.gif"
     }
   ],
 
@@ -1478,73 +1478,73 @@
       "id": 1,
       "nombre": "Enero",
       "descripcion": "Gesto del mes Enero.",
-      "gif": "assets/gifs/calendario/enero.gif"
+      "gif": "assets/gifs/enero.gif"
     },
     {
       "id": 2,
       "nombre": "Febrero",
       "descripcion": "Gesto del mes Febrero.",
-      "gif": "assets/gifs/calendario/febrero.gif"
+      "gif": "assets/gifs/febrero.gif"
     },
     {
       "id": 3,
       "nombre": "Marzo",
       "descripcion": "Gesto del mes Marzo.",
-      "gif": "assets/gifs/calendario/marzo.gif"
+      "gif": "assets/gifs/marzo.gif"
     },
     {
       "id": 4,
       "nombre": "Abril",
       "descripcion": "Gesto del mes Abril.",
-      "gif": "assets/gifs/calendario/abril.gif"
+      "gif": "assets/gifs/abril.gif"
     },
     {
       "id": 5,
       "nombre": "Mayo",
       "descripcion": "Gesto del mes Mayo.",
-      "gif": "assets/gifs/calendario/mayo.gif"
+      "gif": "assets/gifs/mayo.gif"
     },
     {
       "id": 6,
       "nombre": "Junio",
       "descripcion": "Gesto del mes Junio.",
-      "gif": "assets/gifs/calendario/junio.gif"
+      "gif": "assets/gifs/junio.gif"
     },
     {
       "id": 7,
       "nombre": "Julio",
       "descripcion": "Gesto del mes Julio.",
-      "gif": "assets/gifs/calendario/julio.gif"
+      "gif": "assets/gifs/julio.gif"
     },
     {
       "id": 8,
       "nombre": "Agosto",
       "descripcion": "Gesto del mes Agosto.",
-      "gif": "assets/gifs/calendario/agosto.gif"
+      "gif": "assets/gifs/agosto.gif"
     },
     {
       "id": 9,
       "nombre": "Septiembre",
       "descripcion": "Gesto del mes Septiembre.",
-      "gif": "assets/gifs/calendario/septiembre.gif"
+      "gif": "assets/gifs/septiembre.gif"
     },
     {
       "id": 10,
       "nombre": "Octubre",
       "descripcion": "Gesto del mes Octubre.",
-      "gif": "assets/gifs/calendario/octubre.gif"
+      "gif": "assets/gifs/octubre.gif"
     },
     {
       "id": 11,
       "nombre": "Noviembre",
       "descripcion": "Gesto del mes Noviembre.",
-      "gif": "assets/gifs/calendario/noviembre.gif"
+      "gif": "assets/gifs/noviembre.gif"
     },
     {
       "id": 12,
       "nombre": "Diciembre",
       "descripcion": "Gesto del mes Diciembre.",
-      "gif": "assets/gifs/calendario/diciembre.gif"
+      "gif": "assets/gifs/diciembre.gif"
     }
   ],
 
@@ -1563,163 +1563,163 @@
       "id": 1,
       "nombre": "Cambiar",
       "descripcion": "Gesto del verbo Cambiar.",
-      "gif": "assets/gifs/verbos/cambiar.gif"
+      "gif": "assets/gifs/cambiar.gif"
     },
     {
       "id": 2,
       "nombre": "Construir",
       "descripcion": "Gesto del verbo Construir.",
-      "gif": "assets/gifs/verbos/construir.gif"
+      "gif": "assets/gifs/construir.gif"
     },
     {
       "id": 3,
       "nombre": "Cocinar",
       "descripcion": "Gesto del verbo Cocinar.",
-      "gif": "assets/gifs/verbos/cocinar.gif"
+      "gif": "assets/gifs/cocinar.gif"
     },
     {
       "id": 4,
       "nombre": "Comprar",
       "descripcion": "Gesto del verbo Comprar.",
-      "gif": "assets/gifs/verbos/comprar.gif"
+      "gif": "assets/gifs/comprar.gif"
     },
     {
       "id": 5,
       "nombre": "Vender",
       "descripcion": "Gesto del verbo Vender.",
-      "gif": "assets/gifs/verbos/vender.gif"
+      "gif": "assets/gifs/vender.gif"
     },
     {
       "id": 6,
       "nombre": "Aprender",
       "descripcion": "Gesto del verbo Aprender.",
-      "gif": "assets/gifs/verbos/aprender.gif"
+      "gif": "assets/gifs/aprender.gif"
     },
     {
       "id": 7,
       "nombre": "Abrir",
       "descripcion": "Gesto del verbo Abrir.",
-      "gif": "assets/gifs/verbos/abrir.gif"
+      "gif": "assets/gifs/abrir.gif"
     },
     {
       "id": 8,
       "nombre": "Hablar",
       "descripcion": "Gesto del verbo Hablar.",
-      "gif": "assets/gifs/verbos/hablar.gif"
+      "gif": "assets/gifs/hablar.gif"
     },
     {
       "id": 9,
-      "nombre": "Prestar1",
-      "descripcion": "Gesto del verbo Prestar1.",
-      "gif": "assets/gifs/verbos/prestar1.gif"
+      "nombre": "Prestar 1",
+      "descripcion": "Gesto del verbo Prestar 1.",
+      "gif": "assets/gifs/prestar1.gif"
     },
     {
       "id": 10,
-      "nombre": "Prestar2",
-      "descripcion": "Gesto del verbo Prestar2.",
-      "gif": "assets/gifs/verbos/prestar2.gif"
+      "nombre": "Prestar 2",
+      "descripcion": "Gesto del verbo Prestar 2.",
+      "gif": "assets/gifs/prestar2.gif"
     },
     {
       "id": 11,
       "nombre": "Comer",
       "descripcion": "Gesto del verbo Comer.",
-      "gif": "assets/gifs/verbos/comer.gif"
+      "gif": "assets/gifs/comer.gif"
     },
     {
       "id": 12,
       "nombre": "Querer",
       "descripcion": "Gesto del verbo Querer.",
-      "gif": "assets/gifs/verbos/querer.gif"
+      "gif": "assets/gifs/querer.gif"
     },
     {
       "id": 13,
       "nombre": "Dibujar",
       "descripcion": "Gesto del verbo Dibujar.",
-      "gif": "assets/gifs/verbos/dibujar.gif"
+      "gif": "assets/gifs/dibujar.gif"
     },
     {
       "id": 14,
       "nombre": "Copiar",
       "descripcion": "Gesto del verbo Copiar.",
-      "gif": "assets/gifs/verbos/copiar.gif"
+      "gif": "assets/gifs/copiar.gif"
     },
     {
       "id": 15,
       "nombre": "Pedir",
       "descripcion": "Gesto del verbo Pedir.",
-      "gif": "assets/gifs/verbos/pedir.gif"
+      "gif": "assets/gifs/pedir.gif"
     },
     {
       "id": 16,
       "nombre": "Escribir",
       "descripcion": "Gesto del verbo Escribir.",
-      "gif": "assets/gifs/verbos/escribir.gif"
+      "gif": "assets/gifs/escribir.gif"
     },
     {
       "id": 17,
       "nombre": "Ver",
       "descripcion": "Gesto del verbo Ver.",
-      "gif": "assets/gifs/verbos/ver.gif"
+      "gif": "assets/gifs/ver.gif"
     },
     {
       "id": 18,
       "nombre": "Preparar",
       "descripcion": "Gesto del verbo Preparar.",
-      "gif": "assets/gifs/verbos/preparar.gif"
+      "gif": "assets/gifs/preparar.gif"
     },
     {
       "id": 19,
       "nombre": "Venir",
       "descripcion": "Gesto del verbo Venir.",
-      "gif": "assets/gifs/verbos/venir.gif"
+      "gif": "assets/gifs/venir.gif"
     },
     {
       "id": 20,
       "nombre": "Ir",
       "descripcion": "Gesto del verbo Ir.",
-      "gif": "assets/gifs/verbos/ir.gif"
+      "gif": "assets/gifs/ir.gif"
     },
     {
       "id": 21,
       "nombre": "Practicar",
       "descripcion": "Gesto del verbo Practicar.",
-      "gif": "assets/gifs/verbos/practicar.gif"
+      "gif": "assets/gifs/practicar.gif"
     },
     {
       "id": 22,
       "nombre": "Dormir",
       "descripcion": "Gesto del verbo Dormir.",
-      "gif": "assets/gifs/verbos/dormir.gif"
+      "gif": "assets/gifs/dormir.gif"
     },
     {
       "id": 23,
       "nombre": "Pintar",
       "descripcion": "Gesto del verbo Pintar.",
-      "gif": "assets/gifs/verbos/pintar.gif"
+      "gif": "assets/gifs/pintar.gif"
     },
     {
       "id": 24,
-      "nombre": "Ayudar1",
-      "descripcion": "Gesto del verbo Ayudar1.",
-      "gif": "assets/gifs/verbos/ayudar1.gif"
+      "nombre": "Ayudar 1",
+      "descripcion": "Gesto del verbo Ayudar 1.",
+      "gif": "assets/gifs/ayudar1.gif"
     },
     {
       "id": 25,
-      "nombre": "Ayudar2",
-      "descripcion": "Gesto del verbo Ayudar2.",
-      "gif": "assets/gifs/verbos/ayudar2.gif"
+      "nombre": "Ayudar 2",
+      "descripcion": "Gesto del verbo Ayudar 2.",
+      "gif": "assets/gifs/ayudar2.gif"
     },
     {
       "id": 26,
       "nombre": "Comprender",
       "descripcion": "Gesto del verbo Comprender.",
-      "gif": "assets/gifs/verbos/comprender.gif"
+      "gif": "assets/gifs/comprender.gif"
     },
     {
       "id": 27,
       "nombre": "Atender",
       "descripcion": "Gesto del verbo Atender.",
-      "gif": "assets/gifs/verbos/atender.gif"
+      "gif": "assets/gifs/atender.gif"
     }
   ],
 
@@ -1738,199 +1738,199 @@
       "id": 1,
       "nombre": "Cero",
       "descripcion": "Gesto del número Cero.",
-      "gif": "assets/gifs/numeros/cero.gif"
+      "gif": "assets/gifs/cero.gif"
     },
     {
       "id": 2,
       "nombre": "Uno",
       "descripcion": "Gesto del número Uno.",
-      "gif": "assets/gifs/numeros/uno.gif"
+      "gif": "assets/gifs/uno.gif"
     },
     {
       "id": 3,
       "nombre": "Dos",
       "descripcion": "Gesto del número Dos.",
-      "gif": "assets/gifs/numeros/dos.gif"
+      "gif": "assets/gifs/dos.gif"
     },
     {
       "id": 4,
       "nombre": "Tres",
       "descripcion": "Gesto del número Tres.",
-      "gif": "assets/gifs/numeros/tres.gif"
+      "gif": "assets/gifs/tres.gif"
     },
     {
       "id": 5,
       "nombre": "Cuatro",
       "descripcion": "Gesto del número Cuatro.",
-      "gif": "assets/gifs/numeros/cuatro.gif"
+      "gif": "assets/gifs/cuatro.gif"
     },
     {
       "id": 6,
       "nombre": "Cinco",
       "descripcion": "Gesto del número Cinco.",
-      "gif": "assets/gifs/numeros/cinco.gif"
+      "gif": "assets/gifs/cinco.gif"
     },
     {
       "id": 7,
       "nombre": "Seis",
       "descripcion": "Gesto del número Seis.",
-      "gif": "assets/gifs/numeros/seis.gif"
+      "gif": "assets/gifs/seis.gif"
     },
     {
       "id": 8,
       "nombre": "Siete",
       "descripcion": "Gesto del número Siete.",
-      "gif": "assets/gifs/numeros/siete.gif"
+      "gif": "assets/gifs/siete.gif"
     },
     {
       "id": 9,
       "nombre": "Ocho",
       "descripcion": "Gesto del número Ocho.",
-      "gif": "assets/gifs/numeros/ocho.gif"
+      "gif": "assets/gifs/ocho.gif"
     },
     {
       "id": 10,
       "nombre": "Nueve",
       "descripcion": "Gesto del número Nueve.",
-      "gif": "assets/gifs/numeros/nueve.gif"
+      "gif": "assets/gifs/nueve.gif"
     },
     {
       "id": 11,
       "nombre": "Diez",
       "descripcion": "Gesto del número Diez.",
-      "gif": "assets/gifs/numeros/diez.gif"
+      "gif": "assets/gifs/diez.gif"
     },
     {
       "id": 12,
       "nombre": "Once",
       "descripcion": "Gesto del número Once.",
-      "gif": "assets/gifs/numeros/once.gif"
+      "gif": "assets/gifs/once.gif"
     },
     {
       "id": 13,
       "nombre": "Doce",
       "descripcion": "Gesto del número Doce.",
-      "gif": "assets/gifs/numeros/doce.gif"
+      "gif": "assets/gifs/doce.gif"
     },
     {
       "id": 14,
       "nombre": "Trece",
       "descripcion": "Gesto del número Trece.",
-      "gif": "assets/gifs/numeros/trece.gif"
+      "gif": "assets/gifs/trece.gif"
     },
     {
       "id": 15,
       "nombre": "Catorce",
       "descripcion": "Gesto del número Catorce.",
-      "gif": "assets/gifs/numeros/catorce.gif"
+      "gif": "assets/gifs/catorce.gif"
     },
     {
       "id": 16,
       "nombre": "Quince",
       "descripcion": "Gesto del número Quince.",
-      "gif": "assets/gifs/numeros/quince.gif"
+      "gif": "assets/gifs/quince.gif"
     },
     {
       "id": 17,
       "nombre": "Dieciséis",
       "descripcion": "Gesto del número Dieciséis.",
-      "gif": "assets/gifs/numeros/dieciseis.gif"
+      "gif": "assets/gifs/dieciseis.gif"
     },
     {
       "id": 18,
       "nombre": "Diecisiete",
       "descripcion": "Gesto del número Diecisiete.",
-      "gif": "assets/gifs/numeros/diecisiete.gif"
+      "gif": "assets/gifs/diecisiete.gif"
     },
     {
       "id": 19,
       "nombre": "Dieciocho",
       "descripcion": "Gesto del número Dieciocho.",
-      "gif": "assets/gifs/numeros/dieciocho.gif"
+      "gif": "assets/gifs/dieciocho.gif"
     },
     {
       "id": 20,
       "nombre": "Diecinueve",
       "descripcion": "Gesto del número Diecinueve.",
-      "gif": "assets/gifs/numeros/diecinueve.gif"
+      "gif": "assets/gifs/diecinueve.gif"
     },
     {
       "id": 21,
       "nombre": "Veinte",
       "descripcion": "Gesto del número Veinte.",
-      "gif": "assets/gifs/numeros/veinte.gif"
+      "gif": "assets/gifs/veinte.gif"
     },
     {
       "id": 22,
       "nombre": "Veintiuno",
       "descripcion": "Gesto del número Veintiuno.",
-      "gif": "assets/gifs/numeros/veintiuno.gif"
+      "gif": "assets/gifs/veintiuno.gif"
     },
     {
       "id": 23,
       "nombre": "Veintidós",
       "descripcion": "Gesto del número Veintidós.",
-      "gif": "assets/gifs/numeros/veintidos.gif"
+      "gif": "assets/gifs/veintidos.gif"
     },
     {
       "id": 24,
       "nombre": "Veintitrés",
       "descripcion": "Gesto del número Veintitrés.",
-      "gif": "assets/gifs/numeros/veintitres.gif"
+      "gif": "assets/gifs/veintitres.gif"
     },
     {
       "id": 25,
       "nombre": "Veinticuatro",
       "descripcion": "Gesto del número Veinticuatro.",
-      "gif": "assets/gifs/numeros/veinticuatro.gif"
+      "gif": "assets/gifs/veinticuatro.gif"
     },
     {
       "id": 26,
       "nombre": "Veinticinco",
       "descripcion": "Gesto del número Veinticinco.",
-      "gif": "assets/gifs/numeros/veinticinco.gif"
+      "gif": "assets/gifs/veinticinco.gif"
     },
     {
       "id": 27,
       "nombre": "Veintiséis",
       "descripcion": "Gesto del número Veintiséis.",
-      "gif": "assets/gifs/numeros/veintiseis.gif"
+      "gif": "assets/gifs/veintiseis.gif"
     },
     {
       "id": 28,
       "nombre": "Veintisiete",
       "descripcion": "Gesto del número Veintisiete.",
-      "gif": "assets/gifs/numeros/veintisiete.gif"
+      "gif": "assets/gifs/veintisiete.gif"
     },
     {
       "id": 29,
       "nombre": "Veintiocho",
       "descripcion": "Gesto del número Veintiocho.",
-      "gif": "assets/gifs/numeros/veintiocho.gif"
+      "gif": "assets/gifs/veintiocho.gif"
     },
     {
       "id": 30,
       "nombre": "Veintinueve",
       "descripcion": "Gesto del número Veintinueve.",
-      "gif": "assets/gifs/numeros/veintinueve.gif"
+      "gif": "assets/gifs/veintinueve.gif"
     },
     {
       "id": 31,
       "nombre": "Treinta",
       "descripcion": "Gesto del número Treinta.",
-      "gif": "assets/gifs/numeros/treinta.gif"
+      "gif": "assets/gifs/treinta.gif"
     },
     {
       "id": 32,
       "nombre": "Cuarenta",
       "descripcion": "Gesto del número Cuarenta.",
-      "gif": "assets/gifs/numeros/cuarenta.gif"
+      "gif": "assets/gifs/cuarenta.gif"
     },
     {
       "id": 33,
       "nombre": "Cincuenta",
       "descripcion": "Gesto del número Cincuenta.",
-      "gif": "assets/gifs/numeros/cincuenta.gif"
+      "gif": "assets/gifs/cincuenta.gif"
     }
   ]
 
