@@ -21,10 +21,10 @@
 ----------------------------------------- */
 :root {
   --color-bg: #EBEBEB;
-  --color-text: #322203;
-  --color-accent: #8B6B4C;
+  --color-text: #5E0006;
+  --color-accent: #A17B7D;
   --color-hover: #000000;
-  --color-light: #F8F6F3;
+  --color-light: #EBEBEB;
   --font-primary: 'Hatton', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
@@ -59,7 +59,7 @@ h1 {
 }
 
 p {
-  color: #4A3B1D;
+  color: #A17B7D;
   margin-bottom: 1rem;
 }
 

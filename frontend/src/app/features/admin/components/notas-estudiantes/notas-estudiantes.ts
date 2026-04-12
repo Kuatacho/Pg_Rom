@@ -52,8 +52,9 @@ export class NotasEstudiantesComponent implements OnInit {
           agrupado[clave].notas.push({
             leccion: item.leccion,
             puntuacion: item.puntuacion,
-            fecha: item.fecha ? new Date(item.fecha).toISOString() : null,
+            fecha: item.fecha ?? null,   // ← SIN new Date()
           });
+
         });
 
         this.estudiantes = Object.values(agrupado);

@@ -6,7 +6,7 @@
     <!-- Logo -->
     <a routerLink="/" class="flex items-center gap-3">
       <span
-        class="text-3xl md:text-4xl font-extrabold tracking-widest text-[#322203] drop-shadow-lg">
+        class="text-3xl md:text-4xl font-extrabold tracking-widest text-[#5E0006] drop-shadow-lg">
         VISION
       </span>
     </a>
@@ -19,7 +19,8 @@
         <button
           type="button"
           (click)="toggleDropdown()"
-          class="flex items-center justify-center w-12 h-12 bg-[#322203] rounded-full hover:bg-[#1f1502] focus:outline-none focus:ring-4 focus:ring-[#322203]/40 transition duration-200">
+          class="flex items-center justify-center w-16 h-13 bg-[#5E0006] rounded-full hover:bg-[#A17B7D] focus:outline-none focus:ring-4 focus:ring-[#322203]/40 transition duration-200 shadow-[0_4px_10px_rgba(94,0,6,0.3)]
+         hover:shadow-[0_6px_15px_rgba(94,0,6,0.4)] hover:-translate-y-0.5 active:scale-90">
           <span class="sr-only">Abrir menú de usuario</span>
           <fa-icon [icon]="faUserCircle"
                    class="text-[#ebebeb] text-4xl"></fa-icon>
@@ -31,7 +32,7 @@
         <div *ngIf="isDropdownOpen"
              class="absolute right-0 mt-2 min-w-[220px] bg-white divide-y divide-gray-100 rounded-lg shadow-lg z-50">
           <div class="px-4 py-3" *ngIf="user">
-            <span class="block text-sm font-medium text-[#322203]">{{ user.name }}</span>
+            <span class="block text-sm font-medium text-[#5E0006]">{{ user.name }}</span>
             <span class="block text-sm text-gray-500 break-words">{{ user.email }}</span>
             <span class="block text-xs text-gray-400">{{ user.rol | titlecase }}</span>
           </div>
@@ -74,14 +75,14 @@
         <!-- Siempre públicos -->
         <li>
           <a routerLink="/home" routerLinkActive="active-link"
-             class="nav-link text-[#322203] hover:text-black">Inicio</a>
+             class="nav-link text-[#5E0006] hover:text-[#A17B7D]">Inicio</a>
         </li>
 
         <!-- Si está logueado -->
         <ng-container *ngIf="isLoggedIn(); else loginLink">
           <li>
             <a routerLink="/lecciones" routerLinkActive="active-link"
-               class="nav-link text-[#322203] hover:text-black">Lecciones</a>
+               class="nav-link text-[#5E0006] hover:text-[#A17B7D]">Lecciones</a>
           </li>
 
         </ng-container>

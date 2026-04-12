@@ -664,7 +664,7 @@
     },
     {
       "id": 8,
-      "nombre": "Potosí",
+      "nombre": "Potosi",
       "descripcion": "Gesto del departamento Potosí.",
       "gif": "assets/gifs/potosi.gif"
     },
@@ -1130,13 +1130,13 @@
     },
     {
       "id": 6,
-      "nombre": "Arroz 1",
+      "nombre": "Arroz1",
       "descripcion": "Gesto del alimento Arroz1.",
       "gif": "assets/gifs/arroz1.gif"
     },
     {
       "id": 7,
-      "nombre": "Arroz 2",
+      "nombre": "Arroz2",
       "descripcion": "Gesto del alimento Arroz2.",
       "gif": "assets/gifs/arroz2.gif"
     },
@@ -1154,8 +1154,8 @@
     },
     {
       "id": 10,
-      "nombre": "Cafe",
-      "descripcion": "Gesto del alimento Cafe.",
+      "nombre": "Coffee",
+      "descripcion": "Gesto del alimento Coffee.",
       "gif": "assets/gifs/cafe.gif"
     },
     {
@@ -1403,13 +1403,13 @@
   "17": [
     {
       "id": 1,
-      "nombre": "Quien 1",
+      "nombre": "Quien1",
       "descripcion": "Gesto de la pregunta Quien 1.",
       "gif": "assets/gifs/quien1.gif"
     },
     {
       "id": 2,
-      "nombre": "Quien 2",
+      "nombre": "Quien2",
       "descripcion": "Gesto de la pregunta Quien 2.",
       "gif": "assets/gifs/quien2.gif"
     },
@@ -1609,13 +1609,13 @@
     },
     {
       "id": 9,
-      "nombre": "Prestar 1",
+      "nombre": "Prestar1",
       "descripcion": "Gesto del verbo Prestar 1.",
       "gif": "assets/gifs/prestar1.gif"
     },
     {
       "id": 10,
-      "nombre": "Prestar 2",
+      "nombre": "Prestar2",
       "descripcion": "Gesto del verbo Prestar 2.",
       "gif": "assets/gifs/prestar2.gif"
     },
@@ -1699,13 +1699,13 @@
     },
     {
       "id": 24,
-      "nombre": "Ayudar 1",
+      "nombre": "Ayudar1",
       "descripcion": "Gesto del verbo Ayudar 1.",
       "gif": "assets/gifs/ayudar1.gif"
     },
     {
       "id": 25,
-      "nombre": "Ayudar 2",
+      "nombre": "Ayudar2",
       "descripcion": "Gesto del verbo Ayudar 2.",
       "gif": "assets/gifs/ayudar2.gif"
     },

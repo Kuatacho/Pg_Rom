@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<section class="relative bg-[#8B6B4C] min-h-screen text-white py-16 px-6 overflow-hidden">
+<section class="relative bg-[#f8f6f3] min-h-screen text-white py-16 px-6 overflow-hidden">
   <div class="max-w-6xl mx-auto relative z-10 text-center">
     <!-- Decoraciones esquinas -->
     <div class="absolute top-0 left-0 w-16 h-16 flex items-start justify-start pt-2 pl-3">
@@ -18,17 +18,17 @@
     <!-- Título -->
     <h1 class="text-4xl md:text-5xl font-[Hatton] mb-10 tracking-wide">
       Gestos de la Lección
-      <span *ngIf="leccion()" class="block text-lg mt-2 text-white/80">
+      <span *ngIf="leccion()" class="block text-lg mt-2 text-[#A17B7D]">
       {{ leccion()!.nombre }}</span>
     </h1>
 
     <!-- Loading -->
-    <div *ngIf="loading()" class="text-center text-white/80 animate-pulse">
+    <div *ngIf="loading()" class="text-center text-[#A17B7D] animate-pulse">
       Cargando gestos...
     </div>
 
     <!-- No gestos -->
-    <div *ngIf="!loading() && gestos().length === 0" class="text-center text-white/80">
+    <div *ngIf="!loading() && gestos().length === 0" class="text-center text-[#A17B7D]">
       No hay gestos disponibles para esta lección.
     </div>
 
@@ -40,17 +40,18 @@
       <div
         *ngFor="let gesto of gestos()"
         (click)="practicarGesto(gesto)"
-        class="cursor-pointer w-full max-w-xs bg-white text-[#322203] rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+        class="group cursor-pointer w-full max-w-xs bg-white text-[#5E0006] rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1),0_0_15px_1px_rgba(94,0,6,0.05)]
+        hover:shadow-[0_30px_60px_-15px_rgba(94,0,6,0.3)] transition-all duration-300 hover:-translate-y-2 active:scale-95"
       >
         <div class="p-6 flex flex-col justify-between h-full text-left">
-          <h2 class="font-[Hatton] text-2xl mb-3 text-[#8B6B4C] leading-snug">
+          <h2 class="font-[Hatton] text-2xl mb-3 text-[#5E0006] leading-snug">
             {{ gesto.nombre }}
           </h2>
           <p class="text-gray-700 text-base leading-relaxed">
             {{ gesto.descripcion }}
           </p>
           <div
-            class="mt-4 text-sm font-semibold text-[#8B6B4C] group-hover:text-[#322203] transition-colors"
+            class="mt-4 text-sm font-semibold text-[#A17B7D] group-hover:text-[#5E0006] transition-colors"
           >
             Ver práctica →
           </div>
@@ -58,11 +59,5 @@
       </div>
     </div>
 
-    <!-- Decoración esquina inferior derecha -->
-    <div class="absolute bottom-0 right-0 w-16 h-16 flex items-end justify-end pb-2 pr-3">
-      <div class="grid grid-cols-3 gap-1">
-        <div *ngFor="let _ of [].constructor(9)" class="w-1.5 h-1.5 bg-black rounded-full"></div>
-      </div>
-    </div>
   </div>
 </section>

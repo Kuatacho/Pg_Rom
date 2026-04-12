@@ -1,4 +1,4 @@
-<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-gradient-to-br from-[#ebebeb] to-white">
+<div class="min-h-[calc(100vh-64px)] flex items-center justify-center p-4 bg-gradient-to-br from-[#f8f6f3] to-white">
   <div class="w-full max-w-4xl bg-white/90 backdrop-blur rounded-3xl shadow-2xl border border-[#322203]/10 overflow-hidden">
     <div class="grid md:grid-cols-2">
 
@@ -20,7 +20,7 @@
       <!-- Lado formulario -->
       <div class="p-6 sm:p-8 relative z-10">
         <div class="mb-6 text-center">
-          <h1 class="text-3xl font-extrabold tracking-wide text-[#322203]">Recuperar contraseña</h1>
+          <h1 class="text-3xl font-extrabold tracking-wide text-[#5E0006]">Recuperar contraseña</h1>
           <p class="text-sm text-gray-600 mt-1">
             Ingresa tu correo y te enviaremos instrucciones para restablecer tu contraseña.
           </p>
@@ -57,7 +57,8 @@
 
           <button
             type="submit"
-            class="w-full rounded-xl py-2 shadow font-semibold bg-[#322203] text-[#ebebeb] hover:bg-[#1f1502] transition focus:outline-none focus:ring-4 focus:ring-[#322203]/30"
+            class="w-full rounded-xl py-3 font-bold text-[#ebebeb] transition-all duration-200 bg-[#5E0006] shadow-[0_10px_20px_-5px_rgba(94,0,6,0.5)] hover:shadow-[0_15px_25px_-5px_rgba(94,0,6,0.6)] hover:-translate-y-1 hover:bg-[#7a0008]
+         active:scale-95 disabled:opacity-60 disabled:shadow-none disabled:translate-y-0 focus:outline-none focus:ring-4 focus:ring-[#5E0006]/30"
             [disabled]="loading"
           >
             {{ loading ? 'Enviando...' : 'Enviar instrucciones' }}
@@ -77,7 +78,7 @@
 
         <!-- Enlaces fuera del form para que siempre sean clicables -->
         <div class="flex items-center justify-between text-sm mt-4">
-          <a routerLink="/login" class="text-[#322203] hover:underline">← Volver a iniciar sesión</a>
+          <a routerLink="/login" class="text-[#5E0006] hover:underline">← Volver a iniciar sesión</a>
           <a routerLink="/home" class="text-gray-500 hover:underline">Volver al inicio</a>
         </div>
 

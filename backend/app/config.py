@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 # ----- Configuración del modelo (puede quedarse igual) -----
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "models" / "modelo_lstm_completed.h5"
+MODEL_PATH = BASE_DIR / "models" / "modelo_lstm_3.h5"
 SEQUENCE_LENGTH = 30
 NUM_LANDMARKS_PER_HAND = 21 * 3
 NUM_HANDS = 2

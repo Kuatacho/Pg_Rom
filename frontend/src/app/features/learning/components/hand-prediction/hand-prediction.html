@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<section class="relative bg-[#8B6B4C] min-h-screen text-white py-12 px-6 overflow-hidden font-[Hatton]">
+<section class="relative bg-[#f8f6f3] min-h-screen text-white py-12 px-6 overflow-hidden font-[Hatton]">
   <div class="max-w-6xl mx-auto relative z-10">
     <!-- Decoraciones esquinas -->
     <div class="absolute top-0 left-0 w-16 h-16 flex items-start justify-start pt-2 pl-3">
@@ -18,19 +18,38 @@
     <!-- Título -->
     <h1 class="text-4xl md:text-5xl mb-10 text-center tracking-wide">
       Práctica del gesto:
-      <span class="text-[#F6E7D8]">{{ gestoEsperado?.nombre }}</span>
+      <span class="text-[#A17B7D]">{{ gestoEsperado?.nombre }}</span>
     </h1>
+    <!-- Resultado / Confianza -->
+    <div *ngIf="modo === 'resultado' || confidence > 0" class="mt-10 text-center">
+      <h3 *ngIf="modo === 'resultado'" class="text-2xl font-semibold text-[#5E0006]">
+        Tu nota: {{ nota }} / 100
+      </h3>
+
+      <div class="max-w-lg mx-auto mt-3">
+        <div class="w-full bg-white rounded-full h-4">
+          <div
+            class="h-full rounded-full transition-all duration-1000 ease-out shadow-[0_2px_10px_rgba(34,197,94,0.4)]
+               bg-gradient-to-r from-green-400 to-green-600"
+            [style.width.%]="confidence * 100">
+          </div>
+        </div>
+        <p class="text-sm text-[#A17B7D] mt-1">
+          Confianza: {{ (confidence * 100) | number:'1.0-0' }}%
+        </p>
+      </div>
+    </div>
 
     <!-- Layout principal -->
     <div class="flex flex-col md:flex-row gap-10 items-start justify-center">
       <!-- Cámara -->
-      <div class="md:w-1/2 bg-white text-[#322203] p-6 rounded-2xl shadow-lg flex flex-col items-center">
-        <h2 class="text-2xl font-semibold mb-4">Tu cámara</h2>
+      <div class="md:w-1/2 bg-white text-[#5e0006] p-6 rounded-2xl shadow-lg flex flex-col items-center border border-[#5E0006] shadow-[inset_0_2px_4px_0_rgba(94,0,6,0.2)]">
+        <h2 class="text-2xl font-semibold mb-4 text-[#A17B7D]">Tu cámara</h2>
 
         <video #videoElement class="hidden"></video>
         <canvas
           #canvasElement
-          class="w-full rounded-lg border border-gray-300 aspect-video shadow-inner">
+          class="w-full rounded-lg border border-gray-300 aspect-video shadow-inner shadow-xl">
         </canvas>
 
         <!-- Feedback -->
@@ -50,39 +69,39 @@
           <!-- Ver → Practicar -->
           <button *ngIf="modo === 'ver'"
                   (click)="startPractice()"
-                  class="bg-[#8B6B4C] text-white px-8 py-3 rounded-md hover:bg-[#6e553f] transition">
+                  class="bg-[#5E0006] text-white px-8 py-3 rounded-xl font-medium shadow-[0_10px_25px_-5px_rgba(94,0,6,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(94,0,6,0.5)] hover:bg-[#7a0008] hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
             Iniciar práctica
           </button>
 
           <!-- Practicar → Reiniciar -->
           <button *ngIf="modo === 'practicar'"
                   (click)="retryGesture()"
-                  class="bg-gray-300 text-gray-800 px-8 py-3 rounded-md hover:bg-gray-400 transition">
+                  class="bg-[#5E0006] text-white px-8 py-3 rounded-xl font-medium shadow-[0_10px_25px_-5px_rgba(94,0,6,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(94,0,6,0.5)] hover:bg-[#7a0008] hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
             Reiniciar
           </button>
 
           <!-- Resultado → Intentar de nuevo / Siguiente -->
           <button *ngIf="modo === 'resultado'"
                   (click)="retryGesture()"
-                  class="bg-yellow-500 text-white px-8 py-3 rounded-md hover:bg-yellow-600 transition">
+                  class="bg-yellow-500 text-white px-8 py-3 rounded-xl font-medium shadow-[0_10px_20px_-5px_rgba(234,179,8,0.4)] hover:shadow-[0_15px_25px_-5px_rgba(234,179,8,0.5)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
             Intentar de nuevo
           </button>
 
           <button *ngIf="modo === 'resultado'"
                   (click)="nextGesture()"
                   [disabled]="false"
-                  class="bg-green-600 text-white px-8 py-3 rounded-md hover:bg-green-700 transition disabled:opacity-50">
+                  class="bg-green-600 text-white px-8 py-3 rounded-xl font-medium shadow-[0_10px_20px_-5px_rgba(22,163,74,0.4)] hover:shadow-[0_15px_25px_-5px_rgba(22,163,74,0.5)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:shadow-none disabled:translate-y-0">
             {{ isLast ? 'Ver resultados' : 'Siguiente gesto' }}
           </button>
         </div>
       </div>
 
       <!-- Ejemplo del gesto -->
-      <div class="md:w-1/2 bg-white text-[#322203] p-6 rounded-2xl shadow-lg flex flex-col items-center">
-        <h2 class="text-2xl font-semibold mb-4">Ejemplo del gesto</h2>
+      <div class="md:w-1/2 bg-white text-[#A17B7D] p-6 rounded-2xl shadow-lg flex flex-col items-center border border-[#5E0006] shadow-[inset_0_2px_4px_0_rgba(94,0,6,0.2)]">
+        <h2 class="text-2xl font-semibold mb-4 text-[#A17B7D]">Ejemplo del gesto</h2>
 
         <ng-container *ngIf="gestoEsperado; else cargandoGesto">
-          <div class="w-full aspect-video flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg">
+          <div class="w-full aspect-video flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg shadow-[inset_0_4px_8px_0_rgba(94,0,6,0.1)]">
             <img
               [src]="gifSrc"
               (error)="gifError = true"
@@ -101,30 +120,5 @@
       </div>
     </div>
 
-    <!-- Resultado / Confianza -->
-    <div *ngIf="modo === 'resultado' || confidence > 0" class="mt-10 text-center">
-      <h3 *ngIf="modo === 'resultado'" class="text-2xl font-semibold text-[#F6E7D8]">
-        Tu nota: {{ nota }} / 100
-      </h3>
-
-      <div class="max-w-lg mx-auto mt-3">
-        <div class="w-full bg-gray-200 rounded-full h-4">
-          <div
-            class="bg-green-500 h-4 rounded-full transition-all duration-500"
-            [style.width.%]="confidence * 100">
-          </div>
-        </div>
-        <p class="text-sm text-white/80 mt-1">
-          Confianza: {{ (confidence * 100) | number:'1.0-0' }}%
-        </p>
-      </div>
-    </div>
-
-    <!-- Decoración esquina inferior derecha -->
-    <div class="absolute bottom-0 right-0 w-16 h-16 flex items-end justify-end pb-2 pr-3">
-      <div class="grid grid-cols-3 gap-1">
-        <div *ngFor="let _ of [].constructor(9)" class="w-1.5 h-1.5 bg-black rounded-full"></div>
-      </div>
-    </div>
   </div>
 </section>

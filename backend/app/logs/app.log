@@ -10082,3 +10082,93 @@ WHERE notas.idnotas = %(pk_1)s]
 2025-12-04 17:18:16,646 - app - INFO - Sistema iniciado
 2025-12-04 23:14:45,964 - app - INFO - Logger initialized
 2025-12-04 23:14:46,041 - app - INFO - Sistema iniciado
+2025-12-05 00:52:09,123 - app - INFO - Logger initialized
+2025-12-05 00:52:09,214 - app - INFO - Sistema iniciado
+2025-12-05 00:53:13,373 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2025-12-05 00:53:21,769 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 00:53:22,212 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 00:53:26,274 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 00:53:51,398 - app - INFO - Intento de login para digipl4y@gmail.com: 401
+2025-12-05 00:53:55,915 - app - INFO - Intento de login para digipl4y@gmail.com: 401
+2025-12-05 00:54:26,637 - app - INFO - Solicitud de recuperacion de contrasenia para digipl4y@gmail.com
+2025-12-05 00:55:12,843 - app - INFO - Cambio de contrasenia realizado con status: 200
+2025-12-05 00:55:23,115 - app - INFO - Intento de login para digipl4y@gmail.com: 200
+2025-12-05 01:06:32,931 - app - INFO - Logger initialized
+2025-12-05 01:06:32,973 - app - INFO - Sistema iniciado
+2025-12-05 01:06:50,374 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 01:06:50,801 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 01:06:52,199 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 01:07:29,468 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 01:19:05,523 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2025-12-05 01:19:48,490 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 01:36:50,340 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 15:13:04,038 - app - INFO - Logger initialized
+2025-12-05 15:13:04,153 - app - INFO - Sistema iniciado
+2025-12-05 16:16:30,511 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 16:16:30,994 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 16:16:32,991 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 17:13:45,057 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 17:18:18,186 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 17:20:30,276 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 17:20:30,699 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:21:50,147 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 17:21:50,548 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:22:00,365 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 17:22:01,575 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:22:42,763 - app - INFO - Registro de usuario para ('bovesic224@cexch.com', 'Estudiante'): 201
+2025-12-05 17:24:15,882 - app - INFO - Intento de login para bovesic224@cexch.com: 200
+2025-12-05 17:25:17,054 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 17:25:17,444 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:32:24,120 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 17:32:24,564 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:32:36,448 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 17:32:39,252 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 17:32:39,584 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 18:18:02,378 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2025-12-05 18:23:10,883 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 18:23:11,276 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 18:24:01,619 - app - INFO - Registro de usuario para ('bovesic224@cexch.com', 'Estudiante'): 409
+2025-12-05 18:24:31,648 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 18:24:45,728 - app - INFO - Peticion de actualizar Usuario registrado
+2025-12-05 18:24:52,139 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 18:25:11,438 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-05 18:26:18,593 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 18:45:37,853 - app - INFO - Solicitud de recuperacion de contrasenia para romiferriveros@gmail.com
+2025-12-05 18:46:36,715 - app - INFO - Solicitud de recuperacion de contrasenia para digipl4y@gmail.com
+2025-12-05 18:48:14,791 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2025-12-05 18:48:15,175 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2025-12-05 18:48:22,638 - app - INFO - Peticion de listar Usuarios registrado
+2025-12-09 17:44:18,186 - app - INFO - Logger initialized
+2025-12-09 17:44:18,349 - app - INFO - Sistema iniciado
+2025-12-09 17:51:33,792 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-03-24 15:06:13,796 - app - INFO - Logger initialized
+2026-03-24 15:06:13,978 - app - INFO - Sistema iniciado
+2026-03-24 15:06:46,628 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-03-24 20:14:29,658 - app - INFO - Logger initialized
+2026-03-24 20:14:29,739 - app - INFO - Sistema iniciado
+2026-03-24 20:15:29,278 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-09 09:11:36,360 - app - INFO - Logger initialized
+2026-04-09 09:11:36,446 - app - INFO - Sistema iniciado
+2026-04-09 09:13:26,342 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2026-04-09 09:16:34,253 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-09 09:18:12,956 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-09 17:56:30,111 - app - INFO - Logger initialized
+2026-04-09 17:56:30,254 - app - INFO - Sistema iniciado
+2026-04-09 17:57:29,160 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-11 11:04:50,103 - app - INFO - Logger initialized
+2026-04-11 11:04:50,199 - app - INFO - Sistema iniciado
+2026-04-11 17:15:46,151 - app - INFO - Logger initialized
+2026-04-11 17:15:46,206 - app - INFO - Sistema iniciado
+2026-04-11 17:16:26,959 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-11 19:57:00,875 - app - INFO - Solicitud de recuperacion de contrasenia para diceray889@izeao.com
+2026-04-11 19:57:41,517 - app - INFO - Solicitud de recuperacion de contrasenia para romiferriveros@gmail.com
+2026-04-11 20:00:46,855 - app - INFO - Solicitud de recuperacion de contrasenia para romiferriveros@gmail.com
+2026-04-11 20:01:08,203 - app - INFO - Solicitud de recuperacion de contrasenia para romiferriveros@gmail.com
+2026-04-11 20:09:20,620 - app - INFO - Intento de login para diceray889@izeao.com: 200
+2026-04-11 20:25:56,602 - app - INFO - Solicitud de recuperacion de contrasenia para romiferriveros@gmail.com
+2026-04-11 20:28:35,618 - app - INFO - Intento de login para maincra8157@gmail.com: 401
+2026-04-11 20:28:40,695 - app - INFO - Intento de login para maincra8157@gmail.com: 200
+2026-04-11 20:28:41,849 - app - INFO - Peticion de obtener Roles: ['Administrador', 'Estudiante']
+2026-04-11 20:30:35,302 - app - INFO - Registro de usuario para ('raweb63735@lealking.com', 'Estudiante'): 201
+2026-04-11 20:31:29,005 - app - INFO - Intento de login para raweb63735@lealking.com: 200
+2026-04-11 20:32:16,149 - app - INFO - Solicitud de recuperacion de contrasenia para raweb63735@lealking.com
